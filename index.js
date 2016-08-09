@@ -1,5 +1,5 @@
 const PORT = process.env.PORT || 3001;
-const MONGOURL = process.env.MONGOLAB_PUCE_URI || 'mongodb://localhost/vapeSwitch';
+const MONGOURL = process.env.MONGOLAB_PUCE_URI || 'mongodb://localhost/reactTravelApp';
 
 const fs = require('fs');
 const path = require('path');

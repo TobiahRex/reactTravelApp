@@ -14,11 +14,6 @@ class ModStore extends EventEmitter {
         this.emit('CHANGE');
         break;
 
-        case 'RECEIVE_ONE_MOD':
-        this._receiveOneMod(action.mod);
-        this.emit('CHANGE');
-        break;
-
         default :
       }
     });
