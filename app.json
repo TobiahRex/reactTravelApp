@@ -11,7 +11,7 @@
     "reload"
   ],
   "website": "http://www.tobiahrex.com",
-  "repository": "https://github.com/TobiahRex/vapeSwitch",
+  "repository": "https://github.com/TobiahRex/reactTravelApp",
   "env": {
     "NODE_ENV": {
       "description": "Set the `NODE_ENV` environment variable to `production` to disable debugging etc.",
