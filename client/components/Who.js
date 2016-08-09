@@ -6,6 +6,7 @@ export default class Who extends Component {
   }
 
   render() {
+    console.log('yo yo dog.');
     return(
 			<div className="slide">
 	        <div className="who">
