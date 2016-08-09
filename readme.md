@@ -1,14 +1,9 @@
-# _Vape Switch_:  Full-Stack REACT & Flux App
-## A prototype for a rebuild of www.vapeswitch.com for the owner and my good friend, Brian Wilson.
-### Deployed on Heroku [here](https://vapeswitch.herokuapp.com/).
+# _itinerEZ_:  Full-Stack REACT & Flux App
+## Give us the "Who", "When" & "Where" and we'll give you the "What" & "Why".
+### Deployed on Heroku [here](https://itiner-ez.herokuapp.com/).
 
-##### Started: 01 August 2016
-* Day 1 : UI Setup, Database Setup & Deployment.
+##### Started: 08 August 2016
 
-#### DESCRIPTION: E-commerce site for Vaping Products.  
+#### DESCRIPTION: Travel itinerary app.  
 * Sendgrid API for Email Notifications.
-* Twilio API for Mobile Notifications.
-* Stripe API for Payment - Visa & Bitcoin.
-* Bing API Translator for 日本補.
-* USPS API for Shipping Labels.
-* Satellizer API for Social Login - Facebook & Google.
+* Yelp API for Food & Activities.
