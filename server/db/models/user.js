@@ -1,3 +1,5 @@
+const Mail = require('./sendGrid.js');
+
 let user = {
   who: {},
   when: {},
@@ -6,10 +8,10 @@ let user = {
 }
 
 const User = {
-  getUser(){
-    return user;
+  getUser(cb){
+    return cb(null, user);
   },
-  updateUser(newInfo, cb){
+  updateUserInfo(newInfo, cb){
     if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
     let user = this.getUser();
 
@@ -23,7 +25,7 @@ const User = {
 
     return cb(null, user);
   },
-  resetUser(){
+  resetUser(cb){
     user = {
       who: {},
       when: {},
@@ -31,6 +33,15 @@ const User = {
       what: {},
     }
     return cb(null, `User Obj reset: ${user}`);
+  },
+  sendEmail(userEmail){
+    if (!userEmail) return cb({ Error: 'Did not provide user email.' });
+
+    let savedUser = Object.assign({}, user, userEmail);
+    Mail.itinerary(savedUser, response) => {
+      if (response.statusCode !== 202) return cb({ Error: `Sendgrid response = ${response.statusCode}`});
+      this.resetUser();
+    }
   }
 }
 
