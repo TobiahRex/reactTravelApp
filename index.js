@@ -1,6 +1,8 @@
 const PORT = process.env.PORT || 3001;
 const MONGOURL = process.env.MONGOLAB_PUCE_URI || 'mongodb://localhost/reactTravelApp';
 
+require('dotenv').load();
+
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
@@ -8,6 +10,7 @@ const app = express();
 const compress = require('compression');
 const layouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
+
 
 app.set('layout');
 app.set('view engine', 'ejs');
