@@ -1,0 +1,291 @@
+body {
+  background-color: #0e6704;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  line-height: 1.728571;
+  color: #dfdfdf;
+}
+div#contact-container {
+  margin-bottom: 100px;
+}
+div#main-container {
+  background-image: url("https://secure.static.tumblr.com/9c667cbb9ebfac788a1c404a3cc0474b/3wfa9aa/pUen9p4bx/tumblr_static_cool_smoke.png");
+}
+nav.navbar {
+  margin-bottom: 0px;
+  background-color: #09243f;
+}
+div.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+#dashboard-wrapper {
+  padding-top: 100px;
+  height: 100%;
+}
+#navbar-logo {
+  width: 100px;
+  margin-top: -20px;
+}
+#navbar-cart {
+  width: 35px;
+}
+#dashboard-navpills {
+  margin-left: 20%;
+  width: 300px;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 50px;
+  font-size: 22px;
+  height: 100px;
+  background-color: #09243f;
+  color: #efefef;
+}
+#copyright-banner {
+  font-size: 12px;
+}
+
+#mods-list {
+  margin-top: 40px;
+}
+
+img#mod-main-img {
+  width: 200px;
+}
+#cart-product-desc {
+  margin-top: 50px;
+  font-size: 18px;
+}
+#cart-product {
+  padding-left: 25px;
+}
+
+img#cart-product-img {
+  margin-top: 10px;
+  width: 100px;
+}
+
+div#quantity {
+  margin-top: 40px;
+}
+
+#cart-quantity {
+  padding-right: 20px;
+  font-size: 18px;
+}
+
+#cart-price {
+  margin-top: 50px;
+}
+#cart-subtotal {
+  margin-top: 50px;
+}
+#cart-index {
+  margin-top: 50px;
+}
+#copyright-banner {
+  margin-top: 45px;
+}
+#checkout-main-header {
+  font-size: 12px;
+}
+#checkout-info-wrapper {
+  margin-top: 40px;
+  padding-right: 30px;
+  background-color: rgba(41, 40, 40, 0.98);
+}
+#checkout-sidebar {
+  padding-left: 30px;
+  margin-top: 40px;
+  background-color: rgba(41, 40, 40, 0.98);
+}
+th.cart-header {
+  color: #333;
+}
+
+#mod-main-desc {
+  margin: 0px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+#mods-list {
+  margin-top: 0px;
+  padding-top: 40px;
+  height: 100%;
+  background-image: url("https://secure.static.tumblr.com/9c667cbb9ebfac788a1c404a3cc0474b/3wfa9aa/pUen9p4bx/tumblr_static_cool_smoke.png");
+}
+
+div.mod-card {
+  background-color: rgba(4, 29, 56, 0.96);
+  margin: 0px;
+  border: 1px;
+  box-shadow: -10px 10px 30px rgba(6, 254, 3, 0.25);
+}
+button.add-mod-to-cart {
+  border: 1px;
+  background-color: #00a300;
+}
+
+div.mod-card-button {
+  padding-top: 120px;
+}
+
+div.checkout-wrapper {
+  margin-bottom: 150px;
+}
+
+div.main {
+  padding-right: 40px;
+}
+
+div#checkout-main-header {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid darkgray;
+}
+
+div.stripe-payment-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  // border-bottom: 1px solid darkgray;
+}
+
+img.stripe-payment-logo {
+  width: 70px;
+  padding-left: 5px;
+}
+
+div.order-summary-section-content {
+  padding-bottom: 20px;
+  border-top-width: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid darkgray;
+}
+
+div.order-summary-discount {
+  height: 90px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid darkgray;
+}
+
+div.order-summary-discount-input {
+  padding-right: 0px;
+}
+
+table.order-summary-table {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+tbody.order-summary-tbody {
+  border-bottom: 1px solid darkgray;
+}
+
+td.order-summary-name {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+td.order-summary-price {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+td.order-summary-name {
+  padding-top: 20px;
+}
+td.order-summary-price {
+  padding-top: 20px;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+#cart-is-empty {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h1#cart-empty {
+  line-height: 10em;
+}
+
+div.alternative-payment-method::before, div.alternative-payment-method::after {
+  content: '';
+  width: 45%;
+  display: inline-block;
+  height: 1px;
+  background: darkgray;
+}
+
+#custom-info-login-redirect {
+  cursor: pointer;
+}
+
+input.customer-info {
+  margin-bottom: 10px;
+}
+
+div.customer-info {
+  margin-bottom: 10px;
+}
+
+div.customer-info-country-container {
+  background-color: white;
+  height: 54px;
+  padding-top: 0px;
+}
+#select-country {
+  height: 20px;
+}
+#select-country-label {
+  margin-bottom: 0px;
+}
+
+div.customer-info-state-container {
+  background-color: white;
+  height: 54px;
+  padding-top: 0px;
+}
+#select-state {
+  height: 20px;
+}
+#select-state-label {
+  margin-bottom: 0px;
+}
+
+input.customer-info:focus {
+  border: 2px solid rgba(68, 235, 41, 0.88);
+}
+
+.stripe-payment-button.btn-warning:hover {
+  color: #ffffff;
+  background-color: #0ac83c;
+  border-color: #0abe18;
+}
+.to-shipping-method-button.btn-warning:hover {
+  color: #ffffff;
+  background-color: #0ac83c;
+  border-color: #0abe18;
+}
+
+div.checkbox-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#saveinfo-checkbox {
+  margin-right: 20px;
+  width: 16px;
+  height: 16px;
+}
+td.text-center.cart-cells {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
