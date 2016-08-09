@@ -5,6 +5,7 @@ let user = {
   when: {},
   where: {},
   what: {},
+  email: ''
 }
 
 const User = {
@@ -31,16 +32,17 @@ const User = {
       when: {},
       where: {},
       what: {},
+      email: '',
     }
     return cb(null, `User Object reset to: ${user}`);
   },
   sendEmail(userEmail, cb){
     if (!userEmail) return cb({ Error: 'Did not provide user email.' });
 
-    let savedUser = Object.assign({}, user, userEmail);
-    console.log('savedUser for eMail: ', savedUser);
-    Mail.itinerary(savedUser, response => {
-      if (response.statusCode !== 202) return cb({ Error: `Sendgrid response = ${response.statusCode}`});
+    let clientInfo = Object.assign({}, user, userEmail);
+    console.log('clientInfo for eMail: ', clientInfo);
+    Mail.itinerary(clientInfo, response => {
+      console.log('response: ', response);
       this.resetUser(cb);
     });
   }
