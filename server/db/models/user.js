@@ -32,15 +32,16 @@ const User = {
       where: {},
       what: {},
     }
-    return cb(null, `User Obj reset: ${user}`);
+    return cb(null, `User Object reset to: ${user}`);
   },
-  sendEmail(userEmail){
+  sendEmail(userEmail, cb){
     if (!userEmail) return cb({ Error: 'Did not provide user email.' });
 
     let savedUser = Object.assign({}, user, userEmail);
+    console.log('savedUser for eMail: ', savedUser);
     Mail.itinerary(savedUser, response) => {
       if (response.statusCode !== 202) return cb({ Error: `Sendgrid response = ${response.statusCode}`});
-      this.resetUser();
+      this.resetUser(cb);
     }
   }
 }
