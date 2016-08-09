@@ -1,7 +1,7 @@
 const express = require('express')
-const products = require('./products/index')
+const yelp = require('./routes/yelp');
 
 const router = express.Router();
-router.use('/products', products);
+router.use('/yelp', yelp);
 
 module.exports = router
