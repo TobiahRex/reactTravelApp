@@ -1,4 +1,3 @@
-
 let user = {
   who: {},
   when: {},
@@ -22,6 +21,17 @@ const User = {
       default:
     };
 
-    return user;
+    return cb(null, user);
+  },
+  resetUser(){
+    user = {
+      who: {},
+      when: {},
+      where: {},
+      what: {},
+    }
+    return cb(null, `User Obj reset: ${user}`);
   }
 }
+
+module.exports = User;
