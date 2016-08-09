@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TobiahRex/vapeSwitch"
+    "url": "https://github.com/TobiahRex/reactTravelApp"
   },
   "engines": {
     "node": "5",
@@ -29,7 +29,7 @@
   ],
   "author": "Søren Brokær <root@srn.io> (http://srn.io)",
   "license": "MIT",
-  "homepage": "https://github.com/TobiahRex/vapeSwitch",
+  "homepage": "https://github.com/TobiahRex/reactTravelApp",
   "dependencies": {
     "assets-webpack-plugin": "3.2.0",
     "autoprefixer-loader": "3.2.0",
