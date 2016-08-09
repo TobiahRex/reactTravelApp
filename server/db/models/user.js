@@ -12,8 +12,8 @@ const User = {
     return cb(null, user);
   },
   updateUserInfo(newInfo, cb){
+    console.log('newInfo: ', newInfo);
     if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
-    let user = this.getUser();
 
     switch(newInfo.type) {
       case 'WHO_UPDATE': user.who = newInfo.who; break;
@@ -39,10 +39,10 @@ const User = {
 
     let savedUser = Object.assign({}, user, userEmail);
     console.log('savedUser for eMail: ', savedUser);
-    Mail.itinerary(savedUser, response) => {
+    Mail.itinerary(savedUser, response => {
       if (response.statusCode !== 202) return cb({ Error: `Sendgrid response = ${response.statusCode}`});
       this.resetUser(cb);
-    }
+    });
   }
 }
 
