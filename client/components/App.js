@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react';
-import $ from 'jquery';
-import { SectionsContainer, Section } from 'react-fullpage';
+// import $ from 'jquery';
 import Splash from './Splash.js';
 import Who from './Who.js';
 import When from './When.js';
 import Where from './Where.js';
+import Questionnaire from './Questionnaire.js';
 
 
 export default class App extends Component {
@@ -14,23 +14,20 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // $('#fullpage').fullpage({
-    //   anchors: ['splash', 'who', 'when', 'where']
-    // })
+      $('#fullpage').fullpage({
+        anchors: ['splash', 'questionnaire'],
+        sectionsColor: ['#cccccc'],
+        css3: true,
+        scrollingSpeed: 1000
+      })
   }
 
   render() {
-    let options = {
-      anchors: ['splash', 'who', 'when', 'where'],
-      sectionClassName: "section"
-    }
 
     return (
       <div id='fullpage'>
         <Splash></Splash>
-        <Who></Who>
-        <When></When>
-        <Where></Where>
+        <Questionnaire></Questionnaire>
       </div>
     )
   }

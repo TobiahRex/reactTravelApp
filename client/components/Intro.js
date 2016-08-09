@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class When extends Component {
+export default class Intro extends Component {
   constructor(props) {
     super(props);
   }
@@ -8,8 +8,8 @@ export default class When extends Component {
   render() {
     return(
       <div className="slide">
-        <div className="when">
-          <h1>When?</h1>
+        <div className="intro">
+          <h1>Intro</h1>
           <p>Not only vertical scrolling but also horizontal scrolling. With fullPage.js you will be able to add horizontal sliders in the most simple way ever.
           </p>
         </div>

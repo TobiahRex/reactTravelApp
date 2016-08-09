@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import style from './styles/main.scss';
+import $ from 'jquery';
 
 
 // where App will be the whole search form

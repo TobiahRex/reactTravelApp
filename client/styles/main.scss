@@ -1,0 +1,61 @@
+.splash-container {
+  color: white;
+  text-shadow: -1px -1px 26px black;
+}
+
+i.fa.fa-taxi {
+  font-size: 80px;
+}
+
+.footer>a, .footer>a:hover, .footer>a:focus {
+  color: white;
+  font-weight: bold;
+}
+
+i.fa.fa-angle-down {
+  font-size: 40px;
+}
+
+.footer>a:hover {
+  font-size: 60px;
+}
+
+.splash-container-contain {
+  width: 420px;
+  height: 300px;
+  vertical-align: middle;
+  padding-top: 60px;
+  margin: 0 auto;
+  border: 4px solid white;
+  text-align: center;
+  font-family: 'Farsan';
+  font-size: 30px;
+  box-shadow: -2px -2px 107px #757070;
+}
+
+.splash-arrow {
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: 'Baloo Thambi';
+  font-size: 60px;
+  padding-top: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 125px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  text-align: center;
+  vertical-align: center;
+}
+
+.questionnaire {
+  background-color: rgb(73, 217, 177);
+  padding: 0px 150px;
+  margin: 0 auto;
+}
