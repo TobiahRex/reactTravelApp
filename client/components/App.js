@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { SectionsContainer, Section } from 'react-fullpage';
@@ -5,6 +6,7 @@ import Splash from './Splash.js';
 import Who from './Who.js';
 import When from './When.js';
 import Where from './Where.js';
+
 
 export default class App extends Component {
   constructor(props){

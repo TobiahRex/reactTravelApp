@@ -10,12 +10,14 @@ const app = express();
 const compress = require('compression');
 const layouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 
 app.set('layout');
 app.set('view engine', 'ejs');
 app.set('view options', {layout: 'layout'});
 app.set('views', path.join(process.cwd(), '/server/views'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compress());
 app.use(layouts);
 app.use((req, res, next) => {

@@ -1,5 +1,5 @@
 const Mail = {
-  verify(clientName, cb) {
+  itinerary(clientName, cb) {
     const helper = require('sendgrid').mail;
     const fromEmail = new helper.Email('registration@yelpCatalogue.com');
     const toEmail = new helper.Email(`${clientName.Email}`);
