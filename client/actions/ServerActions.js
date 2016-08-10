@@ -1,12 +1,19 @@
 import AppDispatcher from '../AppDispatcher'
 
 const ServerActions = {
-  addedAddress(address) {
+  receiveError(err) {
     AppDispatcher.dispatch({
-      address,
-      type: 'RECEIVED_NEW_ADDRESS',
+      err,
+      type: 'RECEIVED_DB_ERROR',
     });
   },
+  receivedUserData(dbClient) {
+    AppDispatcher.dispatch({
+      dbClient,
+      type: 'RECEIVED_DB_CLIENT',
+    });
+  },
+
 }
 
 export default ServerActions
