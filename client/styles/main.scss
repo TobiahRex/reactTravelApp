@@ -64,30 +64,20 @@ div.who-container {
   height: 900px;
 }
 
-div.who-male-img {
+img.who-male-img {
   width: 200px;
   cursor: pointer;
 }
-div.who-male-img:hover {
-  background-color: #000000;
-}
-
-div.who-female-img {
+img.who-female-img {
   width: 104px;
   cursor: pointer;
 }
-div.who-female-img:hover {
-  background-color: #000000;
-}
-
-div.who-kids-img {
+img.who-kids-img {
   margin-top: 130px;
   width: 200px;
   cursor: pointer;
 }
-div.who-kids-img:hover {
-  background-color: #000000;
-}
+
 
 div.who-counter-well {
   height: 190px;
