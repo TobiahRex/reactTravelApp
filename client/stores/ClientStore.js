@@ -25,22 +25,13 @@ class ModStore extends EventEmitter {
     });
   }
   _receivedDbError(error) {
-    _mods = dbMods;
+    toastr.error(`Could not GET dbClient Info: ${error}`);
   }
-  _receiveOneMod(dbMod) {
-    _mods = _mods.push(dbMod);
+  _receivedDbClient(dbClient) {
+    _client.client = dbClient;
   }
-  getAllMods() {
-    return _mods;
-  }
-  getOneMod(mod) {
-    const mods = _mods.map(_mod => {
-      if (_mod.id === mod._id) {
-        return mod
-      }
-      return _mod;
-    });
-    return mods;
+  getClient() {
+    return _client;
   }
 }
 
