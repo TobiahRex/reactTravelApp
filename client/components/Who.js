@@ -3,28 +3,52 @@ import ClientStore from '../../stores/ClientStore.js'
 import ClientActions from '../../actions/ClientActions.js'
 
 function _getComponentState() {
-  return { client: ClientStore.getClient() }
+  return {
+    client: ClientStore.getClient(),
+    male: "client/styles/images/male_shilouette.png",
+    female: "client/styles/images/female_shilouette.png",
+    kids: "client/styles/images/kids_shillouette.png",
+  }
 }
 
 export default class Who extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      male: "client/styles/images/male_shilouette.png",
-      female: "client/styles/images/female_shilouette.png",
-      kids: "client/styles/images/kids_shillouette.png",
-    }
+    this.state = _getComponentState();
 
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
     this.addKid = this.addKid.bind(this);
   }
 
-  addMale(){
-    let who = {
+  componentDidMount() {
+    ClientActions.getClientData();
+    ClientStore.on('CHANGE', this._onChange);
+  }
 
-    }
+  componentWillUnmount() {
+    ClientStore.on('CHANGE', this._onChange);
+  }
+
+  addMale(){
+    let client = Object.assign({}, this.state.client);
+    client.who.male += 1;
+    this.setState({ client });
+  }
+  addFemale(){
+    let client = Object.assign({}, this.state.client);
+    client.who.female += 1;
+    this.setState({ client });
+  }
+  addKid(){
+    let client = Object.assign({}, this.state.client);
+    client.who.kid += 1;
+    this.setState({ client });
+  }
+
+  _onChange() {
+    this.setState(_getComponentState());
   }
 
   render() {
