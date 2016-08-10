@@ -1,7 +1,8 @@
 import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
+import toast from 'toastr'
 
-let _mods = [];
+let _client = {};
 
 class ModStore extends EventEmitter {
   constructor(props) {
@@ -9,16 +10,21 @@ class ModStore extends EventEmitter {
 
     AppDispatcher.register(action => {
       switch (action.type) {
-        case 'RECEIVE_ALL_MODS':
-        this._receiveMods(action.mods);
-        this.emit('CHANGE');
-        break;
+        case 'RECEIVED_DB_ERROR':
+          this._receivedDbError(action.error);
+          this.emit('ERROR');
+          break;
+        case 'RECIEVED_DB_CLIENT':
+          this._receivedDbClient(action.dbClient);
+          this.emit('CHANGE');
+          break;
+
 
         default :
       }
     });
   }
-  _receiveMods(dbMods) {
+  _receivedDbError(error) {
     _mods = dbMods;
   }
   _receiveOneMod(dbMod) {
