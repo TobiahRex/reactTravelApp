@@ -4,7 +4,7 @@ import toast from 'toastr'
 
 let _client = {};
 
-class ModStore extends EventEmitter {
+class ClientStore extends EventEmitter {
   constructor(props) {
     super(props);
 
@@ -35,4 +35,4 @@ class ModStore extends EventEmitter {
   }
 }
 
-export default new ModStore();
+export default new ClientStore();

@@ -1,10 +1,23 @@
 const Mail = require('./sendGrid.js');
 
 let user = {
-  who: {},
-  when: {},
-  where: {},
-  what: {},
+  who: {
+    male: 0,
+    female: 0,
+    kids: 0,
+  },
+  when: {
+    start: '',
+    end: '',
+  },
+  where: {
+    city: '',
+    state: '',
+  },
+  what: {
+    activities: [],
+    restaurants: []
+  },
   email: ''
 }
 

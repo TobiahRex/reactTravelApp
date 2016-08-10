@@ -1,7 +1,7 @@
 import AppDispatcher from '../AppDispatcher'
 
 const ServerActions = {
-  receiveError(error) {
+  receivedError(error) {
     AppDispatcher.dispatch({
       error,
       type: 'RECEIVED_DB_ERROR',

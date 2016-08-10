@@ -1,7 +1,6 @@
 import API from '../API'
 
-const ProductActions = {
-
+const ClientActions = {
   getClientData() {
     API.getClientData();
   },
@@ -10,4 +9,4 @@ const ProductActions = {
   },
 }
 
-export default ProductActions
+export default ClientActions

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ClientStore from '../../stores/ClientStore.js'
-import ClientActions from '../../actions/ClientActions.js'
+import ClientStore from '../stores/ClientStore.js'
+import ClientActions from '../actions/ClientActions.js'
 
 function _getComponentState() {
   return {
@@ -69,7 +69,7 @@ export default class Who extends Component {
 
             </div>
             <div className="who-kids-img-container col-xs-3">
-              <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClicke={this.addKid}/>
+              <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
             </div>
           </div>
           <br/>
