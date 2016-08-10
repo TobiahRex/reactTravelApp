@@ -7,7 +7,7 @@ export default class Splash extends Component {
 
   render() {
     return(
-      <div className="section" data-anchor='splash'>
+      <div className="section splash" data-anchor='splash'>
         <div className="splash-container">
           <div className="splash-container-contain">
             <i className="fa fa-taxi" aria-hidden="true"></i>

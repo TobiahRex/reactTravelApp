@@ -14,7 +14,6 @@ export default class Who extends Component {
 	          </p>
 	        </div>
 			 </div>
-
 		)
   }
 }

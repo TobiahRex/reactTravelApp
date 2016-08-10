@@ -1,3 +1,12 @@
+.splash {
+  background-image: url('https://static.pexels.com/photos/4097/city-cars-traffic-lights.jpeg');
+  // background-image: url('https://static.pexels.com/photos/30732/pexels-photo-30732.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
 .splash-container {
   color: white;
   text-shadow: -1px -1px 26px black;
@@ -13,7 +22,8 @@ i.fa.fa-taxi {
 }
 
 i.fa.fa-angle-down {
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .footer>a:hover {
@@ -26,10 +36,10 @@ i.fa.fa-angle-down {
   vertical-align: middle;
   padding-top: 60px;
   margin: 0 auto;
-  border: 4px solid white;
+  border: 6px solid white;
   text-align: center;
   font-family: 'Farsan';
-  font-size: 30px;
+  font-size: 22px;
   box-shadow: -2px -2px 107px #757070;
 }
 
@@ -41,6 +51,7 @@ i.fa.fa-angle-down {
   font-family: 'Baloo Thambi';
   font-size: 60px;
   padding-top: 10px;
+  text-shadow: -4px -4px 9px #353434;
 }
 
 .footer {
@@ -56,6 +67,14 @@ i.fa.fa-angle-down {
 
 .questionnaire {
   background-color: rgb(73, 217, 177);
-  padding: 0px 150px;
+  padding: 0px 100px;
   margin: 0 auto;
 }
+
+.when {
+  margin: 0 auto;
+}
+
+// div.questionnaire>div.fp-controlArrow.fp-prev {
+//   display: none;
+// }
