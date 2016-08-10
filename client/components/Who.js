@@ -22,7 +22,7 @@ export default class Who extends Component {
           <br/>
           <div className="who-image-container row">
             <div className="who-male-img-container col-xs-3">
-              <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} />
+              <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} />
             </div>
             <div className="who-female-img-container col-xs-3 col-xs-offset-1">
 
