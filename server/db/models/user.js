@@ -16,7 +16,11 @@ let user = {
   },
   what: {
     activities: [],
-    restaurants: []
+    restaurants: {
+      breakfast: [],
+      lunch: [],
+      dinner: []
+    }
   },
   email: ''
 }
