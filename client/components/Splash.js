@@ -15,13 +15,14 @@ export default class Splash extends Component {
             <div className="brand">itiner-ez</div> itineraries made easy
           </div>
 
-          <footer className="footer">
-            <a href="#questionnaire" className="smooth-scroll">
-              <i className="fa fa-angle-down" aria-hidden="true"></i>
-            </a>
-          </footer>
 
         </div>
+
+        <footer className="footer">
+          <a href="#questionnaire" className="smooth-scroll">
+            <i className="fa fa-angle-down" aria-hidden="true"></i>
+          </a>
+        </footer>
 
       </div>
     )
