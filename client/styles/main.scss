@@ -75,6 +75,28 @@ i.fa.fa-angle-down {
   margin: 0 auto;
 }
 
-// div.questionnaire>div.fp-controlArrow.fp-prev {
-//   display: none;
-// }
+div.who-container {
+  height: 900px;
+}
+
+img.who-male-img {
+  width: 137px;
+  cursor: pointer;
+}
+img.who-female-img {
+  width: 104px;
+  cursor: pointer;
+}
+img.who-kids-img {
+  margin-top: 130px;
+  width: 200px;
+  cursor: pointer;
+}
+
+div.who-counter-well {
+  height: 190px;
+  line-height: 3;
+  font-size: 50px;
+  vertical-align: text-bottom;
+  display: inline-block;
+}

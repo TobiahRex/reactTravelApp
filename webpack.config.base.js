@@ -37,7 +37,7 @@ module.exports = {
       'node_modules',
       'client'
     ],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.css', '.scss']
   },
 
   plugins: [
@@ -59,7 +59,10 @@ module.exports = {
           'postcss',
         ],
       },
-      {test: /\.scss$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'},
+      {
+        test: /\.scss$/,
+        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'
+      },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file'
@@ -78,10 +81,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
+        loader: 'url?limit=10000!img?progressive=true'
       },
     ],
     noParse: /\.min\.js/
