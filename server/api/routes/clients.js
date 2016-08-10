@@ -5,7 +5,7 @@ const Client = require('../../db/models/client.js');
 router.route('/')
 .get((req, res) => Client.find({}, res.handle))
 .delete((req, res) => Client.remove({}, res.handle))
-.post((req, res) => Client.create(req.body, res.handle));
+.post((req, res) => Client.create({}, res.handle));
 
 router.route('/:id')
 .get((req, res) => Client.findById(req.params.id, res.handle))
