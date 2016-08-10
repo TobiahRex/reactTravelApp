@@ -14,7 +14,7 @@ class ClientStore extends EventEmitter {
           this._receivedDbError(action.error);
           this.emit('ERROR');
           break;
-        case 'RECIEVED_DB_CLIENT':
+        case 'RECEIVED_DB_CLIENT':
           this._receivedDbClient(action.dbClient);
           this.emit('CHANGE');
           break;

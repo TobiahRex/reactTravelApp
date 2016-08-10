@@ -27,6 +27,7 @@ const User = {
   },
   updateUserInfo(newInfo, cb){
     console.log('newInfo: ', newInfo);
+    console.log('newInfo.client.type: ', newInfo.client.type);
     if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
 
     switch(newInfo.type) {

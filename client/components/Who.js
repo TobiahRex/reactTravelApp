@@ -3,12 +3,13 @@ import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
 function _getComponentState() {
-  return {
+  let state = {
     client: ClientStore.getClient(),
     male: "client/styles/images/male_shilouette.png",
     female: "client/styles/images/female_shilouette.png",
     kids: "client/styles/images/kids_shillouette.png",
   }
+  return state;
 }
 
 export default class Who extends Component {
@@ -20,6 +21,7 @@ export default class Who extends Component {
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
     this.addKid = this.addKid.bind(this);
+    this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
@@ -33,17 +35,18 @@ export default class Who extends Component {
 
   addMale(){
     let client = Object.assign({}, this.state.client);
-    client.who.male += 1;
-    this.setState({ client });
+    client.client.who.male += 1;
+    client.client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(this.state.client.client);
   }
   addFemale(){
     let client = Object.assign({}, this.state.client);
-    client.who.female += 1;
+    client.client.who.female += 1;
     this.setState({ client });
   }
   addKid(){
     let client = Object.assign({}, this.state.client);
-    client.who.kid += 1;
+    client.client.who.kid += 1;
     this.setState({ client });
   }
 

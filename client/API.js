@@ -6,12 +6,16 @@ import ServerActions from './actions/ServerActions'
 const API = {
   getClientData() {
     get('/api/users/')
-    .done(res => ServerActions.receivedUserData(res))
+    .done(res => ServerActions.receivedClientData(res))
     .fail(err => ServerActions.receivedError(err));
   },
   addClientData(newClientData) {
-    post('/api/users', newClientData)
-    .done(res => ServerActions.receivedUserData(res))
+    ajax({
+      url: '/api/users',
+      method: 'PUT',
+      data: newClientData,
+    })
+    .done(res => ServerActions.receivedClientData(res))
     .fail(err => ServerActions.receivedError(err));
   }
 }

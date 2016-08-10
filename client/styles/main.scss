@@ -79,6 +79,9 @@ div.who-container {
   height: 900px;
 }
 
+img.who-mail-img-container {
+
+}
 img.who-male-img {
   width: 137px;
   cursor: pointer;
@@ -86,6 +89,14 @@ img.who-male-img {
 img.who-female-img {
   width: 104px;
   cursor: pointer;
+}
+img.who-female-img.container {
+  width: 104px;
+  padding-left: 70px;
+  cursor: pointer;
+}
+img.who-kids-img-container {
+  padding-left: 75px;
 }
 img.who-kids-img {
   margin-top: 130px;

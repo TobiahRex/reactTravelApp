@@ -7,7 +7,7 @@ const ServerActions = {
       type: 'RECEIVED_DB_ERROR',
     });
   },
-  receivedUserData(dbClient) {
+  receivedClientData(dbClient) {
     AppDispatcher.dispatch({
       dbClient,
       type: 'RECEIVED_DB_CLIENT',
