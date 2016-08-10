@@ -82,7 +82,7 @@ export default class Who extends Component {
           <br/>
           <div className="counter-container">
             <div className="text-center well who-counter-well col-xs-3">
-
+              
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
 
