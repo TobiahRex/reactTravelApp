@@ -478,3 +478,19 @@ $ns: DateRangePicker !default;
     z-index: 1;
   }
 }
+
+.fp-controlArrow.fp-prev {
+  display: none;
+}
+.fp-controlArrow.fp-next {
+  display: none;
+}
+
+.intro-right-arrow {
+  color: black;
+  cursor: pointer;
+}
+.intro-right-arrow:hover {
+  color: white;
+  cursor: pointer;
+}

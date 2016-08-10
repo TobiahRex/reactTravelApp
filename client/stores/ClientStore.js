@@ -36,14 +36,15 @@ class ClientStore extends EventEmitter {
   }
   _receivedNewClient(dbClient) {
     _client = dbClient;
-    console.log('new _client: ', _client);
   }
   _receivedUpdatedClient(dbClient) {
     _client = dbClient;
-    console.log('updated _client: ', _client);
   }
   getClient() {
     return _client;
+  }
+  getClientId() {
+    return _client._id ? _client._id : _client;
   }
 }
 

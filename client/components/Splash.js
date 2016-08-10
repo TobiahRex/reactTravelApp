@@ -19,9 +19,7 @@ export default class Splash extends Component {
         </div>
 
         <footer className="footer">
-          <a href="#questionnaire" className="smooth-scroll">
-            <i className="fa fa-angle-down" aria-hidden="true"></i>
-          </a>
+          <a href="#questionnaire" className="smooth-scroll"><i className="fa fa-angle-down" aria-hidden="true"></i></a>
         </footer>
 
       </div>

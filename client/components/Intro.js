@@ -1,8 +1,34 @@
 import React, { Component } from 'react';
-
+import ClientActions from '../actions/ClientActions.js'
 export default class Intro extends Component {
   constructor(props) {
     super(props);
+
+    this.nextPage = this.nextPage.bind(this);
+  }
+
+  nextPage() {
+    let newClient = {
+      who: {
+        male: 0,
+        female: 0,
+        kids: 0,
+      },
+      when: {
+        start: '',
+        end: '',
+      },
+      where: {
+        city: '',
+        state: '',
+      },
+      what: {
+        activities: [],
+        restaurants: [],
+      },
+      email: '',
+    }
+    ClientActions.createClient(newClient);
   }
 
   render() {
@@ -10,10 +36,12 @@ export default class Intro extends Component {
       <div className="slide">
         <div className="intro">
           <h1>Intro</h1>
-          <p>Not only vertical scrolling but also horizontal scrolling. With fullPage.js you will be able to add horizontal sliders in the most simple way ever.
-          </p>
+          <a href="#questionnaire/1" onClick={this.nextPage}>
+            <i className='intro-right-arrow pull-right fa fa-5x fa-arrow-right'></i>
+          </a>
+          asdf
         </div>
-       </div>
+      </div>
     )
   }
 }

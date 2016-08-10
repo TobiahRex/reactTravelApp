@@ -2,59 +2,40 @@ import React, { Component } from 'react';
 import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
-function _getComponentState() {
-  let state = {
-    client: ClientStore.getClient(),
-    male: "client/styles/images/male_shilouette.png",
-    female: "client/styles/images/female_shilouette.png",
-    kids: "client/styles/images/kids_shillouette.png",
-  }
-  console.log('state: ', state);
-  return state;
-}
 
 export default class Who extends Component {
   constructor(props) {
     super(props);
 
-    this.state = _getComponentState();
+    this.state = {
+      client: ClientStore.getClient(),
+      clientId: ClientStore.getClientId(),
+      maleCount: 0,
+      male: "client/styles/images/male_shilouette.png",
+      femaleCount: 0,
+      female: "client/styles/images/female_shilouette.png",
+      kidsCount: 0,
+      kids: "client/styles/images/kids_shillouette.png",
+    }
 
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
     this.addKid = this.addKid.bind(this);
-    this._onChange = this._onChange.bind(this);
-  }
-
-  componentDidMount() {
-    ClientActions.createClient();
-    ClientStore.on('CHANGE', this._onChange);
-  }
-
-  componentWillUnmount() {
-    ClientStore.on('CHANGE', this._onChange);
   }
 
   addMale(){
-    let client = Object.assign({}, this.state.client);
     client.who.male += 1;
-    client.type = 'WHO_UPDATE';
     ClientActions.addClientData(client, client._id);
   }
   addFemale(){
     let client = Object.assign({}, this.state.client);
     client.who.female += 1;
-    client.type = 'WHO_UPDATE';
     ClientActions.addClientData(client, client._id);
   }
   addKid(){
     let client = Object.assign({}, this.state.client);
     client.who.kid += 1;
-    client.type = 'WHO_UPDATE';
     ClientActions.addClientData(client, client._id);
-  }
-
-  _onChange() {
-    this.setState(_getComponentState());
   }
 
   render() {
@@ -82,13 +63,13 @@ export default class Who extends Component {
           <br/>
           <div className="counter-container">
             <div className="text-center well who-counter-well col-xs-3">
-              
+              {this.state.maleCount}
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-
+              {this.state.femaleCount}
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-
+              {this.state.kidsCount}
             </div>
           </div>
         </div>
