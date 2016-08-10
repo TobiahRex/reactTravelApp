@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import ClientStore from '../../stores/ClientStore.js'
+import ClientActions from '../../actions/ClientActions.js'
+
+function _getComponentState() {
+  return { client: ClientStore.getClient() }
+}
 
 export default class Who extends Component {
   constructor(props) {
@@ -17,7 +23,7 @@ export default class Who extends Component {
 
   addMale(){
     let who = {
-      
+
     }
   }
 
