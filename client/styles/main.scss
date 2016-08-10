@@ -59,3 +59,40 @@ i.fa.fa-angle-down {
   padding: 0px 150px;
   margin: 0 auto;
 }
+
+div.who-container {
+  height: 900px;
+}
+
+div.who-male-img {
+  width: 200px;
+  cursor: pointer;
+}
+div.who-male-img:hover {
+  background-color: #000000;
+}
+
+div.who-female-img {
+  width: 104px;
+  cursor: pointer;
+}
+div.who-female-img:hover {
+  background-color: #000000;
+}
+
+div.who-kids-img {
+  margin-top: 130px;
+  width: 200px;
+  cursor: pointer;
+}
+div.who-kids-img:hover {
+  background-color: #000000;
+}
+
+div.who-counter-well {
+  height: 190px;
+  line-height: 3;
+  font-size: 50px;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
