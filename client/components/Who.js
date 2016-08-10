@@ -3,12 +3,14 @@ import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
 function _getComponentState() {
+  let dbClient = ClientStore.getClient();
   let state = {
-    client: ClientStore.getClient(),
+    client: dbClient.client,
     male: "client/styles/images/male_shilouette.png",
     female: "client/styles/images/female_shilouette.png",
     kids: "client/styles/images/kids_shillouette.png",
   }
+  console.log('state: ', state);
   return state;
 }
 
@@ -35,9 +37,9 @@ export default class Who extends Component {
 
   addMale(){
     let client = Object.assign({}, this.state.client);
-    client.client.who.male += 1;
-    client.client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(this.state.client.client);
+    client.who.male += 1;
+    client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(this.state.client);
   }
   addFemale(){
     let client = Object.assign({}, this.state.client);
@@ -57,6 +59,9 @@ export default class Who extends Component {
   }
 
   render() {
+    // let maleCount = this.state.client.client.who.male
+    // let femaleCount = this.state.client.client.who.female
+    // let kidsCount = this.state.client.client.who.kids
     return(
       <div className="slide">
         <div className="who-container">
@@ -80,13 +85,13 @@ export default class Who extends Component {
           <br/>
           <div className="counter-container">
             <div className="text-center well who-counter-well col-xs-3">
-              {this.state.client.client.who.male}
+
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-              {this.state.client.client.who.female}
+
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-              {this.state.client.client.who.kids}
+
             </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ const User = {
   },
   updateUserInfo(newInfo, cb){
 
-    console.log('newInfo.who: ', newInfo);
+    console.log('newInfo: ', newInfo);
 
     if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
 
