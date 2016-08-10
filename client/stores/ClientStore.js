@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
-import toast from 'toastr'
+import toastr from 'toastr'
 
 let _client = {};
 

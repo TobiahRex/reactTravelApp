@@ -26,15 +26,29 @@ const User = {
     return cb(null, user);
   },
   updateUserInfo(newInfo, cb){
-    console.log('newInfo: ', newInfo);
-    console.log('newInfo.client.type: ', newInfo.client.type);
+
+    console.log('newInfo.who: ', newInfo);
+
     if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
 
     switch(newInfo.type) {
-      case 'WHO_UPDATE': user.who = newInfo.who; break;
-      case 'WHEN_UPDATE': user.when = newInfo.when; break;
-      case 'WHERE_UPDATE': user.where = newInfo.where; break;
-      case 'WHAT_UPDATE': user.what = newInfo.what; break;
+      case 'WHO':
+        user.who = newInfo.who;
+        console.log('user.who: ', user.who);
+        break;
+
+      case 'WHEN_UPDATE':
+        user.when = newInfo.when;
+        break;
+
+      case 'WHERE_UPDATE':
+        user.where = newInfo.where;
+        break;
+
+      case 'WHAT_UPDATE':
+        user.what = newInfo.what;
+        break;
+
       default:
     };
 

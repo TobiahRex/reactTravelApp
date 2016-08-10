@@ -42,12 +42,14 @@ export default class Who extends Component {
   addFemale(){
     let client = Object.assign({}, this.state.client);
     client.client.who.female += 1;
-    this.setState({ client });
+    client.client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(this.state.client.client);
   }
   addKid(){
     let client = Object.assign({}, this.state.client);
     client.client.who.kid += 1;
-    this.setState({ client });
+    client.client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(this.state.client.client);
   }
 
   _onChange() {
@@ -78,13 +80,13 @@ export default class Who extends Component {
           <br/>
           <div className="counter-container">
             <div className="text-center well who-counter-well col-xs-3">
-              1
+              {this.state.client.client.who.male}
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-              1
+              {this.state.client.client.who.female}
             </div>
             <div className="text-center well who-counter-well col-xs-3 col-xs-offset-1">
-              3
+              {this.state.client.client.who.kids}
             </div>
           </div>
         </div>
