@@ -3,9 +3,8 @@ import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
 function _getComponentState() {
-  let dbClient = ClientStore.getClient();
   let state = {
-    client: dbClient.client,
+    client: ClientStore.getClient(),
     male: "client/styles/images/male_shilouette.png",
     female: "client/styles/images/female_shilouette.png",
     kids: "client/styles/images/kids_shillouette.png",
@@ -27,7 +26,7 @@ export default class Who extends Component {
   }
 
   componentDidMount() {
-    ClientActions.getClientData();
+    ClientActions.createClient();
     ClientStore.on('CHANGE', this._onChange);
   }
 
@@ -39,19 +38,19 @@ export default class Who extends Component {
     let client = Object.assign({}, this.state.client);
     client.who.male += 1;
     client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(client);
+    ClientActions.addClientData(client, client._id);
   }
   addFemale(){
     let client = Object.assign({}, this.state.client);
     client.who.female += 1;
     client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(client);
+    ClientActions.addClientData(client, client._id);
   }
   addKid(){
     let client = Object.assign({}, this.state.client);
     client.who.kid += 1;
     client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(client);
+    ClientActions.addClientData(client, client._id);
   }
 
   _onChange() {
@@ -59,7 +58,7 @@ export default class Who extends Component {
   }
 
   render() {
-    let counters = this.state.client;  
+    let counters = this.state.client;
     return(
       <div className="slide">
         <div className="who-container">

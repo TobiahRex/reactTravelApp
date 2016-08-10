@@ -1,12 +1,24 @@
 import API from '../API'
 
 const ClientActions = {
-  getClientData() {
-    API.getClientData();
+  getAllClientData() {
+    API.getAllClientData();
   },
-  addClientData(newData) {
-    API.addClientData(newData);
+  deleteAllClients(){
+    API.deleteAllClients();
   },
+  createClient() {
+    API.createClient();
+  },
+  addClientData(newData, clientId) {
+    API.addClientData(newData, clientId);
+  },
+  getClientData(clientId) {
+    API.getClientData(clientId);
+  },
+  deleteClient(clientId) {
+    API.deleteClient(clientId);
+  }
 }
 
 export default ClientActions

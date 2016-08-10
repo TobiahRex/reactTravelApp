@@ -13,7 +13,7 @@ export default class Itinerary extends Component {
   }
 
   componentDidMount() {
-    ClientActions.getClientData();
+    // ClientActions.getClientData();
   }
 
 

@@ -1,25 +1,25 @@
 const Mail = require('./sendGrid.js');
 const mongoose = require('mongoose');
 
-const clientSchema = mongoose.schema({
+const clientSchema = new mongoose.Schema({
   who: {
     male: { type: Number },
     female: { type: Number },
-    kids: { type: Number }
-  }
+    kids: { type: Number },
+  },
   when: {
     start: { type: String },
-    end: { type: String }
+    end: { type: String },
   },
   where: {
     city: { type: String },
     state: { type: String },
-  }
+  },
   what: {
     activities: [],
-    restaurants: []
+    restaurants: [],
   },
-  email: { type: String }
+  email: { type: String },
 })
 
 clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
@@ -37,5 +37,5 @@ clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
   });
 }
 
-let Client = new mongoose.model('Client', clientSchema);
+const Client = mongoose.model('Client', clientSchema);
 module.exports = Client;

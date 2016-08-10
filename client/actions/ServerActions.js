@@ -7,10 +7,10 @@ const ServerActions = {
       type: 'RECEIVED_DB_ERROR',
     });
   },
-  receivedClientData(dbClient) {
+  receivedNewClient(dbClient) {
     AppDispatcher.dispatch({
       dbClient,
-      type: 'RECEIVED_DB_CLIENT',
+      type: 'RECEIVED_NEW_CLIENT',
     });
   },
 }

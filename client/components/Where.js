@@ -15,7 +15,7 @@ export default class Where extends Component {
   }
 
   componentDidMount() {
-    ClientActions.getClientData();
+    // ClientActions.getClientData();
   }
 
   showItinerary() {

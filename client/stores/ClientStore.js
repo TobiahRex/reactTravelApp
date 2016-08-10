@@ -14,10 +14,16 @@ class ClientStore extends EventEmitter {
           this._receivedDbError(action.error);
           this.emit('ERROR');
           break;
-        case 'RECEIVED_DB_CLIENT':
-          this._receivedDbClient(action.dbClient);
+        case 'RECEIVED_NEW_CLIENT':
+          this._receivedNewClient(action.dbClient);
           this.emit('CHANGE');
           break;
+
+        case 'RECEIVED_UPDATED_CLIENT':
+          this._receivedNewClient(action.dbClient);
+          this.emit('CHANGE');
+          break;
+
 
 
         default :
@@ -26,9 +32,15 @@ class ClientStore extends EventEmitter {
   }
   _receivedDbError(error) {
     toastr.error(`Could not GET dbClient Info: ${error}`);
+    console.log('ERROR: ', error);
   }
-  _receivedDbClient(dbClient) {
-    _client.client = dbClient;
+  _receivedNewClient(dbClient) {
+    _client = dbClient;
+    console.log('new _client: ', _client);
+  }
+  _receivedUpdatedClient(dbClient) {
+    _client = dbClient;
+    console.log('updated _client: ', _client);
   }
   getClient() {
     return _client;

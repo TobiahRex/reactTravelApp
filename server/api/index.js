@@ -1,9 +1,9 @@
 const express = require('express')
 const yelp = require('./routes/yelp');
-const users = require('./routes/users');
+const clients = require('./routes/clients');
 
 const router = express.Router();
 router.use('/yelp', yelp);
-router.use('/users', users);
+router.use('/clients', clients);
 
 module.exports = router
