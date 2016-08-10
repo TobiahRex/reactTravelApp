@@ -9,6 +9,16 @@ export default class Who extends Component {
       female: "client/styles/images/female_shilouette.png",
       kids: "client/styles/images/kids_shillouette.png",
     }
+
+    this.addMale = this.addMale.bind(this);
+    this.addFemale = this.addFemale.bind(this);
+    this.addKid = this.addKid.bind(this);
+  }
+
+  addMale(){
+    let who = {
+      
+    }
   }
 
   render() {
@@ -21,15 +31,15 @@ export default class Who extends Component {
           <br/>
           <div className="who-image-container row">
             <div className="who-male-img-container col-xs-3">
-              <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} />
+              <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
             </div>
             <div className="who-female-img-container col-xs-3 col-xs-offset-1">
 
-              <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} />
+              <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
 
             </div>
             <div className="who-kids-img-container col-xs-3">
-              <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} />
+              <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClicke={this.addKid}/>
             </div>
           </div>
           <br/>
