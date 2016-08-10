@@ -1,79 +1,41 @@
 const Mail = require('./sendGrid.js');
+const mongoose = require('mongoose');
 
-let user = {
+const clientSchema = mongoose.schema({
   who: {
-    male: 0,
-    female: 0,
-    kids: 0,
-  },
+    male: { type: Number },
+    female: { type: Number },
+    kids: { type: Number }
+  }
   when: {
-    start: '',
-    end: '',
+    start: { type: String },
+    end: { type: String }
   },
   where: {
-    city: '',
-    state: '',
-  },
+    city: { type: String },
+    state: { type: String },
+  }
   what: {
     activities: [],
     restaurants: []
   },
-  email: ''
-}
+  email: { type: String }
+})
 
-const User = {
-  getUser(cb){
-    return cb(null, user);
-  },
-  updateUserInfo(newInfo, cb){
+clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
+  if (!clientEmail || !clientId) return cb({ Error: 'Did not provide necessary client information to send email.' });
 
-    console.log('newInfo: ', newInfo);
-
-    if (!newInfo.type) return cb({ Error: 'Did not provide update type for user.' });
-
-    switch(newInfo.type) {
-      case 'WHO':
-        user.who = newInfo.who;
-        console.log('user.who: ', user.who);
-        break;
-
-      case 'WHEN_UPDATE':
-        user.when = newInfo.when;
-        break;
-
-      case 'WHERE_UPDATE':
-        user.where = newInfo.where;
-        break;
-
-      case 'WHAT_UPDATE':
-        user.what = newInfo.what;
-        break;
-
-      default:
-    };
-
-    return cb(null, user);
-  },
-  resetUser(cb){
-    user = {
-      who: {},
-      when: {},
-      where: {},
-      what: {},
-      email: '',
-    }
-    return cb(null, `User Object reset to: ${user}`);
-  },
-  sendEmail(userEmail, cb){
-    if (!userEmail) return cb({ Error: 'Did not provide user email.' });
-
-    let clientInfo = Object.assign({}, user, userEmail);
-    console.log('clientInfo for eMail: ', clientInfo);
-    Mail.itinerary(clientInfo, response => {
-      console.log('response: ', response);
-      this.resetUser(cb);
+  Client.findById(clientId, (err, dbClient) => {
+    if (err) return cb(err);
+    dbClient.email = clientEmail;
+    dbClient.save((err2, savedClient) => {
+      if (err2) return cb(err2);
+      Mail.itinerary(savedClient, response => {
+        cb(null, savedClient);
+      });
     });
-  }
+  });
 }
 
-module.exports = User;
+let Client = new mongoose.model('Client', clientSchema);
+module.exports = Client;

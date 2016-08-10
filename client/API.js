@@ -16,7 +16,7 @@ const API = {
       data: newClientData,
     })
     .done(res => ServerActions.receivedClientData(res))
-    .fail(err => ServerActions.receivedError(err));
+    .fail(err => { console.log('err: ', err); ServerActions.receivedError(err)});
   }
 }
 

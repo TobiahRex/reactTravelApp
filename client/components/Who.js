@@ -39,19 +39,19 @@ export default class Who extends Component {
     let client = Object.assign({}, this.state.client);
     client.who.male += 1;
     client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(this.state.client);
+    ClientActions.addClientData(client);
   }
   addFemale(){
     let client = Object.assign({}, this.state.client);
-    client.client.who.female += 1;
-    client.client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(this.state.client.client);
+    client.who.female += 1;
+    client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(client);
   }
   addKid(){
     let client = Object.assign({}, this.state.client);
-    client.client.who.kid += 1;
-    client.client.type = 'WHO_UPDATE';
-    ClientActions.addClientData(this.state.client.client);
+    client.who.kid += 1;
+    client.type = 'WHO_UPDATE';
+    ClientActions.addClientData(client);
   }
 
   _onChange() {
@@ -59,9 +59,7 @@ export default class Who extends Component {
   }
 
   render() {
-    // let maleCount = this.state.client.client.who.male
-    // let femaleCount = this.state.client.client.who.female
-    // let kidsCount = this.state.client.client.who.kids
+    let counters = this.state.client;  
     return(
       <div className="slide">
         <div className="who-container">
