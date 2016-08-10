@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import ClientActions from '../actions/ClientActions';
 
 export default class Where extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      city: ''
+    }
+
     this.showItinerary = this.showItinerary.bind(this);
+
+  }
+
+  componentDidMount() {
+    ClientActions.getClientData();
   }
 
   showItinerary() {
@@ -16,10 +26,13 @@ export default class Where extends Component {
     return(
       <div className="slide">
          <div className="where">
-           <h1>Where?</h1>
-           <p>Not only vertical scrolling but also horizontal scrolling. With fullPage.js you will be able to add horizontal sliders in the most simple way ever.
+           <h1>Where are you going?</h1>
+           <input type="text"
+                  placeholder="City"
+                  onChange={ e => this.setState({ city: e.target.value })}
+           /><br/><br/>
            <button className="btn btn-sm btn-default" onClick={this.showItinerary}>Show me my itinerary!</button>
-           </p>
+
          </div>
       </div>
     )
