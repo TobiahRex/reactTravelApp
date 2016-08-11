@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const Yelp = require('yelp');
+const Client = require('../../db/models/client');
 
 const yelp = new Yelp({
   consumer_key: process.env.YELP_CONSUMER_KEY,
@@ -25,5 +26,12 @@ router.get('/lunch/:location', (req, res) => {
 router.get('/dinner/:location', (req, res) => {
   yelp.search({ term: 'dinner', location: req.params.location}, res.handle)
 });
+
+router.post('/restaurants/:id', (req, res) => {
+  Client.itinerary(req.params.id, req.body, res.handle);
+})
+
+
+
 
 module.exports = router;

@@ -1,5 +1,14 @@
 const Mail = require('./sendGrid.js');
 const mongoose = require('mongoose');
+const async = require('async');
+const Yelp = require('yelp');
+
+const yelp = new Yelp({
+  consumer_key: process.env.YELP_CONSUMER_KEY,
+  consumer_secret: process.env.YELP_CONSUMER_SECRET,
+  token: process.env.YELP_TOKEN,
+  token_secret: process.env.YELP_TOKEN_SECRET
+});
 
 const clientSchema = new mongoose.Schema({
   who: {
@@ -37,10 +46,7 @@ const clientSchema = new mongoose.Schema({
       default: '',
     },
   },
-  activities: [],
-  breakfast: [],
-  lunch: [],
-  dinner: [],
+  itinerary: [],
   email: { type: String },
 })
 
@@ -68,6 +74,42 @@ clientSchema.statics.updateClient = (id, body, cb) => {
   });
 }
 
+clientSchema.statics.itinerary = (id, body, cb) => {
+  if (!id) return cb({ Error: `Cannot find client by this ${id} `});
+
+  let yelpSearch = [{term: 'breakfast', location: body.location}, {term: 'lunch', location: body.location}, {term: 'dinner', location: body.location}];
+
+  async.map(yelpSearch, yelpSearching, (err, data) => {
+    if(err) {
+      console.log('err:', err);
+    }
+    let breakfast = data[0];
+    console.log('breakfast:', breakfast);
+    let lunch = data[1];
+    let dinner = data[2];
+    Client.findById(id, (err, dbClient) => {
+      let length = dbClient.when.days;
+      if(err || !length) return cb(err);
+
+      for(let i = 1; i<length; i++) {
+
+        let newObj = {
+          day: i,
+          breakfast: [breakfast[i-1], breakfast[i]],
+          lunch: [lunch[i-1], lunch[i]],
+          dinner: [dinner[i-1], dinner[i]]
+        }
+
+        dbClient.itinerary.push(newObj);
+      }
+      dbClient.save((err2, savedClient)=> {
+        if(err2) return cb(err2);
+        cb(null, savedClient);
+      });
+    })
+  })
+}
+
 clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
   if (!clientEmail || !clientId) return cb({ Error: 'Did not provide necessary client information to send email.' });
 
@@ -82,6 +124,13 @@ clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
     });
   });
 }
+
+function yelpSearching(term, callback) {
+  yelp.search(term, (err, data) => {
+    callback(err, data.businesses)
+  });
+}
+
 
 const Client = mongoose.model('Client', clientSchema);
 module.exports = Client;
