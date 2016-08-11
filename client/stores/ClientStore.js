@@ -7,6 +7,7 @@ let _itineraryInfo;
 
 class ClientStore extends EventEmitter {
   constructor(props) {
+
     super(props);
 
     AppDispatcher.register(action => {
@@ -45,6 +46,7 @@ class ClientStore extends EventEmitter {
     console.log('_client: ', _client);
     return _client;
   }
+
   getClientId() {
     return _client._id;
   }
@@ -52,6 +54,7 @@ class ClientStore extends EventEmitter {
   getItineraryInfo(){
     return _itineraryInfo;
   }
+
 }
 
 export default new ClientStore();

@@ -25,6 +25,7 @@ const clientSchema = new mongoose.Schema({
       type: String,
       default: '',
     },
+    days: Number
   },
   where: {
     city: {

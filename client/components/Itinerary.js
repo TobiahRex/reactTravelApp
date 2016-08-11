@@ -7,9 +7,9 @@ export default class Itinerary extends Component {
     super(props);
 
     this.state = {
+      // id: ClientStore.getClientId(),
       restaurants: [],
-      activities: [],
-      id: ClientStore.getClientId()
+      activities: []
     }
 
   }

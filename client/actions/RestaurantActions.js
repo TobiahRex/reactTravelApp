@@ -11,6 +11,10 @@ const RestaurantActions = {
     })
   },
 
+  getBreakfast(clientId, city) {
+    API.getBreakfast(clientId, city);
+  },
+
   getLunch(restaurants) {
     AppDispatcher.dispatch({
       actionType: ActionTypes.RECEIVE_LUNCH,
@@ -24,7 +28,7 @@ const RestaurantActions = {
       restaurants
     })
   },
-  
+
 }
 
 export default RestaurantActions;

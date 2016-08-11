@@ -7,7 +7,7 @@ import DatePickerRange from './DatePickerRange.js';
 
 import $ from 'jquery';
 
-import API from '../API';
+import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
 
 let dates = [];
@@ -33,8 +33,8 @@ export default class When extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null,
-      id: ClientStore.getClientId
+      // id: ClientStore.getClientId,
+      value: null
     }
 
     this.handleSelect = this.handleSelect.bind(this);
@@ -62,10 +62,11 @@ export default class When extends Component {
     console.log('difference:', difference);
     return false;
 
-    API.addClientData({
+    ClientActions.addClientData({
       when: {
         start: dates[0],
-        end: dates[1]
+        end: dates[1],
+        days: difference
       }
     }, this.state.id);
 
@@ -76,8 +77,9 @@ export default class When extends Component {
     return(
       <div className="slide">
         <div className="when">
-          <h1>When?</h1>
-          <DatePickerRange
+
+            <h1>When?</h1>
+            <DatePickerRange
             firstOfWeek={1}
             numberOfCalendars={2}
             selectionType='range'
@@ -86,12 +88,27 @@ export default class When extends Component {
             defaultState="available"
             showLegend={true}
             value={this.state.value}
-            onSelect={this.handleSelect}
-          />
+          onSelect={this.handleSelect}
+            />
+            <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
 
-          <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
+
+            <footer className="questionnaire-footer">
+              <a href="#questionnaire/3" onClick={this.nextPage}>
+              <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+              </a>
+            </footer>
+
+
+
+
         </div>
        </div>
     )
   }
 }
+
+
+// <a href="#questionnaire/3" onClick={this.nextPage}>
+// <i className='intro-right-arrow pull-right fa fa-5x fa-arrow-right'></i>
+// </a>
