@@ -71,6 +71,7 @@ export default class Who extends Component {
     return(
       <div className="slide">
         <div className="who-container">
+
           <div className="who-title">
             <h1>Who is going?</h1>
           </div>
@@ -88,10 +89,6 @@ export default class Who extends Component {
               <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
             </div>
           </div>
-          <div className="">
-            <a href='#questionnaire/2' className="pull-right"><i className="fa fa-5x fa-arrow-right"></i></a>
-          </div>
-          <br/>
           <div className="counter-container">
             <div className="text-center well who-counter-well col-xs-3">
               {this.state.maleCount}
@@ -103,6 +100,15 @@ export default class Who extends Component {
               {this.state.kidsCount}
             </div>
           </div>
+
+          <footer className="questionnaire-footer">
+            <a href="#questionnaire/2" onClick={this.nextPage}>
+            <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+            </a>
+          </footer>
+
+
+
         </div>
       </div>
     )

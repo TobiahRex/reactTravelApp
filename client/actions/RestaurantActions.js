@@ -3,28 +3,9 @@ import { ActionTypes } from '../Constants';
 import API from '../API';
 
 const RestaurantActions = {
-
-  getBreakfast(restaurants) {
-    AppDispatcher.dispatch({
-      actionType: ActionTypes.RECEIVE_BREAKFAST,
-      restaurants
-    })
-  },
-
-  getLunch(restaurants) {
-    AppDispatcher.dispatch({
-      actionType: ActionTypes.RECEIVE_LUNCH,
-      restaurants
-    })
-  },
-
-  getDinner(restaurants) {
-    AppDispatcher.dispatch({
-      actionType: ActionTypes.RECEIVE_DINNER,
-      restaurants
-    })
-  },
-  
+  getYelp(clientId, city) {
+    API.getYelp(clientId, city);
+  }
 }
 
 export default RestaurantActions;
