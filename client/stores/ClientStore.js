@@ -3,6 +3,7 @@ import AppDispatcher from '../AppDispatcher'
 import toastr from 'toastr'
 
 let _client;
+let _itineraryInfo;
 
 class ClientStore extends EventEmitter {
   constructor(props) {
@@ -46,6 +47,10 @@ class ClientStore extends EventEmitter {
   }
   getClientId() {
     return _client._id;
+  }
+
+  getItineraryInfo(){
+    return _itineraryInfo;
   }
 }
 

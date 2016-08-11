@@ -1,5 +1,8 @@
 const Mail = {
   itinerary(clientInfo, cb) {
+
+
+
     const helper = require('sendgrid').mail;
     const fromEmail = new helper.Email('registration@yelpCatalogue.com');
     const toEmail = new helper.Email(`${clientInfo.email}`);
@@ -12,7 +15,7 @@ const Mail = {
     <h1>Here is your itenerary</h1>
     <h3>Who: ${clientInfo.who}</h3>
     <h3>When: ${clientInfo.when}</h3>
-    <h3>Were: ${clientInfo.where}</h3>
+    <h3>Where: ${clientInfo.where}</h3>
     <h3>What: ${clientInfo.what}</h3>
 
     <hr>
