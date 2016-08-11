@@ -47,7 +47,7 @@ const API = {
     .fail(err => ServerActions.receivedError(err));
   },
 
-  getYelp(id, city) {
+  getRestaurants(id, city) {
     get('/api/yelp', { city, id })
     .done(res => ServerActions.receivedClientData(res))
     .fail(err => ServerActions.receivedError(err));
