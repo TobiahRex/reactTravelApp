@@ -10,11 +10,7 @@ router.route('/')
 
 router.route('/:id')
 .get((req, res) => Client.findById(req.params.id, res.handle))
-.put((req, res) => {
-  let mongoId =  mongoose.Types.ObjectId(req.params.id);
-  console.log('req.body: ', req.body);
-  Client.updateClient(mongoId, req.body, res.handle);
-})
+.put((req, res) => Client.updateClient(req.params.id, req.body, res.handle))
 .delete((req, res) => Client.deleteClient(req.params.id, req.body, res.handle));
 
 router.post('/email', (req, res) => Client.sendEmail(req.body, res.handle));

@@ -57,8 +57,8 @@ clientSchema.statics.deleteClient = (id, cb) => {
 
 clientSchema.statics.updateClient = (id, body, cb) => {
   if (!id) return cb({ Error: 'Missing required Id to Delete Client.' });
-
-  return Client.findByIdAndUpdate(id, { $set: body }, (err1, newClient) => {
+  let mongoID = mongoose.Types.ObjectId(id);
+  return Client.findByIdAndUpdate(mongoID, body, 'new', (err1, newClient) => {
     if (err1) return cb({ Error: 'Could not delete Client. Check id.' });
     return Client.find({}, (err2, dbData) => {
       if (err2) return cb({ Error: 'Could not retrieve DB Clients.' });

@@ -36,8 +36,8 @@ const API = {
       method: 'PUT',
       data: newClientData,
     })
-    .done(res => {console.log('updated dbClient: ', res);ServerActions.receivedClientData(res)})
-    .fail(err => { console.log('err: ', err); ServerActions.receivedError(err)});
+    .done(res => ServerActions.receivedClientData(res[0]))
+    .fail(err => ServerActions.receivedError(err));
   },
   deleteClient(clientId) {
     ajax({

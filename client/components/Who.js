@@ -23,36 +23,48 @@ export default class Who extends Component {
     this.addKid = this.addKid.bind(this);
   }
 
-
-
-
   addMale(){
-    let client = ClientStore.getClient(); // get client from store
-    let maleCount = this.state.maleCount; // copy maleCount for incrementing.
-    maleCount += 1;                       // increment malecount
+    let client = ClientStore.getClient();
+    let maleCount = this.state.maleCount;
+    maleCount += 1;
 
-    let newInfo;
-    if (!client.who) { // if this is the first time we're incrementing...
-      let newInfo = { who: { male: 1 }};
-      ClientActions.addClientData(newInfo, client._id);
-    } else if(client.who) {
-      client.who[male] += 1;
-      console.log('client[who]: ', client[who]);
-      // ClientActions.addClientData(client.who, client._id);
+    if (client.who.male === 0) {
+      client.who.male = 1;
+    } else {
+      client.who.male += 1;
     }
 
-    this.setState({ maleCount });         // set new male count.
+    ClientActions.addClientData(client, client._id);
+    this.setState({ maleCount });
   }
 
   addFemale(){
-    let client = Object.assign({}, this.state.client);
-    client.who.female += 1;
+    let client = ClientStore.getClient();
+    let femaleCount = this.state.femaleCount;
+    femaleCount += 1;
+
+    if (client.who.female === 0) {
+      client.who.female = 1;
+    } else {
+      client.who.female += 1;
+    }
+
     ClientActions.addClientData(client, client._id);
+    this.setState({ femaleCount });
   }
   addKid(){
-    let client = Object.assign({}, this.state.client);
-    client.who.kid += 1;
+    let client = ClientStore.getClient();
+    let kidsCount = this.state.kidsCount;
+    kidsCount += 1;
+
+    if (client.who.kids === 0) {
+      client.who.kids = 1;
+    } else {
+      client.who.kids += 1;
+    }
+
     ClientActions.addClientData(client, client._id);
+    this.setState({ kidsCount });
   }
 
   render() {
@@ -75,6 +87,9 @@ export default class Who extends Component {
             <div className="who-kids-img-container col-xs-3">
               <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
             </div>
+          </div>
+          <div className="">
+            <a href='#questionnaire/2' className="pull-right"><i className="fa fa-5x fa-arrow-right"></i></a>
           </div>
           <br/>
           <div className="counter-container">

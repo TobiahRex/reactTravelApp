@@ -2,7 +2,7 @@ import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
 import toastr from 'toastr'
 
-let _client = {};
+let _client;
 
 class ClientStore extends EventEmitter {
   constructor(props) {
@@ -40,6 +40,7 @@ class ClientStore extends EventEmitter {
     console.log('updatedClient from store: ', _client);
   }
   getClient() {
+    console.log('_client: ', _client);
     return _client;
   }
   getClientId() {
