@@ -36,10 +36,10 @@ const clientSchema = new mongoose.Schema({
       default: '',
     },
   },
-  what: {
-    activities: [],
-    restaurants: [],
-  },
+  activities: [],
+  breakfast: [],
+  lunch: [],
+  dinner: [],
   email: { type: String },
 })
 

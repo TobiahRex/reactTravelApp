@@ -4,16 +4,18 @@ import ClientActions from '../actions/ClientActions';
 import RestaurantActions from '../actions/RestaurantActions';
 import ActivityActions from '../actions/ActivityActions';
 import API from '../API';
+import ClientStore from '../stores/ClientStore';
 
 export default class Where extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      city: ''
+      city: '',
+      id: ClientStore.getClientId()
     }
 
-    this.showItinerary = this.showItinerary.bind(this);
+    this.showItinerary.bind(this);
 
   }
 
@@ -31,9 +33,10 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
-      RestaurantActions.getRestaurants(this.state.city);
-      ActivityActions.getActivities(this.state.city);
-      // route will be to make api call, which will make the call and also save results to db
+      API.getBreakfast(this.state.id, this.state.city);
+      API.getLunch(this.state.id, this.state.city);
+      API.getDinner(this.state.id, this.state.city);
+      API.getActivities(this.state.id, this.state.city);
       browserHistory.push('/itinerary');
     }
   }

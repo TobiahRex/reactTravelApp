@@ -25,6 +25,7 @@ class ClientStore extends EventEmitter {
           break;
 
         default :
+
       }
     });
   }

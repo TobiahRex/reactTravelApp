@@ -5,6 +5,12 @@ import {} from 'moment-range';
 import timekeeper from 'timekeeper';
 import DatePickerRange from './DatePickerRange.js';
 
+import $ from 'jquery';
+
+import API from '../API';
+import ClientStore from '../stores/ClientStore';
+
+let dates = [];
 
 const stateDefinitions = {
   available: {
@@ -27,18 +33,43 @@ export default class When extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null
+      value: null,
+      id: ClientStore.getClientId
     }
+
+    this.handleSelect = this.handleSelect.bind(this);
+
+    this.submitDate = this.submitDate.bind(this);
   }
 
   handleSelect(range, states) {
+    console.log('selected!');
     // range is a moment-range object
     this.setState({
       value: range,
       states: states,
     });
+
   }
 
+  submitDate() {
+    $('input').each(function() {
+      dates.push($(this).val());
+    })
+    var start = moment(dates[0]);
+    var end = moment(dates[1]);
+    let difference = end.diff(start, 'days');
+    console.log('difference:', difference);
+    return false;
+
+    API.addClientData({
+      when: {
+        start: dates[0],
+        end: dates[1]
+      }
+    }, this.state.id);
+
+  }
 
   render() {
 
@@ -57,6 +88,8 @@ export default class When extends Component {
             value={this.state.value}
             onSelect={this.handleSelect}
           />
+
+          <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
         </div>
        </div>
     )
