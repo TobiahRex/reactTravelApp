@@ -7,7 +7,7 @@ import DatePickerRange from './DatePickerRange.js';
 
 import $ from 'jquery';
 
-import API from '../API';
+import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
 
 let dates = [];
@@ -62,10 +62,11 @@ export default class When extends Component {
     console.log('difference:', difference);
     return false;
 
-    API.addClientData({
+    ClientActions.addClientData({
       when: {
         start: dates[0],
-        end: dates[1]
+        end: dates[1],
+        days: difference
       }
     }, this.state.id);
 
@@ -76,7 +77,7 @@ export default class When extends Component {
     return(
       <div className="slide">
         <div className="when">
-            <div class='main'>
+
             <h1>When?</h1>
             <DatePickerRange
             firstOfWeek={1}
@@ -90,7 +91,7 @@ export default class When extends Component {
           onSelect={this.handleSelect}
             />
             <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
-            </div>
+
 
             <footer className="questionnaire-footer">
               <a href="#questionnaire/3" onClick={this.nextPage}>

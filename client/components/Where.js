@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 import ClientActions from '../actions/ClientActions';
 import RestaurantActions from '../actions/RestaurantActions';
 import ActivityActions from '../actions/ActivityActions';
-import API from '../API';
 import ClientStore from '../stores/ClientStore';
 
 export default class Where extends Component {
@@ -33,6 +32,7 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
+
       // API.getBreakfast(this.state.id, this.state.city);
       // API.getLunch(this.state.id, this.state.city);
       // API.getDinner(this.state.id, this.state.city);
