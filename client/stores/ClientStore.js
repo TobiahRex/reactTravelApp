@@ -6,6 +6,7 @@ let _client;
 
 class ClientStore extends EventEmitter {
   constructor(props) {
+
     super(props);
 
     AppDispatcher.register(action => {
@@ -44,9 +45,10 @@ class ClientStore extends EventEmitter {
     console.log('_client: ', _client);
     return _client;
   }
-  getClientId() {
-    return _client._id;
-  }
+  
+  // getClientId() {
+  //   return _client._id;
+  // }
 }
 
 export default new ClientStore();
