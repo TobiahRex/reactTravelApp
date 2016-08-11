@@ -3,17 +3,38 @@ const mongoose = require('mongoose');
 
 const clientSchema = new mongoose.Schema({
   who: {
-    male: { type: Number },
-    female: { type: Number },
-    kids: { type: Number },
+    male: {
+      type: Number,
+      default: 0,
+    },
+    female: {
+      type: Number,
+      default: 0,
+    },
+    kids: {
+      type: Number,
+      default: 0,
+    },
   },
   when: {
-    start: { type: String },
-    end: { type: String },
+    start: {
+      type: String,
+      default: '',
+    },
+    end: {
+      type: String,
+      default: '',
+    },
   },
   where: {
-    city: { type: String },
-    state: { type: String },
+    city: {
+      type: String,
+      default: '',
+    },
+    state: {
+      type: String,
+      default: '',
+    },
   },
   what: {
     activities: [],

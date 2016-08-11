@@ -31,12 +31,14 @@ export default class Who extends Component {
     let maleCount = this.state.maleCount; // copy maleCount for incrementing.
     maleCount += 1;                       // increment malecount
 
+    let newInfo;
     if (!client.who) { // if this is the first time we're incrementing...
-      let newWho = { male: 1 };
-      ClientActions.addClientData(newWho, client._id);
+      let newInfo = { who: { male: 1 }};
+      ClientActions.addClientData(newInfo, client._id);
     } else if(client.who) {
       client.who[male] += 1;
-      ClientActions.addClientData(client.who, client._id);
+      console.log('client[who]: ', client[who]);
+      // ClientActions.addClientData(client.who, client._id);
     }
 
     this.setState({ maleCount });         // set new male count.

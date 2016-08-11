@@ -30,7 +30,7 @@ const API = {
     .fail(err => ServerActions.receivedError(err));
   },
   addClientData(newClientData, clientId) {
-    console.log('clientId: ', clientId);
+    console.log('clientId: ', clientId, 'newClientData: ', newClientData);
     ajax({
       url: `/api/clients/${clientId}`,
       method: 'PUT',
