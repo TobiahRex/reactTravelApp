@@ -15,10 +15,10 @@ const clientSchema = new mongoose.Schema({
     city: { type: String },
     state: { type: String },
   },
-  what: {
-    activities: [],
-    restaurants: [],
-  },
+  activities: [],
+  breakfast: [],
+  lunch: [],
+  dinner: [],
   email: { type: String },
 })
 

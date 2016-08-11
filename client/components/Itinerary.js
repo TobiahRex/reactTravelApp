@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../API';
-
+import ClientStore from '../stores/ClientStore';
 
 export default class Itinerary extends Component {
   constructor(props) {
@@ -9,11 +9,13 @@ export default class Itinerary extends Component {
     this.state = {
       restaurants: [],
       activities: [],
+      id: ClientStore.getClientId()
     }
+
   }
 
   componentDidMount() {
-    // ClientActions.getClientData();
+    ClientActions.getClientData(this.state.id);
   }
 
 

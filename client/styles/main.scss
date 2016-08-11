@@ -117,17 +117,6 @@ div.who-counter-well {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .when >div>div>input {
   font-family: 'Baloo Thambi'
 }
@@ -143,6 +132,7 @@ table.DateRangePicker__MonthDates {
   height: 400px;
   width: 500px;
   font-family: 'Baloo Thambi';
+  background-color: white;
 }
 
 
@@ -173,6 +163,7 @@ $ns: DateRangePicker !default;
     list-style-type: none;
     margin: 20px 0;
     padding: 0;
+    // font-family: 'Baloo Thambi';
   }
 
   &__LegendItem {
@@ -190,7 +181,7 @@ $ns: DateRangePicker !default;
     border: 1px solid rgba(#000, .25);
 
     &--selection {
-      background-color: #ed5434;
+      background-color: #23b116;
     }
   }
 
@@ -218,7 +209,7 @@ $ns: DateRangePicker !default;
     }
 
     &:hover {
-      background-color: #ccc;
+      // background-color: #ccc;
     }
   }
 
@@ -236,12 +227,12 @@ $ns: DateRangePicker !default;
 
     &--previous {
       border-left: $arrow-size solid transparent;
-      border-right: $arrow-size solid #aaa;
+      border-right: $arrow-size solid #000;
       right: 30px / 2 - ($arrow-size / 2);
     }
 
     &--next {
-      border-left: $arrow-size solid #aaa;
+      border-left: $arrow-size solid #000;
       border-right: $arrow-size solid transparent;
       left: 30px / 2 - ($arrow-size / 2);
     }
@@ -258,7 +249,8 @@ $ns: DateRangePicker !default;
 
   &__MonthHeader {
     color: #000;
-    font-size: 14px;
+    text-shadow: -1px -1px 4px #848080;
+    font-size: 20px;
     font-weight: bold;
     height: 35px;
     line-height: 35px;
@@ -296,7 +288,7 @@ $ns: DateRangePicker !default;
 
   &__WeekdayHeading,
   &__Date {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1;
     padding: 10px 0;
     text-align: center;
@@ -329,7 +321,7 @@ $ns: DateRangePicker !default;
     }
 
     &--weekend {
-      background-color: #f6f7f9;
+      // background-color: #f6f7f9;
     }
 
     &--otherMonth {
@@ -342,7 +334,7 @@ $ns: DateRangePicker !default;
     }
 
     &--is-selected {
-      color: #fff;
+      // color: #fff;
     }
 
     &--is-highlighted {
@@ -367,8 +359,8 @@ $ns: DateRangePicker !default;
   }
 
   &__CalendarSelection {
-    background-color: #ed5434;
-    border: 1px solid darken(#ed5434, 5);
+    background-color: #23b116;
+    border: 1px solid darken(#23b116, 5);
     bottom: $selection-margin;
     left: 0;
     position: absolute;
@@ -407,7 +399,7 @@ $ns: DateRangePicker !default;
     }
 
     &--is-pending {
-      background-color: rgba(#ed5434, .75);
+      background-color: rgba(#23b116, .75);
       border-width: 0;
     }
   }
@@ -446,7 +438,7 @@ $ns: DateRangePicker !default;
 
     &--single {
       background-color: #fff;
-      border: 1px solid darken(#ed5434, 5);
+      border: 3px solid darken(#23b116, 5);
       border-radius: $selection-radius;
       left: $selection-margin;
       right: $selection-margin;

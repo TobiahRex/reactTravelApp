@@ -25,8 +25,6 @@ class ClientStore extends EventEmitter {
           break;
 
 
-
-        default :
       }
     });
   }
@@ -44,6 +42,9 @@ class ClientStore extends EventEmitter {
   }
   getClient() {
     return _client;
+  }
+  getClientId() {
+    return _client._id;
   }
 }
 
