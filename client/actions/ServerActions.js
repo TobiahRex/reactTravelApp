@@ -13,6 +13,12 @@ const ServerActions = {
       type: 'RECEIVED_NEW_CLIENT',
     });
   },
+  receivedClientData(dbClient) {
+    AppDispatcher.dispatch({
+      dbClient,
+      type: 'RECEIVED_UPDATED_CLIENT',
+    });
+  },
 }
 
 export default ServerActions

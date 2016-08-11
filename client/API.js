@@ -26,16 +26,17 @@ const API = {
   },
   getClientData(clientId) {
     get(`/api/clients/${clientId}`)
-    .done(res => ServerActions.receivedClientData(res))
+    .done(res => { ServerActions.receivedClientData(res) })
     .fail(err => ServerActions.receivedError(err));
   },
   addClientData(newClientData, clientId) {
+    console.log('clientId: ', clientId);
     ajax({
       url: `/api/clients/${clientId}`,
       method: 'PUT',
       data: newClientData,
     })
-    .done(res => ServerActions.receivedClientData(res))
+    .done(res => {console.log('updated dbClient: ', res);ServerActions.receivedClientData(res)})
     .fail(err => { console.log('err: ', err); ServerActions.receivedError(err)});
   },
   deleteClient(clientId) {

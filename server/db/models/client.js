@@ -22,6 +22,30 @@ const clientSchema = new mongoose.Schema({
   email: { type: String },
 })
 
+clientSchema.statics.deleteClient = (id, cb) => {
+  if (!id) return cb({ Error: 'Missing required Id to Delete Client.' });
+
+  return Client.findByIdAndRemove(id, (err1) => {
+    if (err1) return cb({ Error: 'Could not delete Client. Check id.' });
+    return Client.find({}, (err2, dbData) => {
+      if (err2) return cb({ Error: 'Could not retrieve DB Clients.' });
+      return cb(null, dbData);
+    });
+  });
+}
+
+clientSchema.statics.updateClient = (id, body, cb) => {
+  if (!id) return cb({ Error: 'Missing required Id to Delete Client.' });
+
+  return Client.findByIdAndUpdate(id, { $set: body }, (err1, newClient) => {
+    if (err1) return cb({ Error: 'Could not delete Client. Check id.' });
+    return Client.find({}, (err2, dbData) => {
+      if (err2) return cb({ Error: 'Could not retrieve DB Clients.' });
+      return cb(null, dbData);
+    });
+  });
+}
+
 clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
   if (!clientEmail || !clientId) return cb({ Error: 'Did not provide necessary client information to send email.' });
 

@@ -24,8 +24,6 @@ class ClientStore extends EventEmitter {
           this.emit('CHANGE');
           break;
 
-
-
         default :
       }
     });
@@ -39,12 +37,13 @@ class ClientStore extends EventEmitter {
   }
   _receivedUpdatedClient(dbClient) {
     _client = dbClient;
+    console.log('updatedClient from store: ', _client);
   }
   getClient() {
     return _client;
   }
   getClientId() {
-    return _client._id ? _client._id : _client;
+    return _client._id;
   }
 }
 

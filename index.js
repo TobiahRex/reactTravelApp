@@ -21,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compress());
 app.use(layouts);
 app.use((req, res, next) => {
-  res.handle = (err, dbData) => res.status(err ? 400 : 200).send(err || dbData);
+  res.handle = (err, dbData) => {
+    console.log('err: ', err, '\nDATA: ', dbData);
+    res.status(err ? 400 : 200).send(err || dbData)
+  };
   next();
 });
 app.use('/client', express.static(path.join(process.cwd(), '/client')));

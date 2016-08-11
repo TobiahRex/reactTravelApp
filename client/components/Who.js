@@ -8,8 +8,8 @@ export default class Who extends Component {
     super(props);
 
     this.state = {
-      client: ClientStore.getClient(),
-      clientId: ClientStore.getClientId(),
+      client: {},
+      clientId: '',
       maleCount: 0,
       male: "client/styles/images/male_shilouette.png",
       femaleCount: 0,
@@ -23,10 +23,25 @@ export default class Who extends Component {
     this.addKid = this.addKid.bind(this);
   }
 
+
+
+
   addMale(){
-    client.who.male += 1;
-    ClientActions.addClientData(client, client._id);
+    let client = ClientStore.getClient(); // get client from store
+    let maleCount = this.state.maleCount; // copy maleCount for incrementing.
+    maleCount += 1;                       // increment malecount
+
+    if (!client.who) { // if this is the first time we're incrementing...
+      let newWho = { male: 1 };
+      ClientActions.addClientData(newWho, client._id);
+    } else if(client.who) {
+      client.who[male] += 1;
+      ClientActions.addClientData(client.who, client._id);
+    }
+
+    this.setState({ maleCount });         // set new male count.
   }
+
   addFemale(){
     let client = Object.assign({}, this.state.client);
     client.who.female += 1;
@@ -39,7 +54,6 @@ export default class Who extends Component {
   }
 
   render() {
-    let counters = this.state.client;
     return(
       <div className="slide">
         <div className="who-container">
