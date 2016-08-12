@@ -28,17 +28,27 @@ export default class Itinerary extends Component {
     let email = this.state.email;
 
     ClientActions.submitEmail(email, clientId);
-
   }
 
 
   render() {
     return(
-      <div>Itinerary<br/>
-        Enter your email so we can send you this itinerary!
-        <input onChange={ e => this.setState({ email: e.target.value })} type="email" placeholder="Email" />
-        <button onClick={this.submitEmail} ></button>
-      </div>
-    )
+      <div className="slide">
+        <div className='itinerary'>
+          <div className="itinerary-title">
+            Itinerary
+          </div>
+          <div className="itinerary-message">
+            Enter your email so we can send you this itinerary!
+          </div>
+          <div className="itinerary-email-input">
+            <input onChange={ e => this.setState({ email: e.target.value })} type="email" placeholder="Email" />
+          </div>
+          <div className="itinerary-submit-btn">
+            <button onClick={this.submitEmail} ></button>            
+            </div>
+          </div>
+        </div>
+      )
+    }
   }
-}
