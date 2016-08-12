@@ -11,26 +11,14 @@ export default class Itinerary extends Component {
       restaurants: [],
       activities: []
     }
-
-  }
-
-  // 
-
-
-  componentDidMount() {
-    ClientActions.getClientData(this.state.id);
   }
 
 
   render() {
     return(
       <div>Itinerary<br/>
-        Enter your email so we can send you this itinerary!
-        <input type="email"
-               placeholder="Email"
-        />
-
-      </div>
-    )
-  }
+      Enter your email so we can send you this itinerary!
+      <input type="email" placeholder="Email" />
+    </div>
+  )
 }

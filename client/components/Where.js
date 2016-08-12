@@ -8,11 +8,8 @@ export default class Where extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      city: ''
-    }
-
-    this.showItinerary.bind(this);
+    this.state = { city: '' };
+    this.showItinerary = this.showItinerary.bind(this);
   }
   showItinerary() {
     let client = ClientStore.getClient();
