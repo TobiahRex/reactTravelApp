@@ -2,7 +2,6 @@ import { get, post, ajax } from 'jquery'
 import AppDispatcher from './AppDispatcher'
 import ServerActions from './actions/ServerActions'
 import RestaurantActions from './actions/RestaurantActions';
-import ActivityActions from './actions/ActivityActions';
 
 
 const API = {
