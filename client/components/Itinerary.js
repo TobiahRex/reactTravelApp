@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../API';
 import ClientStore from '../stores/ClientStore';
+import Day from './Day';
 
 export default class Itinerary extends Component {
   constructor(props) {
@@ -28,6 +29,12 @@ export default class Itinerary extends Component {
     return(
       <div>Itinerary<br/>
         Enter your email so we can send you this itinerary!
+
+        <If condition={this.state.client}>
+          {this.state.client.itinerary.map((day, index) => {
+            return <Day key={index} day={day} />
+          })}
+        </If>
         <input type="email" placeholder="Email" />
       </div>
     )

@@ -22,11 +22,7 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
-<<<<<<< HEAD
-      console.log('typeof:', typeof client._id);
-=======
       ClientActions.addClientData({ where: { city: this.state.city }}, client._id);
->>>>>>> 67508f7f004a8ad5e4e1542a3d96fd5743e9c84e
       ClientActions.getItinerary(client._id, this.state.city);
 
       browserHistory.push('/itinerary');

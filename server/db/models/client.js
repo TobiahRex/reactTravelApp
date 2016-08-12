@@ -75,6 +75,8 @@ clientSchema.statics.updateClient = (id, body, cb) => {
 }
 
 clientSchema.statics.itinerary = (id, body, cb) => {
+
+  console.log('id:', id, '\nbody:', body);
   if (!id) return cb({ Error: `Cannot find client by this ${id} `});
 
   let mongoID = mongoose.Types.ObjectId(id);
@@ -83,29 +85,29 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
   async.map(yelpSearch, yelpSearching, (err, data) => {
     if(err) {
-      console.log('err:', err);
+      return console.log('err:', err);
     }
+
     let breakfast = data[0];
-    console.log('breakfast:', breakfast);
     let lunch = data[1];
     let dinner = data[2];
     let activities = data[3];
     Client.findById(mongoID, (err, dbClient) => {
       let length = dbClient.when.days + 1;
-      if(err || !length) return cb(err);
-
+      if(err) return cb(err);
 
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
-          lunch: [lunch[i-3], lunch[i-2]],
+          lunch: [lunch[i], lunch[i+1]],
           dinner: [dinner[i], dinner[i+1]],
-          activities: [activities[i], activities[i+1], activities[i+2]]
+          activities: [activities[j], activities[j+1], activities[j+2]]
         }
 
         dbClient.itinerary.push(newObj);
+        console.log('dbClient:', dbClient.itinerary.breakfast);
       }
-      dbClient.save((err2, savedClient)=> {
+      dbClient.save((err2, savedClient) => {
         if(err2) return cb(err2);
         cb(null, savedClient);
       });
