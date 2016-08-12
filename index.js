@@ -23,7 +23,7 @@ app.use(compress());
 app.use(layouts);
 app.use((req, res, next) => {
   res.handle = (err, dbData) => {
-    console.log('err: ', err, '\nDATA: ', dbData);
+    // console.log('err: ', err, '\nDATA: ', dbData);
     res.status(err ? 400 : 200).send(err || dbData)
   };
   next();
