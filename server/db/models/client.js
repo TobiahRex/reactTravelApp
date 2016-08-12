@@ -96,7 +96,6 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
 
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
-
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
           lunch: [lunch[i-3], lunch[i-2]],
@@ -134,7 +133,6 @@ function yelpSearching(term, callback) {
     callback(err, data.businesses)
   });
 }
-
 
 const Client = mongoose.model('Client', clientSchema);
 module.exports = Client;
