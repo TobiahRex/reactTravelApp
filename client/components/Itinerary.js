@@ -35,20 +35,27 @@ export default class Itinerary extends Component {
     return(
       <div className="slide">
         <div className='itinerary'>
-          <div className="itinerary-title">
-            Itinerary
-          </div>
-          <div className="itinerary-message">
-            Enter your email so we can send you this itinerary!
-          </div>
-          <div className="itinerary-email-input">
-            <input onChange={ e => this.setState({ email: e.target.value })} type="email" placeholder="Email" />
-          </div>
-          <div className="itinerary-submit-btn">
-            <button onClick={this.submitEmail} ></button>            
+          <div className="itinerary-content">
+            <div className="itinerary-title">
+              Itinerary
+            </div>
+            <div className="itinerary-message">
+              Enter your email so we can send you this itinerary!
+            </div>
+            <div className="itinerary-email-input">
+              <input onChange={ e => this.setState({ email: e.target.value })} type="email" placeholder="Email" />
             </div>
           </div>
         </div>
-      )
-    }
-  }
+
+        <div className="itinerary-next">
+          <a onClick={this.submitEmail}>
+            <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+}
