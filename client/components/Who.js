@@ -21,12 +21,13 @@ export default class Who extends Component {
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
     this.addKid = this.addKid.bind(this);
+    this.nextPage = this.nextPage.bind(this);
   }
 
   addMale(){
     let client = ClientStore.getClient();
     let maleCount = this.state.maleCount;
-    maleCount += 1;
+  maleCount += 1;
 
     if (client.who.male === 0) {
       client.who.male = 1;
@@ -68,10 +69,17 @@ export default class Who extends Component {
   }
 
   nextPage(){
-    if(!this.state.male.count || !this.state.female.count || !this.state.kids.count){
-      return alert('what the fuck?')
+    let total = this.state.femaleCount + this.state.maleCount + this.state.kidsCount;
+    if(!total){
+      swal({
+        title: 'Ummmm...',
+        text: 'We need to know who\'s going.  Lets try again.',
+        type: 'warning',
+        confirmButtonText: 'Got it!',
+        confirmButtonColor: '#07D928',
+      });
     } else {
-      return browserHistory.push('#questionnaire/2');      
+      return browserHistory.push('#questionnaire/2');
     }
   }
 
@@ -79,7 +87,7 @@ export default class Who extends Component {
     return(
       <div className="slide">
 
-        <div className="who-container col-xs-11">
+        <div className="who-container container-fluid col-md-11">
           <div className="who-title">
             <h1>Who is going?</h1>
           </div>
