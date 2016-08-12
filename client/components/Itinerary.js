@@ -41,9 +41,8 @@ export default class Itinerary extends Component {
             return <Day key={index} day={day} />
           })}
         </If>
-        <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>        
+        <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
       </div>
     )
   }
-  )}
 }
