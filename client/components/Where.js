@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import ClientActions from '../actions/ClientActions';
-import RestaurantActions from '../actions/RestaurantActions';
-import ActivityActions from '../actions/ActivityActions';
 import ClientStore from '../stores/ClientStore';
 
 export default class Where extends Component {
@@ -13,7 +11,7 @@ export default class Where extends Component {
       city: ''
     }
 
-    this.showItinerary.bind(this);
+    this.showItinerary = this.showItinerary.bind(this);
 
   }
 
@@ -32,10 +30,8 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
-      API.getBreakfast(client._id, this.state.city);
-      API.getLunch(this.state.id, this.state.city);
-      API.getDinner(this.state.id, this.state.city);
-      API.getActivities(this.state.id, this.state.city);
+      ClientActions.getItinerary(client._id, this.state.city);
+      console.log('this.state.city:', this.state.city);
 
       browserHistory.push('/itinerary');
     }

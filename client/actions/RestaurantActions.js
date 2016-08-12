@@ -4,23 +4,10 @@ import API from '../API';
 
 const RestaurantActions = {
 
-  getBreakfast(clientId, city) {
-    API.getBreakfast(clientId, city);
+  getRestaurants(clientId, city) {
+    API.getRestaurants(clientId, city);
   },
 
-  getLunch(restaurants) {
-    AppDispatcher.dispatch({
-      actionType: ActionTypes.RECEIVE_LUNCH,
-      restaurants
-    })
-  },
-
-  getDinner(restaurants) {
-    AppDispatcher.dispatch({
-      actionType: ActionTypes.RECEIVE_DINNER,
-      restaurants
-    })
-  },
 
 }
 

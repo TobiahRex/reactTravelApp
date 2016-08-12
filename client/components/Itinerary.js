@@ -2,23 +2,29 @@ import React, { Component } from 'react';
 import API from '../API';
 import ClientStore from '../stores/ClientStore';
 
+let _client;
+
 export default class Itinerary extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // id: ClientStore.getClientId(),
-      restaurants: [],
-      activities: []
+      client: {}
     }
 
+    this._getItinerary = this._getItinerary.bind(this);
   }
 
-  // 
-
-
   componentDidMount() {
-    ClientActions.getClientData(this.state.id);
+    ClientStore.on('RECEIVED_UPDATED_CLIENT', this._getItinerary)
+  }
+
+  _getItinerary() {
+    this.setState({
+      client: ClientStore.getClient()
+    })
+
+    console.log('this.state.client:', this.state.client);
   }
 
 
@@ -33,4 +39,5 @@ export default class Itinerary extends Component {
       </div>
     )
   }
+
 }
