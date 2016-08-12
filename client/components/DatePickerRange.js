@@ -4,44 +4,33 @@ import RangePicker from 'react-daterange-picker';
 import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
 
+let dates = [];
+
 export default class DatePickerRange extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: this.props.value,
-      states:null
+      value: '',
+      states: null,
     }
     this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleSelect(value, states) {
-    console.log('value: ', value, 'diff: ', moment(value.end - value.start).format('LL'));
     this.setState({value, states});
   }
 
   submitDate() {
     let client = ClientStore.getClient();
-
-    $('input').each(() => dates.push($(this).val()));
-
-    let start = moment(dates[0]);
-    let end = moment(dates[1]);
-    let difference = end.diff(start, 'days');
-    console.log('difference:', difference);
-    return false;
-
     let whenObj = {
       when: {
-        start: dates[0],
-        end: dates[1],
-        days: difference
+        start: this.state.value.start,
+        end: this.state.value.end,
+        days: value.end.diff(value.start, 'days'),
       }
     }
     console.log('whenObj: ', whenObj);
-    // ClientActions.addClientData({
-    //
-    // }, client._id);
 
   }
 

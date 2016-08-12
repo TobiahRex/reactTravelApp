@@ -6,8 +6,6 @@ import timekeeper from 'timekeeper';
 import React, { Component } from 'react';
 import DatePickerRange from './DatePickerRange.js';
 
-let dates = [];
-
 const stateDefinitions = {
   available: {
     color: null,
