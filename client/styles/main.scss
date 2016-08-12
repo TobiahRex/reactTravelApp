@@ -521,6 +521,10 @@ div.where-title {
   position: fixed;
 }
 
+div.where-title > h1 {
+  margin-top: 0px;
+}
+
 div.where-page-break {
   height: 100px;
 }

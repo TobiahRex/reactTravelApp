@@ -45,7 +45,7 @@ export default class DatePickerRange extends Component {
               value={this.state.value ? this.state.value.start.format('LL') : ''}
               readOnly={true}
               placeholder="Start date"
-              className='form-control'/>          
+              className='form-control'/>
             <input type="text"
               id='end-date'
               value={this.state.value ? this.state.value.end.format('LL') : ''}

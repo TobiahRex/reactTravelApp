@@ -41,7 +41,6 @@ export default class Where extends Component {
           </div>
           <div className="col-xs-12 where-page-break">
           </div>
-          <hr className="where-page-break" />
           <div className="where-submit col-xs-4 col-xs-offset-4">
             <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
           </div>
