@@ -5,7 +5,6 @@ const RestaurantActions = {
   getRestaurants(id, city) {
     API.getRestaurants(id, city);
   }
-
 }
 
 export default RestaurantActions;

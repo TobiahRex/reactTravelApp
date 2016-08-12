@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-
+import $ from 'jquery';
 import moment from 'moment';
 import {} from 'moment-range';
 import timekeeper from 'timekeeper';
+
+import React, { Component } from 'react';
 import DatePickerRange from './DatePickerRange.js';
-
-import $ from 'jquery';
-
 import ClientActions from '../actions/ClientActions';
-import ClientStore from '../stores/ClientStore';
+
 
 let dates = [];
 
@@ -33,7 +31,6 @@ export default class When extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // id: ClientStore.getClientId,
       value: null
     }
 
@@ -107,8 +104,3 @@ export default class When extends Component {
     )
   }
 }
-
-
-// <a href="#questionnaire/3" onClick={this.nextPage}>
-// <i className='intro-right-arrow pull-right fa fa-5x fa-arrow-right'></i>
-// </a>
