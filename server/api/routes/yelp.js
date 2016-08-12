@@ -11,9 +11,7 @@ const yelp = new Yelp({
   token_secret: process.env.YELP_TOKEN_SECRET
 });
 
-router.post('/itinerary/:id', (req, res) => {
-  Client.itinerary(req.params.id, req.body, res.handle);
-})
+router.post('/itinerary/:id', (req, res) => Client.itinerary(req.params.id, req.body, res.handle));
 
 
 
