@@ -32,15 +32,16 @@ export default class Where extends Component {
   }
 
   render() {
+    console.log('this.state.city: ', this.state.city);
     return(
       <div className="slide">
         <div className="where">
           <h1>Where are you going?</h1>
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
-          <input type="text"
-            placeholder="City"
-            onChange={ e => this.setState({ city: e.target.value })}
-            /><br/><br/>
+          <i className="fa fa-map-marker" aria-hidden="true"></i>
+          <input type="text" placeholder="City"
+            onChange={ e => this.setState({ city: e.target.value })}/>
+          <br/>
+          <br/>
           <button className="btn btn-sm btn-default" onClick={this.showItinerary}>Show me my itinerary!</button>
         </div>
 
