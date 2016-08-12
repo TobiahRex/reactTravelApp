@@ -6,7 +6,10 @@ export default class Itinerary extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { client: {} };
+    this.state = {
+      client: {},
+      email: '',
+    };
 
     this._getItinerary = this._getItinerary.bind(this);
   }
@@ -16,22 +19,30 @@ export default class Itinerary extends Component {
   }
 
   _getItinerary() {
-    this.setState({
-      client: ClientStore.getClient()
-    })
-
-    console.log('this.state.client:', this.state.client);
+    this.setState({ client: ClientStore.getClient() });
   }
 
+  submitEmail(){
+    let clientId = this.state.client._id;
+    let email = this.state.email;
+
+    ClientActions.sendEmail(clientId, email);
+  }
 
   render() {
     return(
-      <div>Itinerary<br/>
+      <div className="slide">
+
+        <div className="itinerary">Itinerary<br/>
         Enter your email so we can send you this itinerary!
-        <input type="email" placeholder="Email" />
+        <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
+
+        <div className="col-xs-1 questionnaire-arrow">
+          <a href="#questionnaire/3" onClick={this.submitEmail}>
+            <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+          </a>
+        </div>
       </div>
-    )
-
-  }
-
+    </div>
+  )}
 }
