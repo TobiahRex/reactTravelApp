@@ -5,8 +5,6 @@ import timekeeper from 'timekeeper';
 
 import React, { Component } from 'react';
 import DatePickerRange from './DatePickerRange.js';
-import ClientActions from '../actions/ClientActions';
-
 
 let dates = [];
 
@@ -33,40 +31,6 @@ export default class When extends Component {
     this.state = {
       value: null
     }
-
-    this.handleSelect = this.handleSelect.bind(this);
-    this.submitDate = this.submitDate.bind(this);
-  }
-
-  handleSelect(range, states) {
-    console.log('selected!');
-    // range is a moment-range object
-    this.setState({
-      value: range,
-      states: states,
-    });
-
-  }
-
-  submitDate() {
-    console.log('submit');
-    $('input').each(function() {
-      dates.push($(this).val());
-    })
-    var start = moment(dates[0]);
-    var end = moment(dates[1]);
-    let difference = end.diff(start, 'days');
-    console.log('difference:', difference);
-    return false;
-
-    ClientActions.addClientData({
-      when: {
-        start: dates[0],
-        end: dates[1],
-        days: difference
-      }
-    }, this.state.id);
-
   }
 
   render() {
@@ -83,10 +47,9 @@ export default class When extends Component {
             minimumDate={new Date()}
             stateDefinitions={stateDefinitions}
             defaultState="available"
-            showLegend={true}
+            showLegend={false}
             value={this.state.value}
             onSelect={this.handleSelect}/>
-          <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
 
           <div className="col-xs-1 questionnaire-arrow">
             <a href="#questionnaire/3" onClick={this.nextPage}>
