@@ -37,28 +37,19 @@ export default class Itinerary extends Component {
       <div className="slide">
         <div className="itinerary">Itinerary<br/>
         Enter your email so we can send you this itinerary!
-<<<<<<< HEAD
+
         <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
-=======
+
 
         <If condition={this.state.client}>
           {this.state.client.itinerary.map((day, index) => {
             return <Day key={index} day={day} />
           })}
         </If>
-        <input type="email" placeholder="Email" />
+        </div>
+
       </div>
     )
 
   }
->>>>>>> Eileen
-
-        <div className="col-xs-1 questionnaire-arrow">
-          <a href="#questionnaire/3" onClick={this.submitEmail}>
-            <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  )}
 }
