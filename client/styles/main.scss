@@ -72,12 +72,6 @@ i.fa.fa-angle-down {
   margin: 0 auto;
 }
 
-
-
-.where {
-  padding: 0px 60px;
-}
-
 .intro>h1 {
   text-shadow: -2px -2px 1px #777474;
 }
@@ -516,6 +510,24 @@ div.who-arrow {
 div.when-arrow {
   padding-left: 0px;
   margin-top: 50%;
+}
+input#end-date {
+  margin-left: 10px;
+}
+
+div.where-title {
+  font-size: 36px;
+  top: 50px;
+  position: fixed;
+}
+
+div.where-page-break {
+  height: 100px;
+}
+
+input.where-city-input {
+  height: 50px;
+  font-size: 30px;
 }
 
 div.where-arrow {

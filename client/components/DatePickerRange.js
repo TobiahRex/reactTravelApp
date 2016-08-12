@@ -28,27 +28,37 @@ export default class DatePickerRange extends Component {
         end: this.state.value.end.format('LL'),
         days: this.state.value.end.diff(this.state.value.start, 'days'),
       }
-    }    
+    }
     ClientActions.addClientData(whenObj, client._id);
   }
 
   render() {
     return (
-      <div className='col-xs-11'>
+      <div className='col-xs-7 col-xs-offset-3 row'>
         <RangePicker {...this.props}
           onSelect={this.handleSelect}
           value={this.state.value} />
-        <div>
-          <input type="text"
-            value={this.state.value ? this.state.value.start.format('LL') : ''}
-            readOnly={true}
-            placeholder="Start date"/>
-          <input type="text"
-            value={this.state.value ? this.state.value.end.format('LL') : ''}
-            readOnly={true}
-            placeholder="End date" />
+        <div className="form-inline col-xs-offset-2">
+          <div className='form-group'>
+            <input type="text"
+              id='start-date'
+              value={this.state.value ? this.state.value.start.format('LL') : ''}
+              readOnly={true}
+              placeholder="Start date"
+              className='form-control'/>          
+            <input type="text"
+              id='end-date'
+              value={this.state.value ? this.state.value.end.format('LL') : ''}
+              readOnly={true}
+              placeholder="End date"
+              className='form-control'/>
+            <label htmlFor="button"> </label>
+            </div>
         </div>
-        <button className="btn btn-sm btn-default" onClick={this.submitDate}>Submit</button>
+        <br/>
+        <div className="col-xs-10">
+          <button id='button' className="btn btn-primary btn-lg btn-block" onClick={this.submitDate}>Submit</button>
+        </div>
       </div>
     );
   }

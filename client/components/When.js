@@ -49,7 +49,7 @@ export default class When extends Component {
             value={this.state.value}
             onSelect={this.handleSelect}/>
 
-          <div className="col-xs-1 when-arrow">
+          <div className="col-xs-1 col-xs-offset-1 when-arrow">
             <a href="#questionnaire/3" onClick={this.nextPage}>
               <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
             </a>

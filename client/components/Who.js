@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
@@ -8,6 +9,7 @@ export default class Who extends Component {
     super(props);
 
     this.state = {
+      link: '',
       client: {},
       clientId: '',
       maleCount: 0,
@@ -79,7 +81,7 @@ export default class Who extends Component {
         confirmButtonColor: '#07D928',
       });
     } else {
-      return browserHistory.push('#questionnaire/2');
+      this.setState({ link:'/#questionnaire/2' })
     }
   }
 
@@ -118,7 +120,7 @@ export default class Who extends Component {
           </div>
         </div>
         <div className="col-xs-1 who-arrow">
-          <a onClick={this.nextPage}>
+          <a href={this.state.link} onClick={this.nextPage}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
         </div>
