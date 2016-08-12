@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import ClientStore from '../stores/ClientStore.js'
 import ClientActions from '../actions/ClientActions.js'
 
@@ -8,6 +9,7 @@ export default class Who extends Component {
     super(props);
 
     this.state = {
+      link: '',
       client: {},
       clientId: '',
       maleCount: 0,
@@ -21,12 +23,13 @@ export default class Who extends Component {
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
     this.addKid = this.addKid.bind(this);
+    this.nextPage = this.nextPage.bind(this);
   }
 
   addMale(){
     let client = ClientStore.getClient();
     let maleCount = this.state.maleCount;
-    maleCount += 1;
+  maleCount += 1;
 
     if (client.who.male === 0) {
       client.who.male = 1;
@@ -67,11 +70,26 @@ export default class Who extends Component {
     this.setState({ kidsCount });
   }
 
+  nextPage(){
+    let total = this.state.femaleCount + this.state.maleCount + this.state.kidsCount;
+    if(!total){
+      swal({
+        title: 'Ummmm...',
+        text: 'We need to know who\'s going.  Lets try again.',
+        type: 'warning',
+        confirmButtonText: 'Got it!',
+        confirmButtonColor: '#07D928',
+      });
+    } else {
+      this.setState({ link:'/#questionnaire/2' })
+    }
+  }
+
   render() {
     return(
       <div className="slide">
-        <div className="who-container">
 
+        <div className="who-container container-fluid col-md-11">
           <div className="who-title">
             <h1>Who is going?</h1>
           </div>
@@ -100,15 +118,11 @@ export default class Who extends Component {
               {this.state.kidsCount}
             </div>
           </div>
-
-          <footer className="questionnaire-footer">
-            <a href="#questionnaire/2" onClick={this.nextPage}>
+        </div>
+        <div className="col-xs-1 who-arrow">
+          <a href={this.state.link} onClick={this.nextPage}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-            </a>
-          </footer>
-
-
-
+          </a>
         </div>
       </div>
     )
