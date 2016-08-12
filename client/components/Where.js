@@ -32,10 +32,13 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
-      API.getBreakfast(client._id, this.state.city);
-      API.getLunch(this.state.id, this.state.city);
-      API.getDinner(this.state.id, this.state.city);
-      API.getActivities(this.state.id, this.state.city);
+      RestaurantActions.get
+    }
+    // else {
+    //   API.getBreakfast(client._id, this.state.city);
+    //   API.getLunch(this.state.id, this.state.city);
+    //   API.getDinner(this.state.id, this.state.city);
+    //   API.getActivities(this.state.id, this.state.city);
 
       browserHistory.push('/itinerary');
     }
