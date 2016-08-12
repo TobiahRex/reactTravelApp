@@ -5,12 +5,20 @@ const mongoose = require('mongoose');
 const async = require('async');
 const Yelp = require('yelp');
 
+console.log(
+  process.env.YELP_CONSUMER_KEY,
+  process.env.YELP_CONSUMER_SECRET,
+  process.env.YELP_TOKEN,
+  process.env.YELP_TOKEN_SECRET);
+
 const yelp = new Yelp({
   consumer_key: process.env.YELP_CONSUMER_KEY,
   consumer_secret: process.env.YELP_CONSUMER_SECRET,
   token: process.env.YELP_TOKEN,
   token_secret: process.env.YELP_TOKEN_SECRET
 });
+
+
 
 const clientSchema = new mongoose.Schema({
   who: {
@@ -79,23 +87,24 @@ clientSchema.statics.updateClient = (id, body, cb) => {
 clientSchema.statics.itinerary = (id, body, cb) => {
   if (!id) return cb({ Error: `Cannot find client by this ${id} `});
 
-  let mongoID = mongoose.Types.ObjectId(id);
-
-  let yelpSearch = [{term: 'breakfast', location: body.location}, {term: 'lunch', location: body.location}, {term: 'dinner', location: body.location}, {term: 'activities', location: body.location}];
+  let yelpSearch = [{term: 'breakfast', location: body.location},
+    {term: 'lunch', location: body.location},
+    {term: 'dinner', location: body.location},
+    {term: 'activities', location: body.location}];
 
   async.map(yelpSearch, yelpSearching, (err, data) => {
-    if(err) {
-      console.log('err:', err);
-    }
+    if (err) console.log('yelp error: \n', err);
+
     let breakfast = data[0];
-    console.log('breakfast:', breakfast);
     let lunch = data[1];
     let dinner = data[2];
     let activities = data[3];
+    console.log('YELP data: ', data);
+
+    let mongoID = mongoose.Types.ObjectId(id);
     Client.findById(mongoID, (err, dbClient) => {
       let length = dbClient.when.days + 1;
       if(err || !length) return cb(err);
-
 
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
         let newObj = {
@@ -131,7 +140,9 @@ clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
 }
 
 function yelpSearching(term, callback) {
+  console.log('term: ', term);
   yelp.search(term, (err, data) => {
+    console.log('err: ', err, 'data: ', data);
     callback(err, data.businesses)
   });
 }

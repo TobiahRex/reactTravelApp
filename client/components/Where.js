@@ -30,7 +30,6 @@ export default class Where extends Component {
   }
 
   render() {
-    console.log('this.state.city: ', this.state.city);
     return(
       <div className="slide">
         <div className="where">

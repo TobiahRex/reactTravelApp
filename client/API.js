@@ -28,7 +28,6 @@ const API = {
     .fail(err => ServerActions.receivedError(err));
   },
   addClientData(newClientData, clientId) {
-    console.log('newClientData: ', newClientData, 'clientId: ', clientId);
     ajax({
       url: `/api/clients/${clientId}`,
       method: 'PUT',
@@ -45,13 +44,12 @@ const API = {
     .done()
     .fail(err => ServerActions.receivedError(err));
   },
-
   getItinerary(clientId, city) {
     post(`/api/yelp/itinerary/${clientId}`, {
       location: city
     })
     .done(data => {
-      console.log('data before being sent to serveractions:', data);
+      console.log('ITINERARY RESPONSE:', data);
       ServerActions.receivedClientData(data);
     })
     .fail(err => ServerActions.receivedError(err))

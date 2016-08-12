@@ -72,11 +72,15 @@ footer.questionnaire-footer {
   position: absolute;
   bottom: 0;
   height: 100px;
-  width: 25%;
+  width: 20%;
 }
 
 footer.questionnaire-footer>a {
   float: right;
+}
+
+div.intro-arrow {
+  padding-left: 0px;
 }
 
 .questionnaire {
