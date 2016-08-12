@@ -67,6 +67,14 @@ export default class Who extends Component {
     this.setState({ kidsCount });
   }
 
+  nextPage(){
+    if(!this.state.male.count || !this.state.female.count || !this.state.kids.count){
+      return alert('what the fuck?')
+    } else {
+      return browserHistory.push('#questionnaire/2');      
+    }
+  }
+
   render() {
     return(
       <div className="slide">
@@ -102,7 +110,7 @@ export default class Who extends Component {
           </div>
         </div>
         <div className="col-xs-1 who-arrow">
-          <a href="#questionnaire/2" onClick={this.nextPage}>
+          <a onClick={this.nextPage}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
         </div>

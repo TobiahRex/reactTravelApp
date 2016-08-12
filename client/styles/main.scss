@@ -19,18 +19,9 @@ i.fa.fa-map-marker {
   font-size: 80px;
 }
 
-.footer>a, .footer>a:hover, .footer>a:focus {
-  color: white;
-  font-weight: bold;
-}
-
 i.fa.fa-angle-down {
   font-size: 50px;
   font-weight: bold;
-}
-
-.footer>a:hover {
-  font-size: 60px;
 }
 
 .splash-container-contain {
@@ -57,36 +48,14 @@ i.fa.fa-angle-down {
   text-shadow: -4px -4px 9px #353434;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 125px;
-  padding-bottom: 10px;
-  background-color: transparent;
-  text-align: center;
-  vertical-align: middle;
-}
-
-footer.questionnaire-footer {
-  position: absolute;
-  bottom: 0;
-  height: 100px;
-  width: 20%;
-}
-
-footer.questionnaire-footer>a {
-  float: right;
-}
-
-div.intro-arrow {
-  padding-left: 0px;
-}
-
 .questionnaire {
   background-color: #abffff;
   padding: 0px 100px;
   margin: 0 auto;
+}
+
+h1.intro-title {
+  padding-left: 10px;
 }
 
 .where {
@@ -103,11 +72,11 @@ div.intro-arrow {
   text-align: center;
 }
 
-
-div.who-container {
-  padding-left: 30px;
-  height: 900px;
-}
+//
+// div.who-container {
+//   padding-left: 30px;
+//   height: 900px;
+// }
 
 img.who-mail-img-container {
 
@@ -524,5 +493,15 @@ div.section.questionnaire {
 }
 
 div.who-arrow {
+  padding-left: 0px;
   margin-top: 50%;
+}
+
+div.when-arrow {
+  padding-left: 0px;
+  margin-top: 50%;
+}
+
+div.where-arrow {
+  padding-left: 0px;
 }

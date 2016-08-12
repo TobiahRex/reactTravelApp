@@ -40,7 +40,7 @@ export default class Where extends Component {
           <button className="btn btn-sm btn-default" onClick={this.showItinerary}>Show me my itinerary!</button>
         </div>
 
-        <div className="col-xs-1 questionnaire-footer">
+        <div className="col-xs-1 where-arrow">
           <a href="#questionnaire/4" onClick={this.showItinerary}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
