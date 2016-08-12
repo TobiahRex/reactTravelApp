@@ -105,6 +105,7 @@ div.intro-arrow {
 
 
 div.who-container {
+  padding-left: 30px;
   height: 900px;
 }
 
@@ -518,7 +519,10 @@ $ns: DateRangePicker !default;
   cursor: pointer;
 }
 
-div.questionnaire-arrow {
+div.section.questionnaire {
+  padding-left: 110px;
+}
+
+div.who-arrow {
   margin-top: 50%;
-  padding-left: 0px;
 }

@@ -24,15 +24,13 @@ export default class Where extends Component {
     } else {
       ClientActions.addClientData({ where: { city: this.state.city }}, client._id);
       ClientActions.getItinerary(client._id, this.state.city);
-
-      browserHistory.push('/itinerary');
     }
   }
 
   render() {
     return(
       <div className="slide">
-        <div className="where">
+        <div className="where col-xs-11">
           <h1>Where are you going?</h1>
           <i className="fa fa-map-marker" aria-hidden="true"></i>
           <input type="text" placeholder="City"
@@ -42,11 +40,11 @@ export default class Where extends Component {
           <button className="btn btn-sm btn-default" onClick={this.showItinerary}>Show me my itinerary!</button>
         </div>
 
-        <footer className="questionnaire-footer">
-          <a onClick={this.showItinerary}>
+        <div className="col-xs-1 questionnaire-footer">
+          <a href="#questionnaire/4" onClick={this.showItinerary}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
-        </footer>
+        </div>
       </div>
     )
   }

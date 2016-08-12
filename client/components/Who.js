@@ -70,8 +70,8 @@ export default class Who extends Component {
   render() {
     return(
       <div className="slide">
-        <div className="who-container">
 
+        <div className="who-container col-xs-11">
           <div className="who-title">
             <h1>Who is going?</h1>
           </div>
@@ -100,15 +100,11 @@ export default class Who extends Component {
               {this.state.kidsCount}
             </div>
           </div>
-
-          <footer className="questionnaire-footer">
-            <a href="#questionnaire/2" onClick={this.nextPage}>
+        </div>
+        <div className="col-xs-1 who-arrow">
+          <a href="#questionnaire/2" onClick={this.nextPage}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-            </a>
-          </footer>
-
-
-
+          </a>
         </div>
       </div>
     )
