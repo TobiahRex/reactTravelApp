@@ -3,6 +3,7 @@ import Who from './Who.js';
 import Where from './Where.js';
 import When from './When.js';
 import Intro from './Intro.js';
+import Itinerary from './Itinerary';
 
 
 export default class Questionnaire extends Component {
@@ -11,12 +12,14 @@ export default class Questionnaire extends Component {
   }
 
   render() {
+
     return(
       <div className="section questionnaire" data-anchor='questionnaire'>
         <Intro></Intro>
   			<Who></Who>
 				<When></When>
 				<Where></Where>
+        <Itinerary></Itinerary>
 			</div>
 		)
   }

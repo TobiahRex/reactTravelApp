@@ -22,6 +22,9 @@ const ClientActions = {
   getItinerary(clientId, city) {
     API.getItinerary(clientId, city);
   },
+  submitEmail(clientId, email){
+    API.submitEmail(clientId, email);
+  }
 }
 
 export default ClientActions

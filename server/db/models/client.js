@@ -12,6 +12,8 @@ const yelp = new Yelp({
   token_secret: process.env.YELP_TOKEN_SECRET
 });
 
+
+
 const clientSchema = new mongoose.Schema({
   who: {
     male: {
@@ -79,24 +81,24 @@ clientSchema.statics.updateClient = (id, body, cb) => {
 clientSchema.statics.itinerary = (id, body, cb) => {
   if (!id) return cb({ Error: `Cannot find client by this ${id} `});
 
-  let mongoID = mongoose.Types.ObjectId(id);
-
-  let yelpSearch = [{term: 'breakfast', location: body.location}, {term: 'lunch', location: body.location}, {term: 'dinner', location: body.location}, {term: 'activities', location: body.location}];
+  let yelpSearch = [{term: 'breakfast', location: body.location},
+    {term: 'lunch', location: body.location},
+    {term: 'dinner', location: body.location},
+    {term: 'activities', location: body.location}];
 
   async.map(yelpSearch, yelpSearching, (err, data) => {
-    if(err) {
-      console.log('err:', err);
-    }
+    if (err) console.log('yelp error: \n', err);
+
     let breakfast = data[0];
-    console.log('breakfast:', breakfast);
     let lunch = data[1];
     let dinner = data[2];
     let activities = data[3];
+
+    let mongoID = mongoose.Types.ObjectId(id);
     Client.findById(mongoID, (err, dbClient) => {
+      console.log('mongo error: ', err, '\n mongo client: ', dbClient);
       let length = dbClient.when.days + 1;
       if(err || !length) return cb(err);
-
-
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],

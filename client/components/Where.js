@@ -19,8 +19,8 @@ export default class Where extends Component {
         text: 'If you want an itinerary, you\'re going to need to give us a destination.',
         type: 'warning',
         confirmButtonText: 'Got it!',
-        confirmButtonColor: '#f7b8b8'
-      })
+        confirmButtonColor: '#f7b8b8',
+      });
     } else {
       ClientActions.addClientData({ where: { city: this.state.city }}, client._id);
       ClientActions.getItinerary(client._id, this.state.city);
@@ -30,7 +30,6 @@ export default class Where extends Component {
   }
 
   render() {
-    console.log('this.state.city: ', this.state.city);
     return(
       <div className="slide">
         <div className="where">

@@ -33,15 +33,15 @@ export default class Intro extends Component {
 
   render() {
     return(
-      <div className="slide">
-        <div className="intro">
+      <div className="slide row">
+        <div className="intro col-xs-11">
             <h1>Getting started...</h1>
         </div>
-        <footer className="questionnaire-footer">
+        <div className="intro-arrow col-xs-1">
           <a href="#questionnaire/1" onClick={this.nextPage}>
           <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
-        </footer>
+        </div>
       </div>
     )
   }

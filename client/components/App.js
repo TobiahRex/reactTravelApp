@@ -14,12 +14,12 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-      $('#fullpage').fullpage({
-        anchors: ['splash', 'questionnaire'],
-        sectionsColor: ['#121b3e'],
-        css3: true,
-        scrollingSpeed: 1000
-      })
+    $('#fullpage').fullpage({
+      anchors: ['splash', 'questionnaire'],
+      sectionsColor: ['#121b3e'],
+      css3: true,
+      scrollingSpeed: 1000
+    })
   }
 
   render() {

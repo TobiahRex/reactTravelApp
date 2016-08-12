@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from '../API';
 import ClientStore from '../stores/ClientStore';
+import ClientActions from '../actions/ClientActions';
 
 export default class Itinerary extends Component {
   constructor(props) {
@@ -12,16 +13,14 @@ export default class Itinerary extends Component {
     };
 
     this._getItinerary = this._getItinerary.bind(this);
+    this.submitEmail = this.submitEmail.bind(this);
   }
-
   componentDidMount() {
-    ClientStore.on('CHANGE', this._getItinerary)
+    ClientStore.on('CHANGE', this._getItinerary);
   }
-
   _getItinerary() {
     this.setState({ client: ClientStore.getClient() });
   }
-
   submitEmail(){
     let clientId = this.state.client._id;
     let email = this.state.email;
@@ -32,7 +31,6 @@ export default class Itinerary extends Component {
   render() {
     return(
       <div className="slide">
-
         <div className="itinerary">Itinerary<br/>
         Enter your email so we can send you this itinerary!
         <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
