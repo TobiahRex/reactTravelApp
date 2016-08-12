@@ -56,7 +56,11 @@ const API = {
     })
     .fail(err => ServerActions.receivedError(err))
   },
-
+  submitEmail(email, clientId){
+    post(`/api/clients/email/${clientId}`, email)
+    .done(res => ServerActions.sentEmailResponse(res))
+    .fail(err => ServerActions.receivedError(err));
+  }
 }
 
 export default API

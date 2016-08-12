@@ -13,6 +13,6 @@ router.route('/:id')
 .put((req, res) => Client.updateClient(req.params.id, req.body, res.handle))
 .delete((req, res) => Client.deleteClient(req.params.id, req.body, res.handle));
 
-router.post('/email', (req, res) => Client.sendEmail(req.body, res.handle));
+router.post('/email/:id', (req, res) => Client.sendEmail(req.params.id, req.body, res.handle));
 
 module.exports = router;

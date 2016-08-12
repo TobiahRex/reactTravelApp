@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import API from '../API';
 import ClientStore from '../stores/ClientStore';
+import ClientActions from '../actions/ClientActions';
 
 export default class Itinerary extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { client: {} };
+    this.state = {
+      client: {},
+      email: '',
+    };
 
     this._getItinerary = this._getItinerary.bind(this);
   }
@@ -16,11 +20,15 @@ export default class Itinerary extends Component {
   }
 
   _getItinerary() {
-    this.setState({
-      client: ClientStore.getClient()
-    })
+    this.setState({ client: ClientStore.getClient() });
+  }
 
-    console.log('this.state.client:', this.state.client);
+  submitEmail(){
+    let clientId = this.state.client._id;
+    let email = this.state.email;
+
+    ClientActions.submitEmail(email, clientId);
+
   }
 
 
@@ -28,10 +36,9 @@ export default class Itinerary extends Component {
     return(
       <div>Itinerary<br/>
         Enter your email so we can send you this itinerary!
-        <input type="email" placeholder="Email" />
+        <input onChange={ e => this.setState({ email: e.target.value })} type="email" placeholder="Email" />
+        <button onClick={this.submitEmail} ></button>
       </div>
     )
-
   }
-
 }
