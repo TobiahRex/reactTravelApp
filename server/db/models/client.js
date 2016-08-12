@@ -1,3 +1,5 @@
+'use strict'
+
 const Mail = require('./sendGrid.js');
 const mongoose = require('mongoose');
 const async = require('async');
