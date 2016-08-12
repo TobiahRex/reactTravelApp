@@ -35,7 +35,6 @@ export default class When extends Component {
     }
 
     this.handleSelect = this.handleSelect.bind(this);
-
     this.submitDate = this.submitDate.bind(this);
   }
 
@@ -50,6 +49,7 @@ export default class When extends Component {
   }
 
   submitDate() {
+    console.log('submit');
     $('input').each(function() {
       dates.push($(this).val());
     })
@@ -73,10 +73,10 @@ export default class When extends Component {
 
     return(
       <div className="slide">
-        <div className="when">
+        <div>
+          <h1>When?</h1>
 
-            <h1>When?</h1>
-            <DatePickerRange
+          <DatePickerRange
             firstOfWeek={1}
             numberOfCalendars={2}
             selectionType='range'
@@ -85,22 +85,16 @@ export default class When extends Component {
             defaultState="available"
             showLegend={true}
             value={this.state.value}
-          onSelect={this.handleSelect}
-            />
-            <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
+            onSelect={this.handleSelect}/>
+          <button className="btn btn-sm btn-default"  onClick={this.submitDate}>Submit</button>
 
-
-            <footer className="questionnaire-footer">
-              <a href="#questionnaire/3" onClick={this.nextPage}>
+          <div className="col-xs-1 questionnaire-arrow">
+            <a href="#questionnaire/3" onClick={this.nextPage}>
               <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-              </a>
-            </footer>
-
-
-
-
+            </a>
+          </div>
         </div>
-       </div>
+      </div>
     )
   }
 }

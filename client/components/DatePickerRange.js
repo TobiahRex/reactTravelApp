@@ -18,7 +18,7 @@ export default class DatePickerRange extends Component {
 
   render() {
     return (
-      <div>
+      <div className='col-xs-11'>
         <RangePicker {...this.props} onSelect={this.handleSelect} value={this.state.value} />
         <div>
           <input type="text"
