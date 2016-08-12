@@ -35,13 +35,13 @@ export default class Itinerary extends Component {
   render() {
     return(
       <div className="slide">
+
         <div className="itinerary">Itinerary<br/>
         Enter your email so we can send you this itinerary!
 
         <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
-
-
-        <If condition={this.state.client}>
+        <br/>
+        <If condition={this.state.client.itinerary}>
           {this.state.client.itinerary.map((day, index) => {
             return <Day key={index} day={day} />
           })}
@@ -50,6 +50,6 @@ export default class Itinerary extends Component {
 
       </div>
     )
-
   }
+
 }

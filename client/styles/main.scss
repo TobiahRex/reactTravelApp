@@ -522,3 +522,22 @@ div.questionnaire-arrow {
   margin-top: 50%;
   padding-left: 0px;
 }
+
+.flipcard {
+  height: 500px;
+  width: 500px;
+  padding: 5px;
+  background-color: gray;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+.flipcard>Flipcard>div {
+  width: 100%;
+}
+
+.ReactFlipCard__Flipper {
+  width: 500px;
+  text-align: center;
+}
