@@ -77,6 +77,8 @@ clientSchema.statics.updateClient = (id, body, cb) => {
 clientSchema.statics.itinerary = (id, body, cb) => {
   if (!id) return cb({ Error: `Cannot find client by this ${id} `});
 
+  let mongoID = mongoose.Types.ObjectId(id);
+
   let yelpSearch = [{term: 'breakfast', location: body.location}, {term: 'lunch', location: body.location}, {term: 'dinner', location: body.location}, {term: 'activities', location: body.location}];
 
   async.map(yelpSearch, yelpSearching, (err, data) => {
@@ -88,13 +90,12 @@ clientSchema.statics.itinerary = (id, body, cb) => {
     let lunch = data[1];
     let dinner = data[2];
     let activities = data[3];
-    Client.findById(id, (err, dbClient) => {
-      let length = dbClient.when.days;
+    Client.findById(mongoID, (err, dbClient) => {
+      let length = dbClient.when.days + 1;
       if(err || !length) return cb(err);
 
 
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
-
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
           lunch: [lunch[i-3], lunch[i-2]],
@@ -111,8 +112,6 @@ clientSchema.statics.itinerary = (id, body, cb) => {
     })
   })
 }
-
-clientSchema.statics.itinerary =
 
 clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
   if (!clientEmail || !clientId) return cb({ Error: 'Did not provide necessary client information to send email.' });
@@ -134,7 +133,6 @@ function yelpSearching(term, callback) {
     callback(err, data.businesses)
   });
 }
-
 
 const Client = mongoose.model('Client', clientSchema);
 module.exports = Client;

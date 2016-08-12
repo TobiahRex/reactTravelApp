@@ -46,14 +46,14 @@ const API = {
   },
 
   getItinerary(clientId, city) {
-    get(`/api/yelp/itinerary/${clientId}`, {
+    post(`/api/yelp/itinerary/${clientId}`, {
       location: city
     })
-      .done(data => {
-        console.log('data before being sent to serveractions:', data);
-        ServerActions.receivedClientData(data);
-      })
-      .fail(err => ServerActions.receivedError(err))
+    .done(data => {
+      console.log('data before being sent to serveractions:', data);
+      ServerActions.receivedClientData(data);
+    })
+    .fail(err => ServerActions.receivedError(err))
   },
 
 }
