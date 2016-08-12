@@ -1,7 +1,6 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/node',
 1 verbose cli   '/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/npm',
-1 verbose cli   'run',
 1 verbose cli   'start' ]
 2 info using npm@3.9.3
 3 info using node@v6.2.1
@@ -28,7 +27,7 @@
 15 verbose pkgid react-webpack-boilerplate@2.0.0
 16 verbose cwd /Users/BICKLEY/temp/ch2.0/jul_CH/jul_hw/reactTravelApp
 17 error Darwin 14.5.0
-18 error argv "/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/node" "/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/npm" "run" "start"
+18 error argv "/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/node" "/Users/BICKLEY/.nvm/versions/node/v6.2.1/bin/npm" "start"
 19 error node v6.2.1
 20 error npm  v3.9.3
 21 error code ELIFECYCLE

@@ -5,12 +5,6 @@ const mongoose = require('mongoose');
 const async = require('async');
 const Yelp = require('yelp');
 
-console.log(
-  process.env.YELP_CONSUMER_KEY,
-  process.env.YELP_CONSUMER_SECRET,
-  process.env.YELP_TOKEN,
-  process.env.YELP_TOKEN_SECRET);
-
 const yelp = new Yelp({
   consumer_key: process.env.YELP_CONSUMER_KEY,
   consumer_secret: process.env.YELP_CONSUMER_SECRET,
@@ -99,13 +93,12 @@ clientSchema.statics.itinerary = (id, body, cb) => {
     let lunch = data[1];
     let dinner = data[2];
     let activities = data[3];
-    console.log('YELP data: ', data);
 
     let mongoID = mongoose.Types.ObjectId(id);
     Client.findById(mongoID, (err, dbClient) => {
+      console.log('mongo error: ', err, '\n mongo client: ', dbClient);
       let length = dbClient.when.days + 1;
       if(err || !length) return cb(err);
-
       for(let i = 0, j = 0; i<length; i+=2, j+=3) {
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
@@ -140,9 +133,7 @@ clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
 }
 
 function yelpSearching(term, callback) {
-  console.log('term: ', term);
   yelp.search(term, (err, data) => {
-    console.log('err: ', err, 'data: ', data);
     callback(err, data.businesses)
   });
 }
