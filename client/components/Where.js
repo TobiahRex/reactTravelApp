@@ -31,6 +31,8 @@ export default class Where extends Component {
         confirmButtonText: 'Got it!',
         confirmButtonColor: '#f7b8b8'
       })
+    } else {
+      RestaurantActions.get
     }
     // else {
     //   API.getBreakfast(client._id, this.state.city);
