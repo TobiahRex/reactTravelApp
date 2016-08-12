@@ -10,28 +10,26 @@ export default class DatePickerRange extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: '',
-      states: null,
-    }
+    this.state = { value: '' };
     this.handleSelect = this.handleSelect.bind(this);
+    this.submitDate = this.submitDate.bind(this);
   }
 
-  handleSelect(value, states) {
-    this.setState({value, states});
+  handleSelect(value) {
+    this.setState({value});
   }
 
   submitDate() {
     let client = ClientStore.getClient();
+
     let whenObj = {
       when: {
-        start: this.state.value.start,
-        end: this.state.value.end,
-        days: value.end.diff(value.start, 'days'),
+        start: this.state.value.start.format('LL'),
+        end: this.state.value.end.format('LL'),
+        days: this.state.value.end.diff(this.state.value.start, 'days'),
       }
-    }
-    console.log('whenObj: ', whenObj);
-
+    }    
+    ClientActions.addClientData(whenObj, client._id);
   }
 
   render() {
@@ -42,11 +40,11 @@ export default class DatePickerRange extends Component {
           value={this.state.value} />
         <div>
           <input type="text"
-            value={this.state.value ? this.state.value.start.format('LL') : ""}
+            value={this.state.value ? this.state.value.start.format('LL') : ''}
             readOnly={true}
             placeholder="Start date"/>
           <input type="text"
-            value={this.state.value ? this.state.value.end.format('LL') : ""}
+            value={this.state.value ? this.state.value.end.format('LL') : ''}
             readOnly={true}
             placeholder="End date" />
         </div>
