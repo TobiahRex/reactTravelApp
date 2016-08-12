@@ -91,7 +91,7 @@ clientSchema.statics.itinerary = (id, body, cb) => {
     let dinner = data[2];
     let activities = data[3];
     Client.findById(mongoID, (err, dbClient) => {
-      let length = dbClient.when.days;
+      let length = dbClient.when.days + 1;
       if(err || !length) return cb(err);
 
 
