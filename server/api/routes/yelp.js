@@ -11,23 +11,7 @@ const yelp = new Yelp({
   token_secret: process.env.YELP_TOKEN_SECRET
 });
 
-router.get('/activities/:location', (req, res) => {
-  yelp.search({ term: 'activities', location: req.params.location}, res.handle)
-});
-
-router.get('/breakfast/:location', (req, res) => {
-  yelp.search({ term: 'breakfast', location: req.params.location}, res.handle)
-});
-
-router.get('/lunch/:location', (req, res) => {
-  yelp.search({ term: 'lunch', location: req.params.location}, res.handle)
-});
-
-router.get('/dinner/:location', (req, res) => {
-  yelp.search({ term: 'dinner', location: req.params.location}, res.handle)
-});
-
-router.post('/restaurants/:id', (req, res) => {
+router.post('/itinerary/:id', (req, res) => {
   Client.itinerary(req.params.id, req.body, res.handle);
 })
 

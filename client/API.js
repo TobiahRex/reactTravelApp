@@ -47,15 +47,16 @@ const API = {
     .done()
     .fail(err => ServerActions.receivedError(err));
   },
-  getRestaurants(id, city) {
-    get(`/api/yelp/restaurants/${id}`, city)
-    .done(res => ServerActions.receivedClientData(res))
-    .fail(err => ServerActions.receivedError(err));
-  },
-  getActivities(id, city) {
-    get(`/api/yelp/activities/${id}`, city)
-    .done(res => ServerActions.receivedClientData(res))
-    .fail(err => ServerActions.receivedError(err));
+
+  getItinerary(clientId, city) {
+    get(`/api/yelp/itinerary/${clientId}`, {
+      location: city
+    })
+      .done(data => {
+        console.log('data before being sent to serveractions:', data);
+        ServerActions.receivedClientData(data);
+      })
+      .fail(err => ServerActions.receivedError(err))
   },
 
 }

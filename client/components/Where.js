@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
-import RestaurantActions from '../actions/RestaurantActions';
-import ActivityActions from '../actions/ActivityActions';
+import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
 
 export default class Where extends Component {
@@ -11,6 +10,7 @@ export default class Where extends Component {
     this.state = { city: '' };
     this.showItinerary = this.showItinerary.bind(this);
   }
+
   showItinerary() {
     let client = ClientStore.getClient();
     if(this.state.city === '') {
@@ -22,8 +22,8 @@ export default class Where extends Component {
         confirmButtonColor: '#f7b8b8'
       })
     } else {
-      RestaurantActions.getRestaurants(client._id, this.state.city);
-      ActivityActions.getActivities(client._id, this.state.city);
+      ClientActions.getItinerary(client._id, this.state.city);
+
       browserHistory.push('/itinerary');
     }
   }

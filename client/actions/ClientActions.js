@@ -18,7 +18,10 @@ const ClientActions = {
   },
   deleteClient(clientId) {
     API.deleteClient(clientId);
-  }
+  },
+  getItinerary(clientId, city) {
+    API.getItinerary(clientId, city);
+  },
 }
 
 export default ClientActions
