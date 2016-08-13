@@ -45,11 +45,15 @@ export default class Intro extends Component {
               <Container>
 
                 <Row>
-                  <Col md='6'>
+                  <Col md='7' className='intro-text-container mui--text-center'>
                     <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
-                    <p className="mui--text-headline mui--text-white mui--text-justify">Tell us Who, When, and Where you want to go, and well give you the What</p>
+                    <p className="mui--text-headline mui--text-white mui--text-center intro-message">Tell us...
+                      <br /> <br />
+                    <span className='mui--text-display1 mui--text-center'> Who, When, and Where </span>
+                      <br /> <br />
+                      ...Well give you the What</p>
                   </Col>
-                  <Col md='6' className='mui--text-center'>
+                  <Col md='5' className='mui--text-center'>
                     <img className='intro-image' src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family-Picture"/>
                   </Col>
                 </Row>

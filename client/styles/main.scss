@@ -57,15 +57,24 @@ i.fa.fa-angle-down {
 }
 
 div.intro-title {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: Italic;
   top: 100px;
   position: fixed;
 }
 div.intro-title-container {
   background-color: #ff7300
 }
+p.intro-message {
+  font-family: 'Droid serif';
+}
 img.intro-image {
-  width: 80%;
+  border-radius: 10%;
+  width: 100%;
   padding: 20px;
+}
+.intro-text-container {
+  margin-top: 100px;
 }
 
 .splash-container-contain {
