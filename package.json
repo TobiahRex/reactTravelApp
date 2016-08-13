@@ -80,7 +80,9 @@
     "webpack-dev-server": "1.14.1",
     "yelp": "1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "muicss": "0.6.9"
+  },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [
