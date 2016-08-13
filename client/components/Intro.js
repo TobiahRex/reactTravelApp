@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ClientActions from '../actions/ClientActions.js'
-import { Button } from 'muicss/react';
+import { Button, Panel, Container } from 'muicss/react';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
 
 
 export default class Intro extends Component {
@@ -37,14 +39,36 @@ export default class Intro extends Component {
   render() {
     return(
       <div className="slide">
-        <div className="intro col-xs-11">
-            <h1 className='intro-title'>Lets get started...</h1>
-        </div>
-        <div className="intro-arrow col-xs-1 mui--text-right">
-          <Button  variant="fab" color="primary"> <i className="fa fa-arrow-right"></i> </Button>
-          <a href="#questionnaire/1" onClick={this.nextPage}>
-          </a>
-        </div>
+        <Row>
+          <Col md='10'>
+            <div className="intro-title-container mui--z2">
+              <Container>
+
+                <Row>
+                  <Col md='6'>
+                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
+                    <p className="mui--text-headline mui--text-white mui--text-justify">Tell us Who, When, and Where you want to go, and well give you the What</p>
+                  </Col>
+                  <Col md='6' className='mui--text-center'>
+                    <img className='intro-image' src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family-Picture"/>
+                  </Col>
+                </Row>
+
+
+                <br/>
+
+              </Container>
+            </div>
+          </Col>
+
+          <Col md='2'>
+            <div className="intro-arrow mui--text-right">
+              <Button  variant="fab" color="primary"> <i className="fa fa-arrow-right"></i> </Button>
+              <a href="#questionnaire/1" onClick={this.nextPage}>
+              </a>
+            </div>
+          </Col>
+        </Row>
       </div>
     )
   }

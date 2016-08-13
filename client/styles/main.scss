@@ -5,6 +5,20 @@
   background-repeat: no-repeat;
 }
 
+.mui-btn--primary {
+  background-color: #FF7300;
+}
+.mui-btn--primary:focus {
+  background-color: white;
+}
+
+.mui--text-display2 {
+  font-family: Arial narrow;
+  font-weight: 900;
+  font-size: 55px;
+  color: white;
+}
+
 .splash-container {
   color: white;
   text-shadow: -1px -1px 26px black;
@@ -46,6 +60,13 @@ div.intro-title {
   top: 100px;
   position: fixed;
 }
+div.intro-title-container {
+  background-color: #ff7300
+}
+img.intro-image {
+  width: 80%;
+  padding: 20px;
+}
 
 .splash-container-contain {
   width: 420px;
@@ -72,14 +93,11 @@ div.intro-title {
 }
 
 .questionnaire {
-  background-color: #abffff;
+  background-color: rgba(#C6C6C6, 1);
   padding: 0px 100px;
   margin: 0 auto;
 }
 
-.intro>h1 {
-  text-shadow: -2px -2px 1px #777474;
-}
 
 .when {
   margin: 0 auto;

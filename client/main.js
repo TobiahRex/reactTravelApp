@@ -26,5 +26,5 @@ render(
       </Route>
       <Route path='itinerary' component={Itinerary} />
     </Router>,
-  document.getElementById('js-main')
+  document.getElementById('root')
 )
