@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import API from '../API';
 import ClientStore from '../stores/ClientStore';
-
 import ClientActions from '../actions/ClientActions';
-
 import Day from './Day';
 
 
@@ -12,7 +10,7 @@ export default class Itinerary extends Component {
     super(props);
 
     this.state = {
-      client: {},
+      client: null,
       email: '',
     };
 
@@ -24,6 +22,7 @@ export default class Itinerary extends Component {
   }
   _getItinerary() {
     this.setState({ client: ClientStore.getClient() });
+    console.log('this.state.client: ', this.state.client);
   }
   submitEmail(){
     let clientId = this.state.client._id;
@@ -33,6 +32,8 @@ export default class Itinerary extends Component {
   }
 
   render() {
+
+
     return(
       <div className="slide">
 
@@ -41,7 +42,7 @@ export default class Itinerary extends Component {
 
         <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
         <br/>
-        <If condition={this.state.client.itinerary}>
+        <If condition={this.state.client}>
           {this.state.client.itinerary.map((day, index) => {
             return <Day key={index} day={day} />
           })}
@@ -51,5 +52,4 @@ export default class Itinerary extends Component {
       </div>
     )
   }
-
 }

@@ -33,9 +33,9 @@ export default class Intro extends Component {
 
   render() {
     return(
-      <div className="slide row">
+      <div className="slide">
         <div className="intro col-xs-11">
-            <h1>Getting started...</h1>
+            <h1 className='intro-title'>Lets get started...</h1>
         </div>
         <div className="intro-arrow col-xs-1">
           <a href="#questionnaire/1" onClick={this.nextPage}>

@@ -24,29 +24,33 @@ export default class Where extends Component {
     } else {
       ClientActions.addClientData({ where: { city: this.state.city }}, client._id);
       ClientActions.getItinerary(client._id, this.state.city);
-
-      browserHistory.push('/itinerary');
     }
   }
 
   render() {
     return(
       <div className="slide">
-        <div className="where">
+        <div className="where-title">
           <h1>Where are you going?</h1>
-          <i className="fa fa-map-marker" aria-hidden="true"></i>
-          <input type="text" placeholder="City"
-            onChange={ e => this.setState({ city: e.target.value })}/>
-          <br/>
-          <br/>
-          <button className="btn btn-sm btn-default" onClick={this.showItinerary}>Show me my itinerary!</button>
+        </div>
+        <div className="where-content col-xs-11">
+          <div className="city-input col-xs-6 col-xs-offset-3 text-center">
+            <i className="fa fa-map-marker" aria-hidden="true"></i>
+            <input className='form-control where-city-input' type="text" placeholder="City"
+              onChange={ e => this.setState({ city: e.target.value })}/>
+          </div>
+          <div className="col-xs-12 where-page-break">
+          </div>
+          <div className="where-submit col-xs-4 col-xs-offset-4">
+            <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
+          </div>
         </div>
 
-        <footer className="questionnaire-footer">
-          <a onClick={this.showItinerary}>
+        <div className="col-xs-1 where-arrow">
+          <a href="#questionnaire/4" onClick={this.showItinerary}>
             <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
           </a>
-        </footer>
+        </div>
       </div>
     )
   }
