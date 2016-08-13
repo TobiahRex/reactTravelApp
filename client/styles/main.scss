@@ -55,26 +55,36 @@ i.fa.fa-angle-down {
   font-size: 50px;
   font-weight: bold;
 }
-
+h1.intro-title {
+  line-height: 3;
+  font-family: "Baloo Thambi";
+}
 div.intro-title {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: Italic;
+  font-family: "Baloo Thambi";
   top: 100px;
   position: fixed;
 }
 div.intro-title-container {
   background-color: #ff7300
 }
+span.intro-www {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
 p.intro-message {
   font-family: 'Droid serif';
 }
 img.intro-image {
+  margin-bottom: 20px;
   border-radius: 10%;
   width: 100%;
   padding: 20px;
 }
 .intro-text-container {
-  margin-top: 100px;
+  margin-top: -20px;
+}
+.intro-arrow {
+  margin-top: 100%;
 }
 
 .splash-container-contain {
@@ -102,7 +112,7 @@ img.intro-image {
 }
 
 .questionnaire {
-  background-color: rgba(#C6C6C6, 1);
+  background-color: #1a2c39;
   padding: 0px 100px;
   margin: 0 auto;
 }
@@ -587,4 +597,7 @@ div.where-arrow {
 .ReactFlipCard__Flipper {
   width: 500px;
   text-align: center;
+}
+i.fa-arrow-right {
+  color: white;
 }

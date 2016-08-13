@@ -44,14 +44,14 @@ export default class Intro extends Component {
             <div className="intro-title-container mui--z2">
               <Container>
 
-                <Row>
+                <Row className='intro-row'>
                   <Col md='7' className='intro-text-container mui--text-center'>
                     <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
                     <p className="mui--text-headline mui--text-white mui--text-center intro-message">Tell us...
                       <br /> <br />
-                    <span className='mui--text-display1 mui--text-center'> Who, When, and Where </span>
+                    <span className='mui--text-display1 mui--text-center intro-www'> Who, When, and Where </span>
                       <br /> <br />
-                      ...Well give you the What</p>
+                      ...We will give you the What</p>
                   </Col>
                   <Col md='5' className='mui--text-center'>
                     <img className='intro-image' src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family-Picture"/>
@@ -67,9 +67,11 @@ export default class Intro extends Component {
 
           <Col md='2'>
             <div className="intro-arrow mui--text-right">
-              <Button  variant="fab" color="primary"> <i className="fa fa-arrow-right"></i> </Button>
-              <a href="#questionnaire/1" onClick={this.nextPage}>
-              </a>
+                <a href="#questionnaire/1" onClick={this.nextPage}>
+                  <Button  variant="fab" color="primary">
+                   <i className="fa fa-arrow-right"></i>
+                 </Button>
+                </a>
             </div>
           </Col>
         </Row>
