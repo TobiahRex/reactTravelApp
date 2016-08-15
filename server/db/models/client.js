@@ -105,7 +105,7 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
       if(err || !length) return cb(err);
 
-      for(let i = 0, j = 0, x = 1; x<length; i+=2, j+=3, x++) {
+      for(let i = 0, j = 0, x = 0; x<length; i+=2, j+=3, x++) {
 
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
@@ -116,15 +116,6 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
         dbClient.itinerary.push(newObj);
 
-        breakfast.splice(breakfast.indexOf(breakfast[i]), breakfast.indexOf(breakfast[i+1]) + 1);
-
-        lunch.splice(lunch.indexOf(lunch[i]), lunch.indexOf(lunch[i+1]) + 1);
-
-        dinner.splice(dinner.indexOf(dinner[i]), dinner.indexOf(dinner[i+1]) + 1);
-
-        activities.splice(activities.indexOf(activities[j]), activities.indexOf(activities[j+2]) + 1);
-
-        
       }
 
       dbClient.save((err2, savedClient) => {
