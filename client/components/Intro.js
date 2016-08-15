@@ -46,7 +46,7 @@ export default class Intro extends Component {
 
                 <Row className='intro-row'>
                   <Col md='7' className='intro-text-container mui--text-center'>
-                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
+                    <h1 className='intro-title mui--text-display2'>LET'S GET STARTED</h1>
                     <p className="mui--text-headline mui--text-white mui--text-center intro-message">Tell us...
                       <br /> <br />
                     <span className='mui--text-display1 mui--text-center intro-www'> Who, When, and Where </span>
@@ -59,21 +59,21 @@ export default class Intro extends Component {
                 </Row>
 
 
-                <br/>
+
 
               </Container>
             </div>
           </Col>
-
           <Col md='2'>
-            <div className="intro-arrow mui--text-right">
-                <a href="#questionnaire/1" onClick={this.nextPage}>
-                  <Button  variant="fab" color="primary">
-                   <i className="fa fa-arrow-right"></i>
-                 </Button>
-                </a>
-            </div>
+          <div className="intro-arrow mui--text-right">
+          <a href="#questionnaire/1" onClick={this.nextPage}>
+          <Button  variant="fab" color="primary">
+          <i className="fa fa-arrow-right"></i>
+          </Button>
+          </a>
+          </div>
           </Col>
+
         </Row>
       </div>
     )

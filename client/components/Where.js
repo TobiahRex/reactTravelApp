@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
+import { Button, Panel, Container } from 'muicss/react';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
 
 export default class Where extends Component {
   constructor(props) {
@@ -30,28 +33,62 @@ export default class Where extends Component {
   render() {
     return(
       <div className="slide">
-        <div className="where-title">
-          <h1>Where are you going?</h1>
-        </div>
-        <div className="where-content col-xs-11">
-          <div className="city-input col-xs-6 col-xs-offset-3 text-center">
-            <i className="fa fa-map-marker" aria-hidden="true"></i>
-            <input className='form-control where-city-input' type="text" placeholder="City"
-              onChange={ e => this.setState({ city: e.target.value })}/>
-          </div>
-          <div className="col-xs-12 where-page-break">
-          </div>
-          <div className="where-submit col-xs-4 col-xs-offset-4">
-            <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
-          </div>
-        </div>
 
-        <div className="col-xs-1 where-arrow">
+        <Row>
+
+          <Col md='10'>
+          <h1>Where are you going?</h1>
+
+          <i className="fa fa-map-marker" aria-hidden="true"></i>
+          <input className='form-control where-city-input' type="text" placeholder="City"
+          onChange={ e => this.setState({ city: e.target.value })}/>
+
+
+
+          <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
+
+          </Col>
+
+
+
+          <Col md="2">
+          <div className="intro-arrow mui--text-right">
           <a href="#questionnaire/4" onClick={this.showItinerary}>
-            <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+          <Button  variant="fab" color="primary">
+          <i className="fa fa-arrow-right"></i>
+          </Button>
           </a>
-        </div>
+          </div>
+          </Col>
+
+        </Row>
+
       </div>
     )
   }
 }
+
+//
+// <div className="slide">
+//   <div className="where-title">
+//     <h1>Where are you going?</h1>
+//   </div>
+//   <div className="where-content col-xs-11">
+//     <div className="city-input col-xs-6 col-xs-offset-3 text-center">
+//       <i className="fa fa-map-marker" aria-hidden="true"></i>
+//       <input className='form-control where-city-input' type="text" placeholder="City"
+//         onChange={ e => this.setState({ city: e.target.value })}/>
+//     </div>
+//     <div className="col-xs-12 where-page-break">
+//     </div>
+//     <div className="where-submit col-xs-4 col-xs-offset-4">
+//       <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
+//     </div>
+//   </div>
+//   <div className="col-xs-1 where-arrow">
+//   <a href="#questionnaire/4" onClick={this.showItinerary}>
+//   <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
+//   </a>
+//   </div>
+//
+// </div>

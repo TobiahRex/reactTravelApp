@@ -34,11 +34,10 @@ export default class DatePickerRange extends Component {
 
   render() {
     return (
-      <div className='col-xs-7 col-xs-offset-3 row'>
+      <div>
         <RangePicker {...this.props}
           onSelect={this.handleSelect}
           value={this.state.value} />
-        <div className="form-inline col-xs-offset-2">
           <div className='form-group'>
             <input type="text"
               id='start-date'
@@ -54,12 +53,37 @@ export default class DatePickerRange extends Component {
               className='form-control'/>
             <label htmlFor="button"> </label>
             </div>
-        </div>
         <br/>
-        <div className="col-xs-10">
           <button id='button' className="btn btn-primary btn-lg btn-block" onClick={this.submitDate}>Submit</button>
-        </div>
       </div>
     );
   }
 }
+
+
+// <div className='col-xs-7 col-xs-offset-3 row'>
+//   <RangePicker {...this.props}
+//     onSelect={this.handleSelect}
+//     value={this.state.value} />
+//   <div className="form-inline col-xs-offset-2">
+//     <div className='form-group'>
+//       <input type="text"
+//         id='start-date'
+//         value={this.state.value ? this.state.value.start.format('LL') : ''}
+//         readOnly={true}
+//         placeholder="Start date"
+//         className='form-control'/>
+//       <input type="text"
+//         id='end-date'
+//         value={this.state.value ? this.state.value.end.format('LL') : ''}
+//         readOnly={true}
+//         placeholder="End date"
+//         className='form-control'/>
+//       <label htmlFor="button"> </label>
+//       </div>
+//   </div>
+//   <br/>
+//   <div className="col-xs-10">
+//     <button id='button' className="btn btn-primary btn-lg btn-block" onClick={this.submitDate}>Submit</button>
+//   </div>
+// </div>
