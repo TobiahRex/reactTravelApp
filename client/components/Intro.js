@@ -39,30 +39,25 @@ export default class Intro extends Component {
 
   render() {
     return(
-      <div className="slide">        
-        <Row>
+      <div className="slide">
+        <Row className='intro-row'>
           <Col md='10'>
-            <div className="intro-title-container mui--z2">
-              <Container>
+            <div className="intro-title-container">
+              <div>
 
                 <Row className='intro-row'>
-                  <Col md='7' className='intro-text-container mui--text-center'>
-                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
-                    <p className="mui--text-headline mui--text-white mui--text-center intro-message">Tell us...
-                      <br /> <br />
-                      <span className='mui--text-display1 mui--text-center intro-www'> Who, When, and Where </span>
-                      <br /> <br />
-                      ...We will give you the What</p>
-                  </Col>
                   <Col md='5' className='mui--text-center'>
                     <img className='intro-image' src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family-Picture"/>
+                  </Col>
+                  <Col md='7' className='intro-text-container mui--text-center'>
+                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
                   </Col>
                 </Row>
 
 
                 <br/>
 
-              </Container>
+              </div>
             </div>
           </Col>
 

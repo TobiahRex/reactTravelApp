@@ -59,13 +59,16 @@ i.fa.fa-angle-down {
 #intro-panel {
   background-color: #ff7300;
   // top: 0px;
-  width: 85%;
+  width: 100%;
   // position: fixed;
 
 
 }
+.intro-row {
+  margin-bottom: 100px;
+}
 h1.intro-title {
-  line-height: 3;
+  line-height: 7.5;
   font-family: "Baloo Thambi";
 }
 div.intro-title {
@@ -73,9 +76,7 @@ div.intro-title {
   top: 100px;
   position: fixed;
 }
-div.intro-title-container {
-  background-color: #ff7300
-}
+
 span.intro-www {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -88,6 +89,13 @@ img.intro-image {
   border-radius: 10%;
   width: 100%;
   padding: 20px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+
 }
 .intro-text-container {
   margin-top: -20px;

@@ -4,7 +4,7 @@ import Where from './Where.js';
 import When from './When.js';
 import Intro from './Intro.js';
 import Itinerary from './Itinerary';
-import { Panelg } from 'muicss/react';
+import { Panel } from 'muicss/react';
 
 
 export default class Questionnaire extends Component {
