@@ -35,7 +35,7 @@ export default class Itinerary extends Component {
   }
 
   render() {
-
+    console.log('this.state.client:', this.state.client);
 
     return(
       <div className="slide">
@@ -48,7 +48,7 @@ export default class Itinerary extends Component {
             <br/>
             <If condition={this.state.client}>
             {this.state.client.itinerary.map((day, index) => {
-              return <Day key={index} day={day} />
+              return <Day key={index} day={day} client={this.state.client} />
             })}
             </If>
             </div>

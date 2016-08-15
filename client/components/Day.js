@@ -7,19 +7,16 @@ export default class Day extends Component {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
-    let day = this.props.day;
+    let { day, client } = this.props;
     console.log('day:', day);
+    console.log('client:', client);
     return(
       <div className="flipcard">
         <FlipCard>
-          <div>
-            <div>Day</div>
-          </div>
+
+          <div></div>
+
           <div>
             activities:
             {day.activities.map(activity => {

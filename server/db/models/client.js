@@ -105,17 +105,28 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
       if(err || !length) return cb(err);
 
-      for(let i = 0, j = 0; i<length; i+=2, j+=3) {
+      for(let i = 0, j = 0, x = 1; x<length; i+=2, j+=3, x++) {
+
         let newObj = {
           breakfast: [breakfast[i], breakfast[i+1]],
           lunch: [lunch[i], lunch[i+1]],
           dinner: [dinner[i], dinner[i+1]],
           activities: [activities[j], activities[j+1], activities[j+2]]
-        }
+        };
 
         dbClient.itinerary.push(newObj);
-        console.log('dbClient:', dbClient.itinerary.breakfast);
+
+        breakfast.splice(breakfast.indexOf(breakfast[i]), breakfast.indexOf(breakfast[i+1]) + 1);
+
+        lunch.splice(lunch.indexOf(lunch[i]), lunch.indexOf(lunch[i+1]) + 1);
+
+        dinner.splice(dinner.indexOf(dinner[i]), dinner.indexOf(dinner[i+1]) + 1);
+
+        activities.splice(activities.indexOf(activities[j]), activities.indexOf(activities[j+2]) + 1);
+
+        
       }
+
       dbClient.save((err2, savedClient) => {
         if(err2) return cb(err2);
         cb(null, savedClient);
