@@ -94,25 +94,26 @@ export default class Who extends Component {
           <h5 className='who-title mui--text-display2'>WHO is going?</h5>
         </div>
         <Row id='who-row'>
-          <Col md="11" id='who-container'>
+          <Col md="9" md-offset='2' id='who-container'>
             <div className="who-image-container row">
               <div className="who-male-img-container mui-col-xs-3">
                 <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
                 <br/>
-                <div className="text-center well who-counter-well mui-col-xs-3">
+                <div className="text-center counter-text mui-col-xs-3">
                   {this.state.maleCount}
                 </div>
               </div>
               <div className="who-female-img-container mui-col-xs-3">
                 <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
                 <br/>
-                <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
+                <div className="text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
                   {this.state.femaleCount}
                 </div>
               </div>
               <div className="who-kids-img-container mui-col-xs-4">
                 <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
-                <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
+                <br/>
+                <div className="text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
                   {this.state.kidsCount}
                 </div>
               </div>
