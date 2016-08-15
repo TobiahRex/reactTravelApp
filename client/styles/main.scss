@@ -636,9 +636,15 @@ div.where-page-break {
   height: 100px;
 }
 
-input.where-city-input {
+#where-input {
+  font-size: 40px;
   height: 50px;
-  font-size: 30px;
+}
+#where-input:focus {
+  color: #ff7300;
+  border-color: #ff7300;
+  font-size: 40px;
+  height: 50px;
 }
 
 div.where-arrow {
