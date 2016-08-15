@@ -90,46 +90,46 @@ export default class Who extends Component {
   render() {
     return(
       <div className="slide">
-      <Row>
-        <Col md="10">
         <div className="who-title">
-        <h1>Who is going?</h1>
+          <h5 className='who-title mui--text-display2'>WHO is going?</h5>
         </div>
-        <br/>
-        <div className="who-image-container row">
-        <div className="who-male-img-container mui-col-xs-3">
-        <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
-        <div className="text-center well who-counter-well mui-col-xs-3">
-        {this.state.maleCount}
-        </div>
-        </div>
-        <div className="who-female-img-container mui-col-xs-3">
-        <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
-        <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-        {this.state.femaleCount}
-        </div>
-        </div>
-        <div className="who-kids-img-container mui-col-xs-4">
-        <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
-        <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-        {this.state.kidsCount}
-        </div>
-        </div>
-        </div>
-        </Col>
+        <Row id='who-row'>
+          <Col md="11" id='who-container'>
+            <div className="who-image-container row">
+              <div className="who-male-img-container mui-col-xs-3">
+                <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
+                <br/>
+                <div className="text-center well who-counter-well mui-col-xs-3">
+                  {this.state.maleCount}
+                </div>
+              </div>
+              <div className="who-female-img-container mui-col-xs-3">
+                <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
+                <br/>
+                <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
+                  {this.state.femaleCount}
+                </div>
+              </div>
+              <div className="who-kids-img-container mui-col-xs-4">
+                <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
+                <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
+                  {this.state.kidsCount}
+                </div>
+              </div>
+            </div>
+          </Col>
 
+          <Col md="1" id='who-arrow'>
+            <a href="#questionnaire/2" onClick={this.nextPage}>
+              <Button  variant="fab" color="primary">
+                <i className="fa fa-arrow-right"></i>
+              </Button>
+            </a>
+            <div className="who-arrow">
+            </div>
+          </Col>
 
-        <Col md="2">
-        <div className="intro-arrow mui--text-right">
-        <a href="#questionnaire/2" onClick={this.nextPage}>
-        <Button  variant="fab" color="primary">
-        <i className="fa fa-arrow-right"></i>
-        </Button>
-        </a>
-        </div>
-        </Col>
-
-      </Row>
+        </Row>
 
       </div>
     )
