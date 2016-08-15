@@ -51,7 +51,6 @@ export default class Where extends Component {
           </Col>
 
 
-
           <Col md="2">
             <div className="mui--text-right">
               <a href="#questionnaire/4" onClick={this.showItinerary}>

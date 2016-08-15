@@ -30,11 +30,6 @@ export default class When extends Component {
     this.state = {
       value: null
     }
-    this.nextPage = this.nextPage.bind(this);
-  }
-
-  nextPage() {
-    console.log('hello');
   }
 
   render() {
@@ -61,7 +56,7 @@ export default class When extends Component {
           </Col>
           <Col md="2">
             <div className="intro-arrow mui--text-right">
-              <a href="#questionnaire/3" onClick={this.nextPage}>
+              <a href="#questionnaire/3">
                 <Button variant="fab" color="primary">
                   <i className="fa fa-arrow-right"></i>
                 </Button>
