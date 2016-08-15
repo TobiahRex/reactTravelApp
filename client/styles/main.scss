@@ -4,37 +4,58 @@
   background-size: 100% auto;
   background-repeat: no-repeat;
 }
-
 .mui-btn--primary {
   background-color: #FF7300;
 }
 .mui-btn--primary:focus {
   background-color: white;
 }
-
 .mui--text-display2 {
   font-family: Arial narrow;
   font-weight: 900;
   font-size: 55px;
   color: white;
 }
-
 .splash-container {
   color: white;
   text-shadow: -1px -1px 26px black;
   text-align: center;
   margin-bottom: 250px;
 }
+.splash-container-contain {
+  width: 420px;
+  height: 300px;
+  vertical-align: middle;
+  padding-top: 60px;
+  margin: 0 auto;
+  border: 6px solid white;
+  text-align: center;
+  font-family: 'Farsan';
+  font-size: 22px;
+  box-shadow: -2px -2px 107px #757070;
+}
+.splash-arrow {
+  margin: 0 auto;
+}
+.brand {
+  font-family: 'Baloo Thambi';
+  font-size: 60px;
+  padding-top: 10px;
+  text-shadow: -4px -4px 9px #353434;
+}
+.questionnaire {
+  background-color: #0063aa;
+  padding: 0px 100px;
+  margin: 0 auto;
+}
 
 .footer>a, .footer>a:hover, .footer>a:focus {
   color: white;
   font-weight: bold;
 }
-
 .footer>a:hover {
   font-size: 60px;
 }
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -106,45 +127,61 @@ img.intro-image {
   margin-top: 100%;
 }
 
-.splash-container-contain {
-  width: 420px;
-  height: 300px;
-  vertical-align: middle;
-  padding-top: 60px;
-  margin: 0 auto;
-  border: 6px solid white;
-  text-align: center;
-  font-family: 'Farsan';
-  font-size: 22px;
-  box-shadow: -2px -2px 107px #757070;
-}
 
-.splash-arrow {
-  margin: 0 auto;
-}
 
-.brand {
+// Who Component
+#who-row {
+  margin-bottom: 250px;
+}
+#who-container {
+  margin-top: 25px;
+}
+#who-arrow {
+  margin-top: 170px;
+}
+h5.who-title {
+  font-family: "Baloo Thambi";
+}
+.who-female-img-container {
+  padding-left: 30px;
+}gtup
+.who-kids-counter {
+  padding-left: 70px;
+}
+.male-counter {
+  padding-left: 60px;
+}
+.female-counter {
+  padding-left: 40px;
+}
+div.counter-text {
+  font-size: 40px;
   font-family: 'Baloo Thambi';
-  font-size: 60px;
-  padding-top: 10px;
-  text-shadow: -4px -4px 9px #353434;
+  color: white;
 }
-
-.questionnaire {
-  background-color: #0063aa;
-  padding: 0px 100px;
-  margin: 0 auto;
+img.who-male-img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
-
-
-.when {
-  margin: 0 auto;
-  vertical-align: middle;
-  text-align: center;
+img.who-female-img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
-
-img.who-mail-img-container {
-
+img.who-kids-img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
 img.who-male-img {
   width: 137px;
@@ -176,21 +213,27 @@ div.who-counter-well {
   display: inline-block;
 }
 
-
-
-
-
+// When Component
+#when-row {
+  margin-bottom: 250px;
+}
+div.chosen-dates {
+  margin-left: 50px;
+}
+h5.when-title {
+  font-family: "Baloo Thambi";
+}
+.when {
+  margin: 0 auto;
+  vertical-align: middle;
+  text-align: center;
+}
 .when >div>div>input {
   font-family: 'Baloo Thambi'
 }
-
-
-
 div.DateRangePicker>div.DateRangePicker__Month {
   width: 500px;
 }
-
-
 table.DateRangePicker__MonthDates {
   height: 400px;
   width: 500px;
@@ -199,7 +242,9 @@ table.DateRangePicker__MonthDates {
   border: 2px solid black;
   box-shadow: -1px -1px 10px black;
 }
-
+div.date-inputs > input {
+  color: #ff7300;
+}
 
 
 
@@ -247,7 +292,7 @@ $ns: DateRangePicker !default;
     border: 1px solid rgba(#000, .25);
 
     &--selection {
-      background-color: #23b116;
+      background-color: #ff7300;
     }
   }
 
@@ -305,7 +350,7 @@ $ns: DateRangePicker !default;
   }
 
   &__Month {
-    color: #333;
+    color: #ff7300;
     display: inline-block;
     margin: 0 20px;
     position: relative;
@@ -314,8 +359,7 @@ $ns: DateRangePicker !default;
   }
 
   &__MonthHeader {
-    color: #000;
-    text-shadow: -1px -1px 4px #848080;
+    color: #ff7300;
     font-size: 20px;
     font-weight: bold;
     height: 35px;

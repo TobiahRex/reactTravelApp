@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
-import { Button, Panel, Container } from 'muicss/react';
-import Row from 'muicss/lib/react/row';
-import Col from 'muicss/lib/react/col';
+import { Panel, Container, Row, Col, Form, Input, Button } from 'muicss/react';
 
 export default class Where extends Component {
   constructor(props) {
@@ -37,28 +35,23 @@ export default class Where extends Component {
         <Row>
 
           <Col md='10'>
-          <h1>Where are you going?</h1>
+            <h1>Where are you going?</h1>
 
-          <i className="fa fa-map-marker" aria-hidden="true"></i>
-          <input className='form-control where-city-input' type="text" placeholder="City"
-          onChange={ e => this.setState({ city: e.target.value })}/>
-
-
-
-          <button className="btn btn-lg btn-success btn-block" onClick={this.showItinerary}>Show me my itinerary!</button>
-
+            <i className="fa fa-map-marker" aria-hidden="true"></i>
+            <input className='form-control where-city-input' type="text" placeholder="City"
+              onChange={ e => this.setState({ city: e.target.value })}/>
           </Col>
 
 
 
           <Col md="2">
-          <div className="intro-arrow mui--text-right">
-          <a href="#questionnaire/4" onClick={this.showItinerary}>
-          <Button  variant="fab" color="primary">
-          <i className="fa fa-arrow-right"></i>
-          </Button>
-          </a>
-          </div>
+            <div className="intro-arrow mui--text-right">
+              <a href="#questionnaire/4" onClick={this.showItinerary}>
+                <Button  variant="fab" color="primary">
+                  <i className="fa fa-arrow-right"></i>
+                </Button>
+              </a>
+            </div>
           </Col>
 
         </Row>

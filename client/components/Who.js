@@ -15,11 +15,11 @@ export default class Who extends Component {
       client: {},
       clientId: '',
       maleCount: 0,
-      male: "client/styles/images/male_shilouette.png",
+      male: "client/styles/images/male_shilouette_black.png",
       femaleCount: 0,
-      female: "client/styles/images/female_shilouette.png",
+      female: "client/styles/images/female_shilouette_black.png",
       kidsCount: 0,
-      kids: "client/styles/images/kids_shillouette.png",
+      kids: "client/styles/images/kids_shillouette_black.png",
     }
 
     this.addMale = this.addMale.bind(this);
@@ -90,89 +90,49 @@ export default class Who extends Component {
   render() {
     return(
       <div className="slide">
-      <Row>
-        <Col md="10">
         <div className="who-title">
-        <h1>Who is going?</h1>
+          <h5 className='who-title mui--text-display2'>WHO is going?</h5>
         </div>
-        <br/>
-        <div className="who-image-container row">
-        <div className="who-male-img-container mui-col-xs-3">
-        <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
-        <div className="text-center well who-counter-well mui-col-xs-3">
-        {this.state.maleCount}
-        </div>
-        </div>
-        <div className="who-female-img-container mui-col-xs-3">
-        <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
-        <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-        {this.state.femaleCount}
-        </div>
-        </div>
-        <div className="who-kids-img-container mui-col-xs-4">
-        <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
-        <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-        {this.state.kidsCount}
-        </div>
-        </div>
-        </div>
-        </Col>
+        <Row id='who-row'>
+          <Col md="9" md-offset='2' id='who-container'>
+            <div className="who-image-container row">
+              <div className="who-male-img-container mui-col-xs-3">
+                <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_orange.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onClick={this.addMale}/>
+                <br/>
+                <div className="male-counter text-center counter-text mui-col-xs-3">
+                  {this.state.maleCount}
+                </div>
+              </div>
+              <div className="who-female-img-container mui-col-xs-3">
+                <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_orange.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette_black.png" })} onClick={this.addFemale}/>
+                <br/>
+                <div className="female-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
+                  {this.state.femaleCount}
+                </div>
+              </div>
+              <div className="who-kids-img-container mui-col-xs-4">
+                <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_orange.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black.png" })} onClick={this.addKid}/>
+                <br/>
+                <div className="who-kids-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
+                  {this.state.kidsCount}
+                </div>
+              </div>
+            </div>
+          </Col>
 
+          <Col md="1" id='who-arrow'>
+            <a href="#questionnaire/2" onClick={this.nextPage}>
+              <Button  variant="fab" color="primary">
+                <i className="fa fa-arrow-right"></i>
+              </Button>
+            </a>
+            <div className="who-arrow">
+            </div>
+          </Col>
 
-        <Col md="2">
-        <div className="intro-arrow mui--text-right">
-        <a href="#questionnaire/2" onClick={this.nextPage}>
-        <Button  variant="fab" color="primary">
-        <i className="fa fa-arrow-right"></i>
-        </Button>
-        </a>
-        </div>
-        </Col>
-
-      </Row>
+        </Row>
 
       </div>
     )
   }
 }
-
-
-//
-// <div className="slide">
-//
-// <div className="who-container container-fluid mui-col-md-12">
-// <div className="who-title">
-// <h1>Who is going?</h1>
-// </div>
-// <br/>
-// <div className="who-image-container row">
-// <div className="who-male-img-container mui-col-xs-3">
-// <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_shilouette_black.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_shilouette.png" })} onClick={this.addMale}/>
-// </div>
-// <div className="who-female-img-container mui-col-xs-3 mui-col-xs-offset-1">
-//
-// <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_shilouette_black copy.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_shilouette.png" })} onClick={this.addFemale}/>
-//
-// </div>
-// <div className="who-kids-img-container mui-col-xs-3">
-// <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_shillouette_black copy.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_shillouette.png" })} onClick={this.addKid}/>
-// </div>
-// </div>
-// <div className="counter-container">
-// <div className="text-center well who-counter-well mui-col-xs-3">
-// {this.state.maleCount}
-// </div>
-// <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-// {this.state.femaleCount}
-// </div>
-// <div className="text-center well who-counter-well mui-col-xs-3 mui-col-xs-offset-1">
-// {this.state.kidsCount}
-// </div>
-// </div>
-// <div className="mui-col-xs-1 who-arrow">
-// <a href={this.state.link} onClick={this.nextPage}>
-// <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-// </a>
-// </div>
-// </div>
-// </div>
