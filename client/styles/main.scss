@@ -1,5 +1,5 @@
 .splash {
-  background-image: url('https://static.pexels.com/photos/4097/city-cars-traffic-lights.jpeg');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a1/Minato_Mirai_In_Blue.jpg');
   // background-image: url('https://static.pexels.com/photos/30732/pexels-photo-30732.jpg');
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -23,6 +23,7 @@
   color: white;
   text-shadow: -1px -1px 26px black;
   text-align: center;
+  margin-bottom: 250px;
 }
 
 .footer>a, .footer>a:hover, .footer>a:focus {
@@ -57,8 +58,19 @@ i.fa.fa-angle-down {
   font-size: 50px;
   font-weight: bold;
 }
+#intro-panel {
+  background-color: #ff7300;
+  // top: 0px;
+  width: 100%;
+  // position: fixed;
+
+
+}
+.intro-row {
+  margin-bottom: 100px;
+}
 h1.intro-title {
-  line-height: 3;
+  line-height: 7.5;
   font-family: "Baloo Thambi";
 }
 div.intro-title {
@@ -66,9 +78,7 @@ div.intro-title {
   top: 100px;
   position: fixed;
 }
-div.intro-title-container {
-  background-color: #ff7300
-}
+
 span.intro-www {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -81,6 +91,13 @@ img.intro-image {
   border-radius: 10%;
   width: 100%;
   padding: 20px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+
 }
 .intro-text-container {
   margin-top: -20px;
@@ -114,7 +131,7 @@ img.intro-image {
 }
 
 .questionnaire {
-  background-color: #1a2c39;
+  background-color: #0063aa;
   padding: 0px 100px;
   margin: 0 auto;
 }
@@ -125,12 +142,6 @@ img.intro-image {
   vertical-align: middle;
   text-align: center;
 }
-
-//
-// div.who-container {
-//   padding-left: 30px;
-//   height: 900px;
-// }
 
 img.who-mail-img-container {
 
@@ -610,4 +621,130 @@ div.where-arrow {
 }
 i.fa-arrow-right {
   color: white;
+}
+
+
+//
+$outline-width: 0;
+$break-point: 500px;
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: lato;
+}
+
+$gray-base:     #999999;
+$brand-primary: #3498DB; //Zen Blue
+
+.section-header {
+  color: $brand-primary;
+  font-weight: 400;
+  font-size: 1.4em;
+}
+
+
+.steps-header {
+  @extend .section-header;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.steps-timeline {
+  outline: 1px dashed rgba(red, $outline-width);
+
+  @media screen and (max-width: $break-point) {
+    border-left: 2px solid $brand-primary;
+    margin-left: 25px;
+  }
+
+  @media screen and (min-width: $break-point) {
+    border-top: 2px solid $brand-primary;
+    padding-top: 20px;
+    margin-top: 40px;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+  }
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.steps-one,
+.steps-two,
+.steps-three,
+.steps-four {
+  outline: 1px dashed rgba(green, $outline-width);
+
+  @media screen and (max-width: $break-point) {
+    margin-left: -25px;
+  }
+
+  @media screen and (min-width: $break-point) {
+    float: left;
+    width: 25%;
+    margin-top: -50px;
+  }
+}
+.steps-one,
+.steps-two,
+.steps-three {
+  @media screen and (max-width: $break-point) {
+    padding-bottom: 40px;
+  }
+}
+.steps-one {
+  @media screen and (min-width: $break-point) {
+    margin-left: -12.5%;
+    margin-right: 12.5%;
+  }
+}
+
+.steps-four {
+  @media screen and (max-width: $break-point) {
+    margin-bottom: -100%;
+  }
+  @media screen and (min-width: $break-point) {
+    margin-left: 12.5%;
+    margin-right: -12.5%;
+  }
+}
+
+.steps-img {
+  display: block;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  @media screen and (max-width: $break-point) {
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+.steps-name,
+.steps-description {
+  margin: 0;
+}
+.steps-name {
+  @extend .section-header;
+
+  @media screen and (min-width: $break-point) {
+    text-align: center;
+  }
+}
+.steps-description {
+  overflow: hidden;
+
+  @media screen and (min-width: $break-point) {
+    text-align: center;
+  }
 }
