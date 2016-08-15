@@ -43,7 +43,7 @@ export default class Where extends Component {
             <Col md='6'>
               <Input
                 id='where-input'
-                hint='Oakland'
+                hint='San Francisco'
                 className='form-control'
                 type="text" placeholder="City"
                 onChange={ e => this.setState({ city: e.target.value })}/>
