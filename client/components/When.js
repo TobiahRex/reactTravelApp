@@ -2,9 +2,7 @@ import $ from 'jquery';
 import moment from 'moment';
 import {} from 'moment-range';
 import timekeeper from 'timekeeper';
-import { Button, Panel, Container } from 'muicss/react';
-import Row from 'muicss/lib/react/row';
-import Col from 'muicss/lib/react/col';
+import { Button, Panel, Container, Row, Col } from 'muicss/react';
 
 import React, { Component } from 'react';
 import DatePickerRange from './DatePickerRange.js';

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import RangePicker from 'react-daterange-picker';
 import ClientActions from '../actions/ClientActions';
 import ClientStore from '../stores/ClientStore';
+import { Button, Panel, Container, Row, Col, Form, Input } from 'muicss/react';
 
 let dates = [];
 
@@ -38,23 +39,30 @@ export default class DatePickerRange extends Component {
         <RangePicker {...this.props}
           onSelect={this.handleSelect}
           value={this.state.value} />
-          <div className='form-group'>
-            <input type="text"
+
+        <div className='form-group chosen-dates'>
+            <Form inline={true}>
+
+            <Input type="text"
               id='start-date'
+
               value={this.state.value ? this.state.value.start.format('LL') : ''}
               readOnly={true}
               placeholder="Start date"
-              className='form-control'/>
-            <input type="text"
+              className='form-control date-inputs'/>
+            <Input type="text"
               id='end-date'
               value={this.state.value ? this.state.value.end.format('LL') : ''}
               readOnly={true}
               placeholder="End date"
-              className='form-control'/>
+              className='form-control date-inputs'/>
             <label htmlFor="button"> </label>
-            </div>
+
+            <Button color='primary' id='button' className="form-control" onClick={this.submitDate}>Submit</Button>
+
+          </Form>
+        </div>
         <br/>
-          <button id='button' className="btn btn-primary btn-lg btn-block" onClick={this.submitDate}>Submit</button>
       </div>
     );
   }

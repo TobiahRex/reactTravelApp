@@ -154,22 +154,11 @@ h5.who-title {
 .female-counter {
   padding-left: 40px;
 }
-
-// When Component
-#when-row {
-  margin-bottom: 250px;
-}
-
-h5.when-title {
-  font-family: "Baloo Thambi";
-}
-
 div.counter-text {
   font-size: 40px;
   font-family: 'Baloo Thambi';
   color: white;
 }
-
 img.who-male-img {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
@@ -193,17 +182,6 @@ img.who-kids-img {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
-}
-
-
-.when {
-  margin: 0 auto;
-  vertical-align: middle;
-  text-align: center;
-}
-
-img.who-mail-img-container {
-
 }
 img.who-male-img {
   width: 137px;
@@ -235,21 +213,27 @@ div.who-counter-well {
   display: inline-block;
 }
 
-
-
-
-
+// When Component
+#when-row {
+  margin-bottom: 250px;
+}
+div.chosen-dates {
+  margin-left: 50px;
+}
+h5.when-title {
+  font-family: "Baloo Thambi";
+}
+.when {
+  margin: 0 auto;
+  vertical-align: middle;
+  text-align: center;
+}
 .when >div>div>input {
   font-family: 'Baloo Thambi'
 }
-
-
-
 div.DateRangePicker>div.DateRangePicker__Month {
   width: 500px;
 }
-
-
 table.DateRangePicker__MonthDates {
   height: 400px;
   width: 500px;
@@ -258,7 +242,9 @@ table.DateRangePicker__MonthDates {
   border: 2px solid black;
   box-shadow: -1px -1px 10px black;
 }
-
+div.date-inputs > input {
+  color: #ff7300;
+}
 
 
 
@@ -306,7 +292,7 @@ $ns: DateRangePicker !default;
     border: 1px solid rgba(#000, .25);
 
     &--selection {
-      background-color: #23b116;
+      background-color: #ff7300;
     }
   }
 
@@ -364,7 +350,7 @@ $ns: DateRangePicker !default;
   }
 
   &__Month {
-    color: #333;
+    color: #ff7300;
     display: inline-block;
     margin: 0 20px;
     position: relative;
@@ -373,8 +359,7 @@ $ns: DateRangePicker !default;
   }
 
   &__MonthHeader {
-    color: #000;
-    text-shadow: -1px -1px 4px #848080;
+    color: #ff7300;
     font-size: 20px;
     font-weight: bold;
     height: 35px;
