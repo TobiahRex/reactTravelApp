@@ -78,10 +78,10 @@
     "toastr": "2.1.2",
     "webpack": "1.12.12",
     "webpack-dev-server": "1.14.1",
-    "yelp": "1.0.1"
+    "yelp": "1.0.1",
+    "muicss": "0.6.9"
   },
   "devDependencies": {
-    "muicss": "0.6.9"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
