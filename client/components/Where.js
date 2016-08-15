@@ -31,21 +31,28 @@ export default class Where extends Component {
   render() {
     return(
       <div className="slide">
-
-        <Row>
+        <div>
+          <h5 className='where-title mui--text-display2'>WHERE are you going?</h5>
+        </div>
+        <Row id='where-row'>
 
           <Col md='10'>
-            <h1>Where are you going?</h1>
-
-            <i className="fa fa-map-marker" aria-hidden="true"></i>
-            <input className='form-control where-city-input' type="text" placeholder="City"
-              onChange={ e => this.setState({ city: e.target.value })}/>
+            <Col md='1' md-offset='3'>
+              <i className="fa fa-map-marker" aria-hidden="true"></i>
+            </Col>
+            <Col md='6'>
+              <Input
+                id='where-input'
+                hint='Oakland'
+                className='form-control'
+                type="text" placeholder="City"
+                onChange={ e => this.setState({ city: e.target.value })}/>
+            </Col>
           </Col>
 
 
-
           <Col md="2">
-            <div className="intro-arrow mui--text-right">
+            <div className="mui--text-right">
               <a href="#questionnaire/4" onClick={this.showItinerary}>
                 <Button  variant="fab" color="primary">
                   <i className="fa fa-arrow-right"></i>
