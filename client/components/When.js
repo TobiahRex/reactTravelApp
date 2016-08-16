@@ -30,6 +30,12 @@ export default class When extends Component {
     this.state = {
       value: null
     }
+
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(value) {
+    this.setState({value});
   }
 
   render() {
@@ -40,7 +46,7 @@ export default class When extends Component {
           <h5 className='when-title mui--text-display2'>WHEN are you going?</h5>
         </div>
         <Row id='when-row'>
-          <Col md="7" md-offset='3'>
+          <Col md="10">
 
             <DatePickerRange
               firstOfWeek={1}

@@ -773,28 +773,57 @@ $brand-primary: #3498DB; //Zen Blue
   text-align: center;
 }
 
-.ReactFlipCard__Back, .ReactFlipCard {
+.ReactFlipCard__Back, .ReactFlipCard, .ReactFlipCard__Front {
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+
+.ReactFlipCard__Front {
+  padding: 40px;
 }
 
 
-.flipcard-front {
-  height: 100%;
+.flipcard-front>div {
+  text-align: center;
+  vertical-align: middle;
   width: 100%;
+  height: 100%;
 }
 
 
 .flipcard {
-  height: 400px;
+  height: 500px;
   width: 500px;
   padding: 5px;
   background-color: gray;
   margin: 10px;
   display: inline-block;
   text-align: center;
+  font-size: 20px;
 }
 
-.flipcard>Flipcard>div {
+
+// .flipcard-day {
+//   padding: 10px;
+// }
+
+.flipcard-calendar {
   width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+#itinerary-row {
+  font-size: 30px;
+  text-align: center;
+}
+
+p.city-in-itinerary {
+  text-transform: capitalize;
+  font-size: 60px;
+}
+
+i.fa.fa-calendar-o {
+  font-size: 150px;
 }

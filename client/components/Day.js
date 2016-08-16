@@ -8,29 +8,37 @@ export default class Day extends Component {
   }
 
   render() {
-    let { day, client } = this.props;
+    let { day, client, num } = this.props;
     console.log('day:', day);
     console.log('client:', client);
+    console.log('num:', num);
     return(
       <div className="flipcard">
         <FlipCard>
 
-          <div></div>
+          <div className="flipcard-front">
+
+              <i className="fa fa-calendar-o" aria-hidden="true"></i>
+            <p>Day {num}</p>
+          </div>
 
           <div>
-            activities:
+            Activities:
             {day.activities.map(activity => {
               return <li>{activity.name}</li>
             })}
-            breakfast:
+            <hr/>
+            Breakfast:
             {day.breakfast.map(breakfast => {
               return <li>{breakfast.name}</li>
             })}
-            lunch:
+            <hr/>
+            Lunch:
             {day.lunch.map(lunch => {
               return <li>{lunch.name}</li>
             })}
-            dinner:
+            <hr/>
+            Dinner:
             {day.dinner.map(dinner => {
               return <li>{dinner.name}</li>
             })}

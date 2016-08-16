@@ -39,16 +39,21 @@ export default class Itinerary extends Component {
 
     return(
       <div className="slide">
-        <Row>
+        <Row id='itinerary-row'>
           <Col md="12">
-            <div className="itinerary">Itinerary<br/>
+            <div className="itinerary">
+              <If condition={this.state.client}>
+              <p className="city-in-itinerary">{this.state.client.where.city}</p>
+              </If>
             Enter your email so we can send you this itinerary!
-
-            <input type="email" placeholder="Email" value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
+            <br/>
+            <input type="email" placeholder="Email"
+              value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
+            <Button color='primary' id='button' className="form-control" size="large" onClick={this.submitEmail}>Send</Button>
             <br/>
             <If condition={this.state.client}>
             {this.state.client.itinerary.map((day, index) => {
-              return <Day key={index} day={day} client={this.state.client} />
+              return <Day key={index} day={day} client={this.state.client} num={index + 1} />
             })}
             </If>
             </div>
