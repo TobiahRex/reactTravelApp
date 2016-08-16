@@ -67,6 +67,7 @@
   vertical-align: middle;
 }
 
+
 i.fa.fa-map {
   font-size: 80px;
 }
@@ -81,11 +82,7 @@ i.fa.fa-angle-down {
 }
 #intro-panel {
   background-color: #ff7300;
-  // top: 0px;
   width: 100%;
-  // position: fixed;
-
-
 }
 .intro-row {
   margin-bottom: 100px;
@@ -99,7 +96,6 @@ div.intro-title {
   top: 100px;
   position: fixed;
 }
-
 span.intro-www {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -118,7 +114,6 @@ img.intro-image {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
-
 }
 .intro-text-container {
   margin-top: -20px;
@@ -592,14 +587,14 @@ div.section.questionnaire {
   padding-left: 110px;
 }
 
-div.who-arrow, div.when-arrow, div.where-arrow {
-  padding-left: 0px;
-  margin-top: 50%;
-  bottom: 0;
-  height: 200px;
-  position: fixed;
-  width: 20%;
-}
+// div.who-arrow, div.when-arrow, div.where-arrow {
+//   padding-left: 0px;
+//   margin-top: 50%;
+//   bottom: 0;
+//   height: 200px;
+//   position: fixed;
+//   width: 20%;
+// }
 
 i.intro-right-arrow {
   float: right;
@@ -607,7 +602,7 @@ i.intro-right-arrow {
 
 div.when-arrow {
   padding-left: 0px;
-  margin-top: 50%;
+  margin-top: 100%;
 }
 input#end-date {
   margin-left: 10px;
