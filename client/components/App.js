@@ -20,7 +20,8 @@ export default class App extends Component {
   }
 
   _setLocation(){
-    this.setState({ location: this.props.location.hash });
+    let location = this.props.location.hash;
+    this.setState({ location });
   }
 
   componentDidMount() {
@@ -29,16 +30,16 @@ export default class App extends Component {
       sectionsColor: ['#121b3e'],
       css3: true,
       scrollingSpeed: 1000,
-      afterSlideLoad: e => this._setLocation,
+      afterSlideLoad: this._setLocation,
     })
   }
 
   render() {
-    let locationPkg = { setLocation: this._setLocation, location: this.state.location };
+    console.log('this.state.location: ', this.state);
     return (
       <div id='fullpage'>
         <Splash></Splash>
-        <Questionnaire locationPkg={locationPkg}></Questionnaire>
+        <Questionnaire></Questionnaire>
       </div>
     )
   }

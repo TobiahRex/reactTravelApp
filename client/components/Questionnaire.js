@@ -14,7 +14,6 @@ export default class Questionnaire extends Component {
   }
 
   render() {
-    console.log('this.props.locationPkg: ', this.props.locationPkg);
     return(
       <div className="section questionnaire" data-anchor='questionnaire'>
         <Panel id='intro-panel'>
