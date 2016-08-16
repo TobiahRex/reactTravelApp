@@ -21,7 +21,8 @@ export default class DatePickerRange extends Component {
   }
 
 
-  submitDate() {
+  submitDate(event) {
+    event.preventDefault();
     let client = ClientStore.getClient();
 
     let whenObj = {
