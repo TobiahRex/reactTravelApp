@@ -1,7 +1,7 @@
 const PORT = process.env.PORT || 3001;
 const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/reactTravelApp';
 
-require('dotenv').load();
+if (!process.env.PORT || !process.env.MONGODB_URI) require('dotenv').load();
 
 const fs = require('fs');
 const path = require('path');
