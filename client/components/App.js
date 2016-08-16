@@ -11,6 +11,16 @@ import Questionnaire from './Questionnaire.js';
 export default class App extends Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      location: ''
+    }
+
+    this._setLocation = this._setLocation.bind(this);
+  }
+
+  _setLocation(){
+    this.setState({ location: this.props.location.hash });
   }
 
   componentDidMount() {
@@ -19,16 +29,16 @@ export default class App extends Component {
       sectionsColor: ['#121b3e'],
       css3: true,
       scrollingSpeed: 1000,
-      afterSlideLoad: () => console.log(this.props.location.hash)
+      afterSlideLoad: e => this._setLocation,
     })
   }
 
   render() {
-
+    let locationPkg = { setLocation: this._setLocation, location: this.state.location };
     return (
       <div id='fullpage'>
         <Splash></Splash>
-        <Questionnaire></Questionnaire>
+        <Questionnaire locationPkg={locationPkg}></Questionnaire>
       </div>
     )
   }

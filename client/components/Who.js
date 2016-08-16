@@ -88,6 +88,7 @@ export default class Who extends Component {
   }
 
   render() {
+    console.log('who, this.props: ', this.props);
     return(
       <div className="slide">
         <div className="who-title">

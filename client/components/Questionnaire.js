@@ -10,10 +10,11 @@ import { Panel } from 'muicss/react';
 export default class Questionnaire extends Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
-
+    console.log('this.props.locationPkg: ', this.props.locationPkg);
     return(
       <div className="section questionnaire" data-anchor='questionnaire'>
         <Panel id='intro-panel'>
