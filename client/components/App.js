@@ -18,7 +18,8 @@ export default class App extends Component {
       anchors: ['splash', 'questionnaire'],
       sectionsColor: ['#121b3e'],
       css3: true,
-      scrollingSpeed: 1000
+      scrollingSpeed: 1000,
+      afterSlideLoad: () => console.log(this.props.location.hash)
     })
   }
 
