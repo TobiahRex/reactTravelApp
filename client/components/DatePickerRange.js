@@ -20,7 +20,6 @@ export default class DatePickerRange extends Component {
     this.setState({value});
   }
 
-
   submitDate(event) {
     event.preventDefault();
     let client = ClientStore.getClient();

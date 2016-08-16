@@ -61,7 +61,7 @@ export default class When extends Component {
 
           </Col>
           <Col md="2">
-            <div className="intro-arrow mui--text-right">
+            <div className="when-arrow mui--text-right">
               <a href="#questionnaire/3">
                 <Button variant="fab" color="primary">
                   <i className="fa fa-arrow-right"></i>
