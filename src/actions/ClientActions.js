@@ -1,4 +1,3 @@
-
 import * as API from './apiActions';
 
 export function getAllClientData() {
@@ -6,9 +5,10 @@ export function getAllClientData() {
     const options = {
       method: 'GET',
     };
-    fetch('/api/clients/')
+    fetch('/api/clients/', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(getAllClientData()));
+    .then(parsedJson => dispatch(API.getAllClientData(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
   };
 }
 
@@ -17,9 +17,10 @@ export function deleteAllClients() {
     const options = {
       method: 'DELETE',
     };
-    fetch('/api/clients/')
+    fetch('/api/clients/', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(deleteAllClients()));
+    .then(parsedJson => dispatch(API.deleteAllClients(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
   };
 }
 
@@ -28,9 +29,10 @@ export function createClient() {
     const options = {
       method: 'POST',
     };
-    fetch('/api/clients')
+    fetch('/api/clients', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(createClient()));
+    .then(parsedJson => dispatch(API.createClient(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
   };
 }
 
@@ -56,7 +58,7 @@ export function getClientData(clientId) {
       method: 'GET',
       body: clientId,
     };
-    fetch(`/api/clients/${clientId}`)
+    fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
     .then(parsedJson => dispatch(API.receivedClientData(parsedJson)))
     .catch(err => dispatch(API.receivedError(err)));
@@ -69,7 +71,7 @@ export function deleteClient(clientId) {
       method: 'DELETE',
       body: clientId,
     };
-    fetch(`/api/clients/${clientId}`)
+    fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
     .catch(err => API.receivedError(err));
   };
@@ -81,7 +83,7 @@ export function getItinerary(clientId, city) {
       method: 'GET',
       body: city,
     };
-    fetch(`/api/clients/${clientId}`)
+    fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
     .then(parsedJson => dispatch(API.getItinerary(parsedJson)))
     .catch(err => dispatch(API.receivedError(err)));
@@ -89,12 +91,12 @@ export function getItinerary(clientId, city) {
 }
 
 export function submitEmail(clientId, email) {
-  return dispatch => {    
+  return dispatch => {
     const options = {
       method: 'POST',
       body: email,
     };
-    fetch(`/api/clients/email/${clientId}`)
+    fetch(`/api/clients/email/${clientId}`, options)
     .then(res => res.json())
     .then(parsedJson => dispatch(API.submitEmail(parsedJson)))
     .catch(err => dispatch(API.receivedError(err)));
