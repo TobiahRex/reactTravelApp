@@ -22,7 +22,7 @@ export default class Day extends Component {
             <p>Day {num}</p>
           </div>
 
-          <div>
+          <div className="flipcard-back">
             Activities:
             {day.activities.map(activity => {
               return <li>{activity.name}</li>
