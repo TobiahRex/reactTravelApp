@@ -58,19 +58,45 @@ export function getClientData(clientId) {
     };
     fetch(`/api/clients/${clientId}`)
     .then(res => res.json())
-    .then(parsedJson => API.receivedClientData(parsedJson))
-    .catch(err => API.receivedError(err));
+    .then(parsedJson => dispatch(API.receivedClientData(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
   };
 }
 
 export function deleteClient(clientId) {
-  return (dispatch) => dispatch(deleteClient(clientId));
+  return (disptatch) => {
+    const options = {
+      method: 'DELETE',
+      body: clientId,
+    };
+    fetch(`/api/clients/${clientId}`)
+    .then(res => res.json())
+    .catch(err => API.receivedError(err));
+  };
 }
 
 export function getItinerary(clientId, city) {
-  return (dispatch) => dispatch(getItinerary(clientId, city));
+  return (dispatch) => {
+    const options = {
+      method: 'GET',
+      body: city,
+    };
+    fetch(`/api/clients/${clientId}`)
+    .then(res => res.json())
+    .then(parsedJson => dispatch(API.getItinerary(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
+  };
 }
 
 export function submitEmail(clientId, email) {
-  return (dispatch) => dispatch(submitEmail(clientId, email));
+  return dispatch => {    
+    const options = {
+      method: 'POST',
+      body: email,
+    };
+    fetch(`/api/clients/email/${clientId}`)
+    .then(res => res.json())
+    .then(parsedJson => dispatch(API.submitEmail(parsedJson)))
+    .catch(err => dispatch(API.receivedError(err)));
+  };
 }
