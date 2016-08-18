@@ -16,7 +16,9 @@ class ActivityStore extends EventEmitter {
           this.emit('ACTIVITIES');
           break;
       }
-    })
+
+      default:
+    });
   }
 
   getActivities() {

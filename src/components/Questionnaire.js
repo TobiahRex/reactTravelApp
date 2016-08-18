@@ -49,19 +49,16 @@ export default class Questionnaire extends Component {
                 </h3>
               </div>
 
-
-
-
             </div>
 
           </section>
         </Panel>
-        <Intro></Intro>
-  			<Who></Who>
-				<When></When>
-				<Where></Where>
-        <Itinerary></Itinerary>
-			</div>
-		)
+        <Intro />
+        <Who />
+        <When />
+        <Where />
+        <Itinerary />
+      </div>
+    );
   }
 }

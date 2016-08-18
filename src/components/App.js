@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 // import $ from 'jquery';
 import Splash from './Splash.js';
 import Who from './Who.js';
@@ -9,19 +9,14 @@ import Questionnaire from './Questionnaire.js';
 
 
 export default class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      location: ''
-    }
+      location: '',
+    };
 
     this._setLocation = this._setLocation.bind(this);
-  }
-
-  _setLocation(){
-    let location = this.props.location.hash;
-    this.setState({ location });
   }
 
   componentDidMount() {
@@ -31,16 +26,25 @@ export default class App extends Component {
       css3: true,
       scrollingSpeed: 1000,
       afterSlideLoad: this._setLocation,
-    })
+    });
+  }
+
+  _setLocation() {
+    const location = this.props.location.hash;
+    this.setState({ location });
   }
 
   render() {
-    console.log('this.state.location: ', this.state);
     return (
       <div id='fullpage'>
-        <Splash></Splash>
-        <Questionnaire></Questionnaire>
+        <Splash />
+        <Questionnaire />
       </div>
-    )
+    );
   }
 }
+
+
+App.propTypes = {
+  location: PropTypes.object,
+};
