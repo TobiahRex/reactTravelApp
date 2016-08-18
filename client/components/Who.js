@@ -91,7 +91,7 @@ export default class Who extends Component {
     return(
       <div className="slide">
         <div className="who-title">
-          <h5 className='who-title mui--text-display2'>WHO is going?</h5>
+          <h5 className='who-title mui--text-display2'>Who is going?</h5>
         </div>
         <Row id='who-row'>
           <Col md="9" md-offset='2' id='who-container'>
@@ -99,21 +99,21 @@ export default class Who extends Component {
               <div className="who-male-img-container mui-col-xs-3">
                 <img className="who-male-img" src={this.state.male} onMouseEnter={(e) => this.setState({ male: "client/styles/images/male_silhouette_orange.png" })} onMouseOut={(e) => this.setState({ male: "client/styles/images/male_silhouette_black.png" })} onClick={this.addMale}/>
                 <br/>
-                <div className="male-counter text-center counter-text mui-col-xs-3">
+                <div className="male-counter text-center counter-text mui-col-xs-12">
                   {this.state.maleCount}
                 </div>
               </div>
               <div className="who-female-img-container mui-col-xs-3">
                 <img className="who-female-img" src={this.state.female} onMouseEnter={(e) => this.setState({ female: "client/styles/images/female_silhouette_orange.png" })} onMouseOut={(e) => this.setState({ female: "client/styles/images/female_silhouette_black.png" })} onClick={this.addFemale}/>
                 <br/>
-                <div className="female-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
+                <div className="female-counter text-center counter-text mui-col-xs-12">
                   {this.state.femaleCount}
                 </div>
               </div>
               <div className="who-kids-img-container mui-col-xs-4">
                 <img className="who-kids-img" src={this.state.kids} onMouseEnter={(e) => this.setState({ kids: "client/styles/images/kids_silhouette_orange.png" })} onMouseOut={(e) => this.setState({ kids: "client/styles/images/kids_silhouette_black.png" })} onClick={this.addKid}/>
                 <br/>
-                <div className="who-kids-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
+                <div className="who-kids-counter text-center counter-text mui-col-xs-12">
                   {this.state.kidsCount}
                 </div>
               </div>

@@ -150,20 +150,24 @@ img.intro-image {
 #who-arrow {
   margin-top: 170px;
 }
+
+div.who-kids-img, div.who-female-img-container, div.who-male-img-container {
+  text-align: center;
+}
+
 h5.who-title {
   font-family: "Baloo Thambi";
+  text-align: center;
+  padding-bottom: 50px;
+  text-shadow: -1px -1px 10px black;
 }
 .who-female-img-container {
   padding-left: 30px;
-}gtup
-.who-kids-counter {
-  padding-left: 70px;
 }
-.male-counter {
-  padding-left: 60px;
-}
-.female-counter {
-  padding-left: 40px;
+.who-kids-counter, .male-counter, .female-counter {
+  text-align: center;
+  padding-top: 40px;
+  text-shadow: -1px -1px 10px black;
 }
 div.counter-text {
   font-size: 40px;
@@ -204,11 +208,11 @@ img.who-female-img {
 }
 img.who-female-img.container {
   width: 104px;
-  padding-left: 70px;
+  padding-left: 80px;
   cursor: pointer;
 }
 img.who-kids-img-container {
-  padding-left: 75px;
+  padding-left: 85px;
 }
 img.who-kids-img {
   margin-top: 130px;
