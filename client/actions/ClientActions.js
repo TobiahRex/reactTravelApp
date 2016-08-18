@@ -1,6 +1,10 @@
 
 export function getAllClientData() {
-  return (dispatch) => dispatch(getAllClientData());
+  return (dispatch) => {
+    fetch('/api/clients/')
+    .then(res => res.json())
+    .then(parsedJson => dispatch(getAllClientData()));
+  };
 }
 
 export function deleteAllClients() {
