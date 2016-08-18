@@ -11,8 +11,8 @@ import mongoose from "mongoose";
 /* eslint-disable no-console */
 
 const app = express();
-const PORT = process.env.PORT || 4000;
-const MONGOURL = process.env.MONGODB_URI || "mongodb://localhost/brewery-app-react";
+const PORT = process.env.PORT || 3000;
+const MONGOURL = process.env.MONGODB_URI || "mongodb://localhost/reactTravelApp";
 
 mongoose.connect(MONGOURL, function (error) {
     console.log(error || `Connected to MongoDB at ${MONGOURL}`);
@@ -25,7 +25,7 @@ app.use(compression());
 app.use(express.static("dist"));
 
 
-app.use("/api", require("./routes/api"));
+app.use("/api", require("./api/routes"));
 
 app.use("*", function(request, response) {
     response.sendFile(path.join(__dirname, "../dist/index.html"));
