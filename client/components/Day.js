@@ -17,30 +17,33 @@ export default class Day extends Component {
         <FlipCard>
 
           <div className="flipcard-front">
-
               <i className="fa fa-calendar-o" aria-hidden="true"></i>
             <p>Day {num}</p>
           </div>
 
           <div className="flipcard-back">
-            Activities:
+            <span className="itinerary-type-heading">
+            Activities:</span>
             {day.activities.map(activity => {
-              return <li>{activity.name}</li>
+              return <li><a href="{activity.url}">{activity.name}</a> | {activity.rating} stars</li>
             })}
             <hr/>
-            Breakfast:
+            <span className="itinerary-type-heading">
+            Breakfast:</span>
             {day.breakfast.map(breakfast => {
-              return <li>{breakfast.name}</li>
+              return <li><a href="{breakfast.url}">{breakfast.name}</a> | {breakfast.rating} stars</li>
             })}
             <hr/>
-            Lunch:
+            <span className="itinerary-type-heading">
+            Lunch:</span>
             {day.lunch.map(lunch => {
-              return <li>{lunch.name}</li>
+              return <li><a href="{lunch.url}">{lunch.name}</a> | {lunch.rating} stars</li>
             })}
             <hr/>
-            Dinner:
+            <span className="itinerary-type-heading">
+            Dinner:</span>
             {day.dinner.map(dinner => {
-              return <li>{dinner.name}</li>
+              return <li><a href="{dinner.url}">{dinner.name}</a> | {dinner.rating} stars</li>
             })}
           </div>
         </FlipCard>

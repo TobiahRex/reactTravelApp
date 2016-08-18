@@ -44,9 +44,11 @@ export default class Itinerary extends Component {
             <div className="itinerary">
               <div className="top-of-itinerary">
                 <If condition={this.state.client}>
-                <p className="city-in-itinerary">{this.state.client.where.city}</p>
+                <p className="city-in-itinerary">Here's your itinerary for {this.state.client.where.city}</p>
                 </If>
-                Enter your email so we can send you this itinerary!
+                <span className="enter-email-blurb">
+                Enter your email if you want this itinerary!
+                </span>
                 <br/>
                 <input type="email" placeholder="Email"
                 value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
