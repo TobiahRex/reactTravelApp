@@ -19,7 +19,6 @@ const ServerActions = {
       type: 'RECEIVED_UPDATED_CLIENT',
     });
   },
+};
 
-}
-
-export default ServerActions
+export default ServerActions;

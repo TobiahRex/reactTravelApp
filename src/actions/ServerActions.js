@@ -1,25 +1,22 @@
-import AppDispatcher from '../AppDispatcher'
+import * as types from "./actionTypes";
 
-const ServerActions = {
-  receivedError(error) {
-    AppDispatcher.dispatch({
-      error,
-      type: 'RECEIVED_DB_ERROR',
-    });
-  },
-  receivedNewClient(dbClient) {
-    AppDispatcher.dispatch({
-      dbClient,
-      type: 'RECEIVED_NEW_CLIENT',
-    });
-  },
-  receivedClientData(dbClient) {
-    AppDispatcher.dispatch({
-      dbClient,
-      type: 'RECEIVED_UPDATED_CLIENT',
-    });
-  },
-
+export function receivedError(error) {
+  return {
+    error,
+    type: types.RECEIVED_DB_ERROR,
+  };
 }
 
-export default ServerActions
+export function receivedNewClient(dbClient) {
+  return {
+    dbClient,
+    type: types.RECEIVED_NEW_CLIENT,
+  };
+}
+
+export function receivedClientData(dbClient) {
+  return {
+    dbClient,
+    type: types.RECEIVED_UPDATED_CLIENT,
+  };
+}

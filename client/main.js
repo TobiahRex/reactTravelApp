@@ -19,12 +19,12 @@ import Itinerary from './components/Itinerary.js';
 render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path='splash' component={Splash} />
-        <Route path='who' component={Who} />
-        <Route path='when' component={When} />
-        <Route path='where' component={Where} />
+        <Route path="splash" component={Splash} />
+        <Route path="who" component={Who} />
+        <Route path="when" component={When} />
+        <Route path="where" component={Where} />
       </Route>
-      <Route path='itinerary' component={Itinerary} />
+      <Route path="itinerary" component={Itinerary} />
     </Router>,
   document.getElementById('root')
-)
+);

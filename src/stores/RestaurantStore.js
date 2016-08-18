@@ -25,7 +25,7 @@ class RestaurantStore extends EventEmitter {
           this.emit('DINNER');
           break;
       }
-    })
+    });
   }
 
   getBreakfast() {

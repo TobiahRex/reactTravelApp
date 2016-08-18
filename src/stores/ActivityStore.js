@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { ActionTypes } from '../Constants';
+import { ActionTypes } from '../actions/actionTypes';
 
 import AppDispatcher from '../AppDispatcher';
 
@@ -12,11 +12,13 @@ class ActivityStore extends EventEmitter {
     AppDispatcher.register(action => {
       switch(action.actionType) {
         case ActionTypes.RECEIVE_ACTIVITIES:
-          _activities = action.activities;
-          this.emit('ACTIVITIES');
-          break;
+        _activities = action.activities;
+        this.emit('ACTIVITIES');
+        break;
+
+        default:
       }
-    })
+    });
   }
 
   getActivities() {

@@ -1,6 +1,6 @@
-import { get, post, ajax } from 'jquery'
-import AppDispatcher from './AppDispatcher'
-import ServerActions from './actions/ServerActions'
+import { get, post, ajax } from 'jquery';
+import AppDispatcher from './AppDispatcher';
+import ServerActions from './actions/ServerActions';
 
 const API = {
   getAllClientData() {
@@ -45,19 +45,19 @@ const API = {
   },
   getItinerary(clientId, city) {
     post(`/api/yelp/itinerary/${clientId}`, {
-      location: city
+      location: city,
     })
     .done(data => {
       console.log('ITINERARY RESPONSE:', data);
       ServerActions.receivedClientData(data);
     })
-    .fail(err => ServerActions.receivedError(err))
+    .fail(err => ServerActions.receivedError(err));
   },
-  submitEmail(clientId, email){
+  submitEmail(clientId, email) {
     post(`/api/clients/email/${clientId}`, email)
     .done(res => ServerActions.sentEmailResponse(res))
     .fail(err => ServerActions.receivedError(err));
-  }
-}
+  },
+};
 
-export default API
+export default API;
