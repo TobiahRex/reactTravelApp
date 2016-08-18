@@ -31,12 +31,12 @@ export default class Where extends Component {
   render() {
     return(
       <div className="slide">
-        <div>
-          <h5 className='where-title mui--text-display2'>WHERE are you going?</h5>
-        </div>
         <Row id='where-row'>
 
           <Col md='10'>
+          <div>
+          <h5 className='where-title mui--text-display2'>Where are you going?</h5>
+          </div>
             <Col md='1' md-offset='3'>
               <i className="fa fa-map-marker" aria-hidden="true"></i>
             </Col>

@@ -151,7 +151,7 @@ img.intro-image {
   margin-top: 170px;
 }
 
-div.who-kids-img, div.who-female-img-container, div.who-male-img-container {
+div.who-kids-img-container, div.who-female-img-container, div.who-male-img-container {
   text-align: center;
 }
 
@@ -169,6 +169,7 @@ h5.who-title {
   padding-top: 40px;
   text-shadow: -1px -1px 10px black;
 }
+
 div.counter-text {
   font-size: 40px;
   font-family: 'Baloo Thambi';
@@ -232,11 +233,30 @@ div.who-counter-well {
 #when-row {
   margin-bottom: 250px;
 }
+
+div.when-title {
+  text-align: center;
+  padding-bottom: 40px;
+  text-shadow: -1px -1px 10px black;
+}
+
+div.hold-date {
+  width: 100%;
+  text-align: center;
+  padding-left: 300px;
+}
+
+
+Input {
+  color: black;
+}
+
 div.chosen-dates {
-  margin-left: 50px;
+  text-align: center;
 }
 h5.when-title {
   font-family: "Baloo Thambi";
+  text-align: center;
 }
 .when {
   margin: 0 auto;
@@ -630,9 +650,10 @@ input#end-date {
 
 // Where Component
 
-h5.where-title {
+div>h5.where-title {
   font-family: "Baloo Thambi";
   margin-bottom: 180px;
+  text-align: center;
 }
 
 #where-row {

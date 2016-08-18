@@ -42,13 +42,13 @@ export default class When extends Component {
 
     return(
       <div className="slide">
-        <div className="when-title">
-          <h5 className='when-title mui--text-display2'>WHEN are you going?</h5>
-        </div>
         <Row id='when-row'>
           <Col md="10">
-
-            <DatePickerRange
+          <div className="hold-date">
+          <div className="when-title">
+          <h5 className='when-title mui--text-display2'>When are you going?</h5>
+          </div>
+              <DatePickerRange
               firstOfWeek={1}
               numberOfCalendars={1}
               selectionType='range'
@@ -58,6 +58,8 @@ export default class When extends Component {
               showLegend={false}
               value={this.state.value}
               onSelect={this.handleSelect}/>
+
+            </div>
 
           </Col>
           <Col md="2">
