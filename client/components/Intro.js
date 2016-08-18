@@ -50,7 +50,8 @@ export default class Intro extends Component {
                     <img className='intro-image' src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family-Picture"/>
                   </Col>
                   <Col md='7' className='intro-text-container mui--text-center'>
-                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
+                    <h1 className='intro-title mui--text-display2'>LET'S GET STARTED</h1>
+                    <p className='intro-title'>Click the arrow to get started</p>
                   </Col>
                 </Row>
 

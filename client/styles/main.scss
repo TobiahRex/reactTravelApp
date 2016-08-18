@@ -88,9 +88,25 @@ i.fa.fa-angle-down {
   margin-bottom: 100px;
 }
 h1.intro-title {
-  line-height: 7.5;
+  padding-top: 240px;
+  line-height: 1.5;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 100px;
   font-family: "Baloo Thambi";
 }
+
+p.intro-title {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.intro-text-container {
+  padding-left: 190px;
+  text-shadow: -1px -1px 10px black;
+}
+
 div.intro-title {
   font-family: "Baloo Thambi";
   top: 100px;
