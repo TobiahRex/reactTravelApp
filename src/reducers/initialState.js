@@ -1,5 +1,5 @@
-export const client = {};
-export const activities = {};
-export const breakfast = [];
-export const lunch = [];
-export const dinner = [];
+export const client = null;
+export const activities = null;
+export const breakfast = null;
+export const lunch = null;
+export const dinner = null;
