@@ -1,8 +1,8 @@
 
 export function getAllClientData() {
   return (dispatch) => {
-    let options = {
-      method: 'GET'
+    const options = {
+      method: 'GET',
     };
     fetch('/api/clients/')
     .then(res => res.json())
@@ -12,18 +12,24 @@ export function getAllClientData() {
 
 export function deleteAllClients() {
   return (dispatch) => {
-    let options = {
-      method: 'DELETE'
+    const options = {
+      method: 'DELETE',
     };
     fetch('/api/clients/')
     .then(res => res.json())
     .then(parsedJson => dispatch(deleteAllClients()));
-    dispatch(deleteAllClients()
-  }
+  };
 }
 
 export function createClient() {
-  return (dispatch) => dispatch(createClient());
+  return (dispatch) => {
+    const options = {
+      method: 'POST',
+    };
+    fetch('/api/clients')
+    .then(res => res.json())
+    .then(parsedJson => dispatch(createClient()));
+  };
 }
 
 export function addClientData(newData, clientId) {
