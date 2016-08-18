@@ -14,6 +14,6 @@ export default (
     <Route path='who' component={Who} />
     <Route path='when' component={When} />
     <Route path='where' component={Where} />
+    <Route path='itinerary' component={Itinerary} />
   </Route>
-  <Route path='itinerary' component={Itinerary} />
 );

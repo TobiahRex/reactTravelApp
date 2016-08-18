@@ -1,6 +1,8 @@
 const express = require('express');
+
 const router = new express.Router();
-const Client = require('../../db/models/client.js');
+
+const Client = require('../../models/client');
 const mongoose = require('mongoose');
 
 router.route('/')
