@@ -1,5 +1,5 @@
 "use strict";
-if (!proces.env.PORT || !process.env.MONGODB_URI) require("dotenv").load();
+if (!proces.env.PORT || !process.env.MONGOURL) require("dotenv").load();
 
 
 import express from 'express';
