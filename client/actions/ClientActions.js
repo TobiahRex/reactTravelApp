@@ -8,7 +8,12 @@ export function getAllClientData() {
 }
 
 export function deleteAllClients() {
-  return (dispatch) => dispatch(deleteAllClients());
+  return (dispatch) => {
+    fetch('/api/clients/')
+    .then(res => res.json())
+    .then(parsedJson => dispatch(deleteAllClients()));
+    dispatch(deleteAllClients()
+  }
 }
 
 export function createClient() {
