@@ -1,4 +1,4 @@
-export const ActionTypes = {
+const ActionTypes = {
   RECEIVE_ACTIVITIES: 'RECEIVE_ACTIVITIES',
   RECEIVE_BREAKFAST: 'RECEIVE_BREAKFAST',
   RECEIVE_LUNCH: 'RECEIVE_LUNCH',
@@ -8,3 +8,5 @@ export const ActionTypes = {
   RECEIVED_NEW_CLIENT: 'RECEIVED_NEW_CLIENT',
   RECEIVED_UPDATED_CLIENT: 'RECEIVED_UPDATED_CLIENT',
 };
+
+export default ActionTypes;
