@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import API from '../API';
-import ClientStore from '../stores/ClientStore';
 import ClientActions from '../actions/ClientActions';
 import Day from './Day';
 import { Button, Panel, Container } from 'muicss/react';
@@ -33,7 +31,7 @@ export default class Itinerary extends Component {
 
     ClientActions.sendEmail(clientId, email);
   }
-
+  
   render() {
     console.log('this.state.client:', this.state.client);
 
@@ -43,19 +41,19 @@ export default class Itinerary extends Component {
           <Col md="12">
             <div className="itinerary">
               <If condition={this.state.client}>
-              <p className="city-in-itinerary">{this.state.client.where.city}</p>
+                <p className="city-in-itinerary">{this.state.client.where.city}</p>
               </If>
-            Enter your email so we can send you this itinerary!
-            <br/>
-            <input type="email" placeholder="Email"
-              value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
-            <Button color='primary' id='button' className="form-control" size="large" onClick={this.submitEmail}>Send</Button>
-            <br/>
-            <If condition={this.state.client}>
-            {this.state.client.itinerary.map((day, index) => {
-              return <Day key={index} day={day} client={this.state.client} num={index + 1} />
-            })}
-            </If>
+              Enter your email so we can send you this itinerary!
+              <br/>
+              <input type="email" placeholder="Email"
+                value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
+              <Button color='primary' id='button' className="form-control" size="large" onClick={this.submitEmail}>Send</Button>
+              <br/>
+              <If condition={this.state.client}>
+                {this.state.client.itinerary.map((day, index) => {
+                  return <Day key={index} day={day} client={this.state.client} num={index + 1} />
+                })}
+              </If>
             </div>
           </Col>
         </Row>

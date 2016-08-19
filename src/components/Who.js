@@ -20,7 +20,7 @@ export default class Who extends Component {
       female: "client/styles/images/female_shilouette_black.png",
       kidsCount: 0,
       kids: "client/styles/images/kids_shillouette_black.png",
-    }
+    };
 
     this.addMale = this.addMale.bind(this);
     this.addFemale = this.addFemale.bind(this);
@@ -28,8 +28,8 @@ export default class Who extends Component {
     this.nextPage = this.nextPage.bind(this);
   }
 
-  addMale(){
-    let client = ClientStore.getClient();
+  addMale() {
+    const client = ClientStore.getClient();
     let maleCount = this.state.maleCount;
     maleCount += 1;
 

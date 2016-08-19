@@ -49,6 +49,10 @@ export default {
       //saying we want it to handle javascript and use babel to transpile
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
       {test: /(\.css)$/, loader: ExtractTextPlugin.extract("css?sourceMap")},
+      {
+        test: /\.scss$/,
+        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'
+      },
       //below is necessary for bootstrap
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
       {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
@@ -69,6 +73,7 @@ export default {
         test: /\.json$/,
         loader: 'json-loader'
       }
-    ]
+    ],
+    noParse: /\.min\.js/
   }
 };

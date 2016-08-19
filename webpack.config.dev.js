@@ -36,11 +36,16 @@ export default {
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
       // we're saying we want it to handle css.
       {test: /(\.css)$/, loaders: ['style', 'css']},
+      {
+        test: /\.scss$/,
+        loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'
+      },
       // necessary for bootstrap files found in bootstrap install files.
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
       {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
       {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
-    ]
-  }
+    ],
+    noParse: /\.min\.js/,
+  },
 };

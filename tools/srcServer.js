@@ -32,8 +32,12 @@ app.use((req, res, next) => {
   next();
 });
 app.use(require('webpack-hot-middleware')(compiler));
+
 app.use("/api", require("./api/index"));
-app.use("*", require("./api/index"));
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, '../src/index.html'));
+});
 
 mongoose.connect(MONGOURL, err => console.log(err || `Connected to MongoDB at ${MONGOURL}`));
 app.listen(PORT, err => console.log(err || `Listening on port ${PORT}`));

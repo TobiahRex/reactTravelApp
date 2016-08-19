@@ -1,6 +1,6 @@
 
 import React, { PropTypes, Component } from 'react';
-// import $ from 'jquery';
+import $ from 'jquery';
 import Splash from './Splash.js';
 import Who from './Who.js';
 import When from './When.js';
@@ -12,10 +12,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      location: '',
-    };
-
+    this.state = { location: '' };
     this._setLocation = this._setLocation.bind(this);
   }
 
@@ -38,13 +35,10 @@ export default class App extends Component {
     return (
       <div id='fullpage'>
         <Splash />
-
+        <Questionnaire />
       </div>
     );
   }
 }
 
-
-App.propTypes = {
-  location: PropTypes.object,
-};
+App.propTypes = { location: PropTypes.object };
