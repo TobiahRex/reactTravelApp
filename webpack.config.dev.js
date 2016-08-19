@@ -51,7 +51,7 @@ export default {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: ['url?limit=10000!img?progressive=true','file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'],
       },
     ],
     noParse: /\.min\.js/,

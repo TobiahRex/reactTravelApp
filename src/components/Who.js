@@ -20,11 +20,11 @@ class Who extends Component {
       client: this.props.client,
       clientId: '',
       maleCount: 0,
-      male: "./styles/images/male_shilouette_black.png",
+      male: "http://imgur.com/wmb1TPA.png",
       femaleCount: 0,
-      female: "./styles/images/female_shilouette_black.png",
+      female: "http://imgur.com/VgJez6N.png",
       kidsCount: 0,
-      kids: "./styles/images/kids_shillouette_black.png",
+      kids: "http://imgur.com/aqhE0XK.png",
     };
 
     this.addMale = this.addMale.bind(this);
@@ -112,9 +112,9 @@ class Who extends Component {
                   className="who-male-img"
                   src={this.state.male}
                   onMouseEnter={(e) => this.setState({
-                    male: "./styles/images/male_shilouette_orange.png" })}
+                    male: "http://imgur.com/vYThtVD.png" })}
                   onMouseOut={(e) => this.setState({
-                    male: "./styles/images/male_shilouette_black.png" })}
+                    male: "http://imgur.com/wmb1TPA.png" })}
                   onClick={this.addMale} />
                 <br />
                 <div
@@ -128,9 +128,9 @@ class Who extends Component {
                   className="who-female-img"
                   src={this.state.female}
                   onMouseEnter={(e) => this.setState({
-                    female: "./styles/images/female_shilouette_orange.png" })}
+                    female: "http://imgur.com/krGl1ZR.png" })}
                     onMouseOut={(e) => this.setState({
-                      female: "./styles/images/female_shilouette_black.png" })}
+                      female: "http://imgur.com/VgJez6N.png" })}
                       onClick={this.addFemale} />
                 <br />
                 <div
@@ -144,9 +144,9 @@ class Who extends Component {
                   className="who-kids-img"
                   src={this.state.kids}
                   onMouseEnter={(e) => this.setState({
-                    kids: "./styles/images/kids_shillouette_orange.png" })}
+                    kids: "http://imgur.com/LFbCfkX.png" })}
                   onMouseOut={(e) => this.setState({
-                    kids: "./styles/images/kids_shillouette_black.png" })}
+                    kids: "http://imgur.com/aqhE0XK.png" })}
                   onClick={this.addKid} />
                 <br />
                 <div

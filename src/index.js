@@ -11,7 +11,11 @@ import '../node_modules/jquery/dist/jquery.min.js';
 import '../node_modules/toastr/build/toastr.min.css';
 import '../node_modules/fullpage.js/jquery.fullPage.js';
 import '../node_modules/fullpage.js/jquery.fullPage.scss';
-
+import '../node_modules/sweetalert/dist/sweetalert.min.js';
+import '../node_modules/sweetalert/dist/sweetalert.css';
+import '../node_modules/jquery-smooth-scroll/src/jquery.smooth-scroll.js';
+import '../node_modules/muicss/react.js';
+import '../node_modules/muicss/lib/css/mui.min.css';
 
 const store = configureStore();
 // store.dispatch(loadCourses());

@@ -24,7 +24,6 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname));
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
-    //pass public path defined in public.config
     publicPath: config.output.publicPath
 }));
 app.use((req, res, next) => {
