@@ -45,7 +45,6 @@ class Where extends Component {
               <Input
                 id="where-input"
                 hint="San Francisco"
-                className="form-control"
                 type="text" placeholder="City"
                 onChange={e => this.setState({ city: e.target.value })} />
             </Col>

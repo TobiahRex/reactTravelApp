@@ -44,26 +44,23 @@ class DatePickerRange extends Component {
         <div className="form-group chosen-dates">
           <Form inline={true}>
 
-            <Input
-              type="text"
+            <Input type="text"
               id="start-date"
               value={this.state.value ? this.state.value.start.format('LL') : ''}
               readOnly="true"
               placeholder="Start date"
-              className="form-control date-inputs" />
-            <Input
-              type="text"
+              className="date-inputs" />
+            <Input type="text"
               id="end-date"
               value={this.state.value ? this.state.value.end.format('LL') : ''}
               readOnly="true"
               placeholder="End date"
-              className="form-control date-inputs" />
+              className="date-inputs" />
 
             <label htmlFor="button" />
             <Button
               color="primary"
               id="button"
-              className="form-control"
               onClick={this.submitDate}>Submit</Button>
 
           </Form>
