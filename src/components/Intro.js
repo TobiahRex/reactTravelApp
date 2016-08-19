@@ -1,16 +1,13 @@
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {
-  Button, 
+  Button,
   Panel,
   Container,
   Col,
   Row } from 'muicss/react';
-import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import ClientActions from '../actions/ClientActions.js';
-// import Row from 'muicss/lib/react/row';
-// import Col from 'muicss/lib/react/col';
-// import Panel from 'muicss/lib/react/panel';
 
 
 class Intro extends Component {
@@ -42,7 +39,7 @@ class Intro extends Component {
       email: '',
     };
     // ClientActions.createClient(newClient);
-    this.props.ClientActions.createClient(newClient);
+    this.props.actions.createClient(newClient);
   }
 
   render() {
@@ -58,23 +55,24 @@ class Intro extends Component {
                     <img
                       className="intro-image" src="http://www.femside.com/wp-content/uploads/2013/06/travel-family-plane.jpg" alt="Family" />
                   </Col>
-                  <Col md='7' className='intro-text-container mui--text-center'>
-                    <h1 className='intro-title mui--text-display2'>LETS GET STARTED</h1>
+                  <Col
+                    md="7"
+                    className="intro-text-container mui--text-center">
+                    <h1 className="intro-title mui--text-display2">
+                      LETS GET STARTED
+                    </h1>
                   </Col>
                 </Row>
-
-
-
 
               </div>
             </div>
           </Col>
-          <Col md='2'>
+          <Col md="2">
 
             <div className="intro-arrow mui--text-right">
               <a href="#questionnaire/1" onClick={this.nextPage}>
-                <Button  variant="fab" color="primary">
-                  <i className="fa fa-arrow-right"></i>
+                <Button variant="fab" color="primary">
+                  <i className="fa fa-arrow-right" />
                 </Button>
               </a>
             </div>
@@ -82,17 +80,16 @@ class Intro extends Component {
 
         </Row>
       </div>
-    )
+    );
   }
 }
 
 Intro.propTypes = {
-  ClientActions: PropTypes.func.isRequired,
+  actions: PropTypes.func.isRequired,
 };
 
-
 const mapDispatchToProps = (dispatch) => ({
-  ClientActions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(ClientActions, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(Intro);
