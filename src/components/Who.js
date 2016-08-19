@@ -9,7 +9,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
-import ClientActions from '../actions/ClientActions.js';
+import * as ClientActions from '../actions/ClientActions.js';
 
 class Who extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Who extends Component {
 
     this.state = {
       link: '',
-      client: {},
+      client: this.props.client,
       clientId: '',
       maleCount: 0,
       male: "client/styles/images/male_shilouette_black.png",
@@ -34,7 +34,7 @@ class Who extends Component {
   }
 
   addMale() {
-    const client = this.props.client;
+    const client = Object.assign({}, this.state.client);
     let maleCount = this.state.maleCount;
     maleCount += 1;
 
@@ -44,12 +44,12 @@ class Who extends Component {
       client.who.male += 1;
     }
 
-    this.props.addClientData(client, client._id);
+    this.props.actions.addClientData(client, client._id);
     this.setState({ maleCount });
   }
 
   addFemale() {
-    const client = this.props.client;
+    const client = Object.assign({}, this.state.client);
     let femaleCount = this.state.femaleCount;
     femaleCount += 1;
 
@@ -63,7 +63,7 @@ class Who extends Component {
     this.setState({ femaleCount });
   }
   addKid() {
-    const client = this.props.client;
+    const client = Object.assign({}, this.state.client);
     let kidsCount = this.state.kidsCount;
     kidsCount += 1;
 
@@ -93,6 +93,7 @@ class Who extends Component {
   }
 
   render() {
+
     return (
       <div className="slide">
         <div className="who-title">
@@ -132,8 +133,7 @@ class Who extends Component {
                       onClick={this.addFemale} />
                 <br />
                 <div
-                  className="female-counter text-center counter-text
-                  mui-col-xs-3 mui-col-xs-offset-1">
+                  className="female-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
                   {this.state.femaleCount}
                 </div>
               </div>
@@ -149,8 +149,7 @@ class Who extends Component {
                   onClick={this.addKid} />
                 <br />
                 <div
-                  className="who-kids-counter text-center counter-text
-                  mui-col-xs-3 mui-col-xs-offset-1">
+                  className="who-kids-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
 
                   {this.state.kidsCount}
 
@@ -178,8 +177,8 @@ class Who extends Component {
 }
 
 Who.propTypes = {
-  client: PropTypes.object.isRequired,
-  actions: PropTypes.func.isRequired,
+  client: PropTypes.object,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -190,4 +189,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(ClientActions, dispatch),
 });
 
-export default connect(null, mapDispatchToProps)(Who);
+export default connect(mapStateToProps, mapDispatchToProps)(Who);

@@ -42,8 +42,7 @@ export default function When() {
             minimumDate={new Date()}
             stateDefinitions={stateDefinitions}
             defaultState="available"
-            showLegend={false}
-            value={this.state.value} />
+            showLegend={false} />
 
         </Col>
         <Col md="2">

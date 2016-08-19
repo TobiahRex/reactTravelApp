@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Panel, Container, Row, Col } from 'muicss/react';
 import Day from './Day';
-import ClientActions from '../actions/ClientActions';
+import * as ClientActions from '../actions/ClientActions';
 
 
 class Itinerary extends Component {

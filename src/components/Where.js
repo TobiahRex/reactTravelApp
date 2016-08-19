@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
-import ClientActions from '../actions/ClientActions';
+import * as ClientActions from '../actions/ClientActions';
 import { Panel, Container, Row, Col, Form, Input, Button } from 'muicss/react';
 
 class Where extends Component {
@@ -70,8 +70,8 @@ class Where extends Component {
 }
 
 Where.propTypes = {
-  client: PropTypes.object.isRequired,
-  actions: PropTypes.func.isRequired,
+  client: PropTypes.object,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({

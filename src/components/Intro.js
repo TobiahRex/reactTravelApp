@@ -7,7 +7,7 @@ import {
   Container,
   Col,
   Row } from 'muicss/react';
-import ClientActions from '../actions/ClientActions.js';
+import * as ClientActions from '../actions/ClientActions.js';
 
 
 class Intro extends Component {
@@ -85,7 +85,7 @@ class Intro extends Component {
 }
 
 Intro.propTypes = {
-  actions: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

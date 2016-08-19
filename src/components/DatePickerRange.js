@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import RangePicker from 'react-daterange-picker';
 import { Button, Panel, Container, Row, Col, Form, Input } from 'muicss/react';
-import ClientActions from '../actions/ClientActions';
+import * as ClientActions from '../actions/ClientActions';
 
 class DatePickerRange extends Component {
   constructor(props, context) {
@@ -42,7 +42,7 @@ class DatePickerRange extends Component {
           value={this.state.value} />
 
         <div className="form-group chosen-dates">
-          <Form inline="true">
+          <Form inline={true}>
 
             <Input
               type="text"
@@ -74,8 +74,8 @@ class DatePickerRange extends Component {
 }
 
 DatePickerRange.propTypes = {
-  client: PropTypes.object.isRequired,
-  actions: PropTypes.func.isRequired,
+  client: PropTypes.object,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
