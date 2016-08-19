@@ -20,3 +20,9 @@ export function receivedClientData(dbClient) {
     type: types.RECEIVED_UPDATED_CLIENT,
   };
 }
+
+export function sentEmail() {
+  return {
+    type: types.SENT_EMAIL,
+  };
+}

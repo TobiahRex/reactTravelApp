@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
-import * as ClientActions from '../actions/ClientActions';
+import * as txClientActions from '../actions/txClientActions';
 import { Panel, Container, Row, Col, Form, Input, Button } from 'muicss/react';
 
 class Where extends Component {
@@ -78,7 +78,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Where);

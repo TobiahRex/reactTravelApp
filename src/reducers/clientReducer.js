@@ -14,6 +14,9 @@ function clientReducer(state = initialState.client, action) {
     case types.RECEIVED_UPDATED_CLIENT:
       return action.dbClient;
 
+    case types.SENT_EMAIL:
+      return toastr.success('Please check your email, and enjoy your trip.', 'SENT');
+
     default: return state;
   }
 }

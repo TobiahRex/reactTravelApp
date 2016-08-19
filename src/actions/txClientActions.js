@@ -1,4 +1,5 @@
-import * as API from './apiActions';
+import * as RX from './rxClientActions';
+
 
 export function getAllClientData() {
   return (dispatch) => {
@@ -7,8 +8,8 @@ export function getAllClientData() {
     };
     fetch('/api/clients/', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.getAllClientData(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedClientData(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -19,8 +20,8 @@ export function deleteAllClients() {
     };
     fetch('/api/clients/', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.deleteAllClients(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedClientData(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -31,8 +32,8 @@ export function createClient() {
     };
     fetch('/api/clients', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.createClient(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedNewClient(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -47,8 +48,8 @@ export function addClientData(newData, clientId) {
     };
     fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.receivedClientData(parsedJson[0])))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedClientData(parsedJson[0])))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -60,8 +61,8 @@ export function getClientData(clientId) {
     };
     fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.receivedClientData(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedClientData(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -73,7 +74,7 @@ export function deleteClient(clientId) {
     };
     fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
-    .catch(err => API.receivedError(err));
+    .catch(err => RX.receivedError(err));
   };
 }
 
@@ -85,8 +86,8 @@ export function getItinerary(clientId, city) {
     };
     fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.getItinerary(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.receivedClientData(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }
 
@@ -98,7 +99,7 @@ export function submitEmail(clientId, email) {
     };
     fetch(`/api/clients/email/${clientId}`, options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(API.submitEmail(parsedJson)))
-    .catch(err => dispatch(API.receivedError(err)));
+    .then(parsedJson => dispatch(RX.sentEmail(parsedJson)))
+    .catch(err => dispatch(RX.receivedError(err)));
   };
 }

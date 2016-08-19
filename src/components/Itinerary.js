@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Panel, Container, Row, Col } from 'muicss/react';
 import Day from './Day';
-import * as ClientActions from '../actions/ClientActions';
+import * as txClientActions from '../actions/txClientActions';
 
 
 class Itinerary extends Component {
@@ -72,7 +72,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itinerary);

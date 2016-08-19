@@ -7,7 +7,7 @@ import {
   Container,
   Col,
   Row } from 'muicss/react';
-import * as ClientActions from '../actions/ClientActions.js';
+import * as txClientActions from '../actions/txClientActions.js';
 
 
 class Intro extends Component {
@@ -43,6 +43,7 @@ class Intro extends Component {
   }
 
   render() {
+    console.log('this.props: ', this.props);
     return (
       <div className="slide">
         <Row className="intro-row">
@@ -89,7 +90,7 @@ Intro.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(Intro);

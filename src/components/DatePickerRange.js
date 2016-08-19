@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import RangePicker from 'react-daterange-picker';
 import { Button, Panel, Container, Row, Col, Form, Input } from 'muicss/react';
-import * as ClientActions from '../actions/ClientActions';
+import * as txClientActions from '../actions/txClientActions';
 
 class DatePickerRange extends Component {
   constructor(props, context) {
@@ -80,7 +80,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatePickerRange);

@@ -9,7 +9,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
-import * as ClientActions from '../actions/ClientActions.js';
+import * as txClientActions from '../actions/txClientActions.js';
 
 class Who extends Component {
   constructor(props) {
@@ -93,7 +93,6 @@ class Who extends Component {
   }
 
   render() {
-
 
     return (
       <div className="slide">
@@ -187,7 +186,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(ClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Who);
