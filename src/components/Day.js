@@ -1,50 +1,54 @@
-import React, { Component } from 'react';
-import ClientStore from '../stores/ClientStore';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import FlipCard from 'react-flipcard';
 
 export default class Day extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
+
+    this.renderData = this.renderData.bind(this);
+  }
+
+  renderData(dataObj, index) {
+    return (
+      <li key={index} >{dataObj.name}</li>
+    );
   }
 
   render() {
-    let { day, client, num } = this.props;
-    console.log('day:', day);
-    console.log('client:', client);
-    console.log('num:', num);
-    return(
+    const { day, client, num } = this.props;
+    return (
       <div className="flipcard">
         <FlipCard>
 
           <div className="flipcard-front">
 
-              <i className="fa fa-calendar-o" aria-hidden="true"></i>
+            <i className="fa fa-calendar-o" aria-hidden="true" />
             <p>Day {num}</p>
           </div>
 
           <div>
             Activities:
-            {day.activities.map(activity => {
-              return <li>{activity.name}</li>
-            })}
-            <hr/>
+            {day.activities.map(this.renderData)}
+            <hr />
             Breakfast:
-            {day.breakfast.map(breakfast => {
-              return <li>{breakfast.name}</li>
-            })}
-            <hr/>
+            {day.breakfast.map(this.renderData)}
+            <hr />
             Lunch:
-            {day.lunch.map(lunch => {
-              return <li>{lunch.name}</li>
-            })}
-            <hr/>
+            {day.lunch.map(this.renderData)}
+            <hr />
             Dinner:
-            {day.dinner.map(dinner => {
-              return <li>{dinner.name}</li>
-            })}
+            {day.dinner.map(this.renderData)}
           </div>
         </FlipCard>
       </div>
-    )
+    );
   }
 }
+
+Day.propTypes = {
+  day: PropTypes.object.isRequired,
+  client: PropTypes.object.isRequired,
+  num: PropTypes.number.isRequired,
+};
