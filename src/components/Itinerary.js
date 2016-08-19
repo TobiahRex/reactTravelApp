@@ -67,7 +67,7 @@ class Itinerary extends Component {
 }
 
 Itinerary.propTypes = {
-  client: PropTypes.object.isRequired,
+  client: PropTypes.object,
   actions: PropTypes.object.isRequired,
 };
 
