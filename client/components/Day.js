@@ -6,6 +6,18 @@ export default class Day extends Component {
   constructor(props) {
     super(props);
   }
+  //
+  // function activateModal() {
+  //   // initialize modal element
+  //   var modalEl = document.createElement('div');
+  //   modalEl.style.width = '400px';
+  //   modalEl.style.height = '300px';
+  //   modalEl.style.margin = '100px auto';
+  //   modalEl.style.backgroundColor = '#fff';
+  //
+  //   // show modal
+  //   mui.overlay('on', modalEl);
+  // }
 
   render() {
     let { day, client, num } = this.props;
@@ -25,25 +37,25 @@ export default class Day extends Component {
             <span className="itinerary-type-heading">
             Activities:</span>
             {day.activities.map(activity => {
-              return <li><a href="{activity.url}">{activity.name}</a> | {activity.rating} stars</li>
+              return <li><a href={activity.url}>{activity.name}</a> | {activity.rating} stars</li>
             })}
             <hr/>
             <span className="itinerary-type-heading">
             Breakfast:</span>
             {day.breakfast.map(breakfast => {
-              return <li><a href="{breakfast.url}">{breakfast.name}</a> | {breakfast.rating} stars</li>
+              return <li><a href={breakfast.url}>{breakfast.name}</a> | {breakfast.rating} stars</li>
             })}
             <hr/>
             <span className="itinerary-type-heading">
             Lunch:</span>
             {day.lunch.map(lunch => {
-              return <li><a href="{lunch.url}">{lunch.name}</a> | {lunch.rating} stars</li>
+              return <li><a href={lunch.url}>{lunch.name}</a> | {lunch.rating} stars</li>
             })}
             <hr/>
             <span className="itinerary-type-heading">
             Dinner:</span>
             {day.dinner.map(dinner => {
-              return <li><a href="{dinner.url}">{dinner.name}</a> | {dinner.rating} stars</li>
+              return <li><a href={dinner.url}>{dinner.name}</a> | {dinner.rating} stars</li>
             })}
           </div>
         </FlipCard>
