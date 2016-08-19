@@ -32,7 +32,11 @@ export function createClient() {
     };
     fetch('/api/clients', options)
     .then(res => res.json())
-    .then(parsedJson => dispatch(RX.receivedNewClient(parsedJson)))
+    .then(parsedJson => {
+      let newAction = RX.receivedNewClient(parsedJson);
+      console.log('newAction: ', newAction);
+      dispatch(newAction);
+    })
     .catch(err => dispatch(RX.receivedError(err)));
   };
 }

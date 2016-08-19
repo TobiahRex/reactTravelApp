@@ -38,12 +38,10 @@ class Intro extends Component {
       },
       email: '',
     };
-    // ClientActions.createClient(newClient);
     this.props.actions.createClient(newClient);
   }
 
   render() {
-    console.log('this.props: ', this.props);
     return (
       <div className="slide">
         <Row className="intro-row">
