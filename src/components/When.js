@@ -4,7 +4,9 @@ import {} from 'moment-range';
 import timekeeper from 'timekeeper';
 import { Button, Panel, Container, Row, Col } from 'muicss/react';
 
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import DatePickerRange from './DatePickerRange.js';
 
 const stateDefinitions = {
@@ -28,43 +30,36 @@ export default class When extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null
-    }
+      value: null,
+    };
 
     this.handleSelect = this.handleSelect.bind(this);
   }
-
-  handleSelect(value) {
-    this.setState({value});
-  }
-
   render() {
-
-    return(
+    return (
       <div className="slide">
         <div className="when-title">
-          <h5 className='when-title mui--text-display2'>WHEN are you going?</h5>
+          <h5 className="when-title mui--text-display2">WHEN are you going?</h5>
         </div>
-        <Row id='when-row'>
+        <Row id="when-row">
           <Col md="10">
 
             <DatePickerRange
               firstOfWeek={1}
               numberOfCalendars={1}
-              selectionType='range'
+              selectionType="range"
               minimumDate={new Date()}
               stateDefinitions={stateDefinitions}
               defaultState="available"
               showLegend={false}
-              value={this.state.value}
-              onSelect={this.handleSelect}/>
+              value={this.state.value} />
 
           </Col>
           <Col md="2">
             <div className="when-arrow mui--text-right">
               <a href="#questionnaire/3">
                 <Button variant="fab" color="primary">
-                  <i className="fa fa-arrow-right"></i>
+                  <i className="fa fa-arrow-right" />
                 </Button>
               </a>
             </div>
@@ -72,30 +67,6 @@ export default class When extends Component {
 
         </Row>
       </div>
-    )
+    );
   }
 }
-
-
-// <div className="slide">
-//   <div>
-//     <h1>When?</h1>
-//
-//     <DatePickerRange
-//       firstOfWeek={1}
-//       numberOfCalendars={1}
-//       selectionType='range'
-//       minimumDate={new Date()}
-//       stateDefinitions={stateDefinitions}
-//       defaultState="available"
-//       showLegend={false}
-//       value={this.state.value}
-//       onSelect={this.handleSelect}/>
-//
-//   </div>
-//   <div className="col-xs-1 col-xs-offset-1 when-arrow">
-//   <a href="#questionnaire/3" onClick={this.nextPage}>
-//   <i className='intro-right-arrow fa fa-5x fa-arrow-right'></i>
-//   </a>
-//   </div>
-// </div>

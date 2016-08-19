@@ -1,15 +1,14 @@
 import moment from 'moment';
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import RangePicker from 'react-daterange-picker';
-import ClientActions from '../actions/ClientActions';
-import ClientStore from '../stores/ClientStore';
 import { Button, Panel, Container, Row, Col, Form, Input } from 'muicss/react';
+import ClientActions from '../actions/ClientActions';
 
-let dates = [];
-
-export default class DatePickerRange extends Component {
-  constructor(props) {
-    super(props);
+class DatePickerRange extends Component {
+  constructor(props, context) {
+    super(props, context);
 
     this.state = { value: '' };
     this.handleSelect = this.handleSelect.bind(this);
@@ -17,82 +16,74 @@ export default class DatePickerRange extends Component {
   }
 
   handleSelect(value) {
-    this.setState({value});
+    this.setState({ value });
   }
 
   submitDate(event) {
     event.preventDefault();
-    let client = ClientStore.getClient();
+    const client = this.props.client;
 
-    let whenObj = {
+    const whenObj = {
       when: {
         start: this.state.value.start.format('LL'),
         end: this.state.value.end.format('LL'),
         days: this.state.value.end.diff(this.state.value.start, 'days'),
-      }
-    }
-    ClientActions.addClientData(whenObj, client._id);
+      },
+    };
+    this.props.actions.addClientData(whenObj, client._id);
   }
 
   render() {
     return (
       <div>
-        <RangePicker {...this.props}
+        <RangePicker
+          {...this.props}
           onSelect={this.handleSelect}
           value={this.state.value} />
 
-        <div className='form-group chosen-dates'>
-            <Form inline={true}>
+        <div className="form-group chosen-dates">
+          <Form inline="true">
 
-            <Input type="text"
-              id='start-date'
-
+            <Input
+              type="text"
+              id="start-date"
               value={this.state.value ? this.state.value.start.format('LL') : ''}
-              readOnly={true}
+              readOnly="true"
               placeholder="Start date"
-              className='form-control date-inputs'/>
-            <Input type="text"
-              id='end-date'
+              className="form-control date-inputs" />
+            <Input
+              type="text"
+              id="end-date"
               value={this.state.value ? this.state.value.end.format('LL') : ''}
-              readOnly={true}
+              readOnly="true"
               placeholder="End date"
-              className='form-control date-inputs'/>
-            <label htmlFor="button"> </label>
+              className="form-control date-inputs" />
 
-            <Button color='primary' id='button' className="form-control" onClick={this.submitDate}>Submit</Button>
+            <label htmlFor="button" />
+            <Button
+              color="primary"
+              id="button"
+              className="form-control"
+              onClick={this.submitDate}>Submit</Button>
 
           </Form>
         </div>
-        <br/>
       </div>
     );
   }
 }
 
+DatePickerRange.propTypes = {
+  client: PropTypes.object.isRequired,
+  actions: PropTypes.func.isRequired,
+};
 
-// <div className='col-xs-7 col-xs-offset-3 row'>
-//   <RangePicker {...this.props}
-//     onSelect={this.handleSelect}
-//     value={this.state.value} />
-//   <div className="form-inline col-xs-offset-2">
-//     <div className='form-group'>
-//       <input type="text"
-//         id='start-date'
-//         value={this.state.value ? this.state.value.start.format('LL') : ''}
-//         readOnly={true}
-//         placeholder="Start date"
-//         className='form-control'/>
-//       <input type="text"
-//         id='end-date'
-//         value={this.state.value ? this.state.value.end.format('LL') : ''}
-//         readOnly={true}
-//         placeholder="End date"
-//         className='form-control'/>
-//       <label htmlFor="button"> </label>
-//       </div>
-//   </div>
-//   <br/>
-//   <div className="col-xs-10">
-//     <button id='button' className="btn btn-primary btn-lg btn-block" onClick={this.submitDate}>Submit</button>
-//   </div>
-// </div>
+const mapStateToProps = (state, ownProps) => ({
+  client: state.client,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(ClientActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DatePickerRange);
