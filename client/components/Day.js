@@ -2,24 +2,11 @@ import React, { Component } from 'react';
 import ClientStore from '../stores/ClientStore';
 import FlipCard from 'react-flipcard';
 import mui from 'muicss';
+import Modal from './Modal';
 
 export default class Day extends Component {
   constructor(props) {
     super(props);
-
-    this.activateModal = this.activateModal.bind(this);
-  }
-
-  activateModal() {
-    // initialize modal element
-    var modalEl = document.createElement('div');
-    modalEl.style.width = '400px';
-    modalEl.style.height = '300px';
-    modalEl.style.margin = '100px auto';
-    modalEl.style.backgroundColor = '#fff';
-
-    // show modal
-    mui.overlay('on', modalEl);
   }
 
   render() {
@@ -32,12 +19,34 @@ export default class Day extends Component {
         <FlipCard>
 
           <div className="flipcard-front">
-              <i className="fa fa-calendar-o" aria-hidden="true"></i>
-            <p>Day {num}</p>
+              <p className="front-day"><i className="fa fa-calendar-o" aria-hidden="true"></i>
+            &nbsp; Day {num}</p>
+            <p className="itinerary-description">
+              Breakfast at <a href={day.breakfast[0].url}>
+                {day.breakfast[0].name}</a>
+            </p>
+            <p className="front-description">{day.breakfast[0].rating} stars of {day.breakfast[0].review_count} reviews</p>
+            <img src={day.breakfast[0].image_url}/>
+            <p className="itinerary-description">
+              Lunch at <a href={day.lunch[0].url}>
+               {day.lunch[0].name}</a>
+            </p>
+            <p className="front-description">{day.lunch[0].rating} stars of {day.lunch[0].review_count} reviews</p>
+            <img src={day.lunch[0].image_url}/>
+            <p className="itinerary-description">
+              Dinner at <a href={day.dinner[0].url}>
+               {day.dinner[0].name}</a>
+            </p>
+            <p className="front-description">{day.dinner[0].rating} stars of {day.dinner[0].review_count} reviews</p>
+            <img src={day.dinner[0].image_url}/>
+            <p className="itinerary-description">
+              To do:  <a href={day.activities[0].url}>
+               {day.activities[0].name}</a>
+            </p>
+            <img src={day.activities[0].image_url}/>
           </div>
 
           <div className="flipcard-back">
-                      <button className="mui-btn mui-btn--primary" onClick={this.activateModal}>Open modal</button>
             <span className="itinerary-type-heading">
             Activities:</span>
             {day.activities.map(activity => {

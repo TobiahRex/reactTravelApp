@@ -44,15 +44,12 @@ export default class Itinerary extends Component {
             <div className="itinerary">
               <div className="top-of-itinerary">
                 <If condition={this.state.client}>
-                <p className="city-in-itinerary">Here's your itinerary for {this.state.client.where.city}</p>
+                <p className="city-in-itinerary">Itinerary for {this.state.client.where.city}</p>
                 </If>
-                <span className="enter-email-blurb">
-                Enter your email if you want this itinerary!
-                </span>
-                <br/>
-                <input type="email" placeholder="Email"
+                <input id="email-input" type="email" className="form-control input-sm" placeholder="Email"
                 value={this.state.email} onChange={ e => this.setState({ email: e.target.value })}/>
-                <Button color='primary' id='button' className="form-control" size="large" onClick={this.submitEmail}>Send</Button>
+                <Button color='primary' id='button' className="form-control" size="small" onClick={this.submitEmail}>Send this to me!</Button>
+                <br/>
 
               </div>
             <br/>
@@ -60,8 +57,11 @@ export default class Itinerary extends Component {
             {this.state.client.itinerary.map((day, index) => {
               return <Day key={index} day={day} client={this.state.client} num={index + 1} />
             })}
+            <p className="flip-over">(Flip cards to view full itinerary)</p>
+
             </If>
             </div>
+
           </Col>
         </Row>
 

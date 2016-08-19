@@ -91,11 +91,11 @@ i.fa.fa-angle-down {
   margin-bottom: 100px;
 }
 h1.intro-title {
-  padding-top: 240px;
+  padding-top: 100px;
   line-height: 1.5;
   vertical-align: middle;
   text-align: center;
-  font-size: 100px;
+  font-size: 62px;
   font-family: "Baloo Thambi";
 }
 
@@ -691,7 +691,6 @@ i.fa-arrow-right {
 }
 
 
-
 //
 $outline-width: 0;
 $break-point: 500px;
@@ -827,6 +826,7 @@ $brand-primary: #3498DB; //Zen Blue
   text-align: center;
   padding: 0;
   font-family: 'Baloo Thambi';
+  // font-family: Arial narrow;
   color: black;
   font-size: 25px;
 }
@@ -837,7 +837,8 @@ $brand-primary: #3498DB; //Zen Blue
   text-align: center;
   vertical-align: middle;
   width: 300px;
-  height: 700px;
+  height: 640px;
+  margin-bottom: 30px;
   border: 3px solid black;
   padding-top: 5px;
   box-shadow: 1px 1px 10px black;
@@ -850,8 +851,9 @@ $brand-primary: #3498DB; //Zen Blue
   text-align: center;
   vertical-align: middle;
   width: 300px;
-  height: 700px;
-  padding-top: 240px;
+  height: 640px;
+  margin-bottom: 30px;
+  padding-top: 10px;
   border: 3px solid black;
   box-shadow: 1px 1px 10px black;
 }
@@ -861,7 +863,8 @@ $brand-primary: #3498DB; //Zen Blue
   padding: 5px;
   margin: 30px;
   display: inline-block;
-  height: 700px;
+  height: 720px;
+  margin-bottom: 30px;
   width: 300px;
   font-size: 20px;
 }
@@ -891,7 +894,7 @@ li>a:hover {
 
 p.city-in-itinerary {
   text-transform: capitalize;
-  font-size: 60px;
+  font-size: 40px;
   font-family: 'Baloo Thambi';
   color: white;
   text-shadow: 1px 1px 10px black;
@@ -908,6 +911,51 @@ p.city-in-itinerary {
   font-size: 30px;
 }
 
-i.fa.fa-calendar-o {
-  font-size: 150px;
+i.fa.fa-calendar-o, .flipcard-front>p.front-day {
+  font-size: 20px;
+}
+
+.modal-day {
+  width: 300px;
+  height: 400px;
+  margin: 100px auto;
+  background-color: white;
+  color: black;
+}
+
+.flip-over {
+  font-size: 16px;
+  font-style: italic;
+  color: white;
+  line-height: 0;
+  bottom: 0;
+  height: 14px;
+}
+
+.itinerary-description, .itinerary-description>a {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+}
+
+.itinerary-description>a:hover {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.front-description {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 0;
+}
+
+div#intro-panel.mui-panel {
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+input#email-input {
+  font-size: 14px;
+  line-height: 1;
 }
