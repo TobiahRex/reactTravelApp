@@ -5,11 +5,12 @@ import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from './routes';
 import configureStore from './store/configureStore';
-// import { loadCourses } from './actions/courseActions';
-import './styles/styles.scss'; // Webpack can import CSS file too!
+import './styles/styles.scss'; // Webpack can import SCSS file too!
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/jquery/dist/jquery.min.js';
 import '../node_modules/toastr/build/toastr.min.css';
+import '../node_modules/fullpage.js/jquery.fullPage.js';
+import '../node_modules/fullpage.js/jquery.fullPage.scss';
 
 
 const store = configureStore();

@@ -7,7 +7,6 @@ import When from './When.js';
 import Where from './Where.js';
 import Questionnaire from './Questionnaire.js';
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,6 @@ export default class App extends Component {
     this.state = { location: '' };
     this._setLocation = this._setLocation.bind(this);
   }
-
   componentDidMount() {
     $('#fullpage').fullpage({
       anchors: ['splash', 'questionnaire'],
@@ -36,6 +34,7 @@ export default class App extends Component {
       <div id='fullpage'>
         <Splash />
         <Questionnaire />
+
       </div>
     );
   }

@@ -38,9 +38,7 @@ class Itinerary extends Component {
         <Row id="itinerary-row">
           <Col md="12">
             <div className="itinerary">
-              <If condition={client}>
-                <p className="city-in-itinerary">{client.where.city}</p>
-              </If>
+              {client ? <p className="city-in-itinerary">{client.where.city}</p> : ''}
               Enter your email so we can send you this itinerary!
               <br />
               <input
@@ -55,9 +53,7 @@ class Itinerary extends Component {
                 size="large"
                 onClick={this.submitEmail}>Send</Button>
               <br />
-              <If condition={this.props.client}>
-                {this.props.client.itinerary.map(this.renderCards)}
-              </If>
+              {client ? client.itinerary.map(this.renderCards) : ''}
             </div>
           </Col>
         </Row>

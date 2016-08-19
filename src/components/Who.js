@@ -20,11 +20,11 @@ class Who extends Component {
       client: this.props.client,
       clientId: '',
       maleCount: 0,
-      male: "client/styles/images/male_shilouette_black.png",
+      male: "./styles/images/male_shilouette_black.png",
       femaleCount: 0,
-      female: "client/styles/images/female_shilouette_black.png",
+      female: "./styles/images/female_shilouette_black.png",
       kidsCount: 0,
-      kids: "client/styles/images/kids_shillouette_black.png",
+      kids: "./styles/images/kids_shillouette_black.png",
     };
 
     this.addMale = this.addMale.bind(this);
@@ -94,6 +94,7 @@ class Who extends Component {
 
   render() {
 
+
     return (
       <div className="slide">
         <div className="who-title">
@@ -111,9 +112,9 @@ class Who extends Component {
                   className="who-male-img"
                   src={this.state.male}
                   onMouseEnter={(e) => this.setState({
-                    male: "client/styles/images/male_shilouette_orange.png" })}
+                    male: "./styles/images/male_shilouette_orange.png" })}
                   onMouseOut={(e) => this.setState({
-                    male: "client/styles/images/male_shilouette_black.png" })}
+                    male: "./styles/images/male_shilouette_black.png" })}
                   onClick={this.addMale} />
                 <br />
                 <div
@@ -127,9 +128,9 @@ class Who extends Component {
                   className="who-female-img"
                   src={this.state.female}
                   onMouseEnter={(e) => this.setState({
-                    female: "client/styles/images/female_shilouette_orange.png" })}
+                    female: "./styles/images/female_shilouette_orange.png" })}
                     onMouseOut={(e) => this.setState({
-                      female: "client/styles/images/female_shilouette_black.png" })}
+                      female: "./styles/images/female_shilouette_black.png" })}
                       onClick={this.addFemale} />
                 <br />
                 <div
@@ -143,9 +144,9 @@ class Who extends Component {
                   className="who-kids-img"
                   src={this.state.kids}
                   onMouseEnter={(e) => this.setState({
-                    kids: "client/styles/images/kids_shillouette_orange.png" })}
+                    kids: "./styles/images/kids_shillouette_orange.png" })}
                   onMouseOut={(e) => this.setState({
-                    kids: "client/styles/images/kids_shillouette_black.png" })}
+                    kids: "./styles/images/kids_shillouette_black.png" })}
                   onClick={this.addKid} />
                 <br />
                 <div
