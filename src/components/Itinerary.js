@@ -67,8 +67,8 @@ class Itinerary extends Component {
 }
 
 Itinerary.propTypes = {
-  actions: PropTypes.func.isRequired,
   client: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
