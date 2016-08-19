@@ -1,8 +1,13 @@
+import {
+  Button, 
+  Panel,
+  Container,
+  Col,
+  Row } from 'muicss/react';
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ClientActions from '../actions/ClientActions.js';
-import { Button, Panel, Container, Col, Row } from 'muicss/react';
 // import Row from 'muicss/lib/react/row';
 // import Col from 'muicss/lib/react/col';
 // import Panel from 'muicss/lib/react/panel';
