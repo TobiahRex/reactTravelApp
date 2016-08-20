@@ -27,7 +27,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath
 }));
 app.use((req, res, next) => {
-  res.handle = (err, data) => res.status(err ? 400 : 200).send(err || data);
+  res.handle = (err, data) => {
+    console.log('handle ERROR: ', err, '\nhandle DATA: ', data);
+    res.status(err ? 400 : 200).send(err || data)
+  };
   next();
 });
 app.use(require('webpack-hot-middleware')(compiler));

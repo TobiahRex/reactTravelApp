@@ -1,4 +1,5 @@
 import * as RX from './rxClientActions';
+import { get, post, ajax } from 'jquery';
 
 
 export function getAllClientData() {
@@ -38,15 +39,18 @@ export function createClient() {
 }
 
 export function addClientData(newData, clientId) {
-  console.log('newData: ', newData, 'clientId: ', clientId);
   return (dispatch) => {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
     const options = {
-      method: 'PUT',
-      body: {
-        newData,
-        clientId,
-      },
+      headers,
+      method: "PUT",
+      credentials: "same-origin",
+      mode: "cors",
+      cache: "default",
+      body: JSON.stringify(newData),
     };
+
     fetch(`/api/clients/${clientId}`, options)
     .then(res => res.json())
     .then(parsedJson => dispatch(RX.receivedClientData(parsedJson[0])))

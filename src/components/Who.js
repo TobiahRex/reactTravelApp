@@ -18,17 +18,16 @@ class Who extends Component {
     super(props, context);
 
     this.state = {
+      link: '/#questionnaire/1',
       client: this.props.client,
       male: this.props.maleBlack,
       female: this.props.femaleBlack,
       kids: this.props.kidsBlack,
     };
     this.nextPage = this.nextPage.bind(this);
-    this.maleCount = this.maleCount.bind(this);
   }
 
-  nextPage(event) {
-    event.preventDefault();
+  nextPage() {
     const total = this.props.femaleCount + this.props.maleCount + this.props.kidsCount;
     if (!total) {
       swal({
@@ -40,17 +39,11 @@ class Who extends Component {
       });
     } else if (total > 0) {
       this.props.txActions.addClientData(this.props.client, this.props.client._id);
-      browserHistory.push('/#questionnaire/2');
     }
   }
 
-  maleCount() {
-    this.props.whoActions.addMale();
-    this.props.rxActions.addMale();
-  }
-
   render() {
-    console.log('this.props: ', this.props);
+    console.log(this.state.link);
     return (
       <div className="slide">
         <div className="who-title">
@@ -71,7 +64,11 @@ class Who extends Component {
                     male: this.props.maleOrange })}
                   onMouseOut={(e) => this.setState({
                     male: this.props.maleBlack })}
-                  onClick={this.maleCount} />
+                  onClick={() => {
+                    this.setState({ link: '/#questionnaire/2' });
+                    this.props.whoActions.addMale();
+                    this.props.rxActions.addMale();
+                  }} />
                 <br />
                 <div
                   className="male-counter
@@ -90,7 +87,11 @@ class Who extends Component {
                     female: this.props.femaleOrange })}
                     onMouseOut={(e) => this.setState({
                       female: this.props.femaleBlack })}
-                      onClick={this.props.whoActions.addFemale} />
+                      onClick={() => {
+                        this.setState({ link: '/#questionnaire/2' });
+                        this.props.whoActions.addFemale();
+                        this.props.rxActions.addFemale();
+                      }} />
                 <br />
                 <div
                   className="female-counter
@@ -110,7 +111,11 @@ class Who extends Component {
                     kids: this.props.kidsOrange })}
                   onMouseOut={(e) => this.setState({
                     kids: this.props.kidsBlack })}
-                  onClick={this.props.whoActions.addKid} />
+                  onClick={() => {
+                    this.setState({ link: '/#questionnaire/2' });
+                    this.props.whoActions.addKid();
+                    this.props.rxActions.addKid();
+                  }} />
                 <br />
                 <div
                   className="who-kids-counter
@@ -128,7 +133,7 @@ class Who extends Component {
 
           <Col md="1" id="who-arrow">
             <a
-              href="#questionnaire/2"
+              href={this.state.link}
               onClick={this.nextPage}>
               <Button
                 variant="fab"
@@ -172,7 +177,6 @@ const mapStateToProps = (state, ownProps) => ({
   kidsBlack: state.who.kidsBlack,
   kidsOrange: state.who.kidsOrange,
 });
-
 
 const mapDispatchToProps = dispatch => ({
   whoActions: bindActionCreators(whoActions, dispatch),

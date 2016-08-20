@@ -64,9 +64,10 @@ clientSchema.statics.deleteClient = (id, cb) => {
       return cb(null, dbData);
     });
   });
-}
+};
 
 clientSchema.statics.updateClient = (id, body, cb) => {
+  console.log('body: ', body);
   if (!id) return cb({ Error: 'Missing required Id to Delete Client.' });
   let mongoID = mongoose.Types.ObjectId(id);
   return Client.findByIdAndUpdate(mongoID, body, 'new', (err1, newClient) => {
@@ -76,7 +77,7 @@ clientSchema.statics.updateClient = (id, body, cb) => {
       return cb(null, dbData);
     });
   });
-}
+};
 
 clientSchema.statics.itinerary = (id, body, cb) => {
   if (!id) return cb({ Error: `Cannot find client by this ${id} `});
@@ -88,7 +89,7 @@ clientSchema.statics.itinerary = (id, body, cb) => {
 
   async.map(yelpSearch, yelpSearching, (err, data) => {
 
-    if (err) console.log('yelp error: \n', err);
+    if (err) console.error('yelp error: \n', err);
 
     let breakfast = data[0];
     let lunch = data[1];
@@ -107,8 +108,7 @@ clientSchema.statics.itinerary = (id, body, cb) => {
           lunch: [lunch[i], lunch[i+1]],
           dinner: [dinner[i], dinner[i+1]],
           activities: [activities[j], activities[j+1], activities[j+2]]
-        }
-        console.log(`newObj ${i}: `, newObj, '\ni: ', i, '\nj: ', j, '\nx: ', x);
+        };
         dbClient.itinerary.push(newObj);
       }
 
@@ -116,9 +116,9 @@ clientSchema.statics.itinerary = (id, body, cb) => {
         if(err2) return cb(err2);
         cb(null, savedClient);
       });
-    })
-  })
-}
+    });
+  });
+};
 
 clientSchema.statics.sendEmail = (clientEmail, clientId, cb) => {
   if (!clientEmail || !clientId) return cb({ Error: 'Did not provide necessary client information to send email.' });

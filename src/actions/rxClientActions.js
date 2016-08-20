@@ -39,7 +39,7 @@ export function addFemale() {
   };
 }
 
-export function addKids() {
+export function addKid() {
   return {
     type: types.CLIENT_ADD_KID,
   };

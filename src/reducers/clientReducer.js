@@ -12,6 +12,7 @@ function clientReducer(state = initialState.client, action) {
       return action.dbClient;
 
     case types.RECEIVED_UPDATED_CLIENT:
+    console.log('action: ', action);
       return action.dbClient;
 
     case types.SENT_EMAIL: {
@@ -19,18 +20,21 @@ function clientReducer(state = initialState.client, action) {
     }
 
     case types.CLIENT_ADD_MALE: {
-      const newClient = Object.assign({}, state);
-      ++newClient.who.male;
+      const who = Object.assign({}, state.who);
+      ++who.male;
+      const newClient = Object.assign({}, state, { who });
       return newClient;
     }
     case types.CLIENT_ADD_FEMALE: {
-      const newClient = Object.assign({}, state);
-      ++newClient.who.female;
+      const who = Object.assign({}, state.who);
+      ++who.female;
+      const newClient = Object.assign({}, state, { who });
       return newClient;
     }
     case types.CLIENT_ADD_KID: {
-      const newClient = Object.assign({}, state);
-      ++newClient.who.kids;
+      const who = Object.assign({}, state.who);
+      ++who.kids;
+      const newClient = Object.assign({}, state, { who });
       return newClient;
     }
 
