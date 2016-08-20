@@ -2,6 +2,7 @@ import toastr from 'toastr';
 import * as types from '../actions/actionTypes';
 import * as initialState from './initialState';
 
+
 function clientReducer(state = initialState.client, action) {
   switch (action.type) {
 

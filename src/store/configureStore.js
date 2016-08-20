@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import rootReducer from '../reducers';
 
-export default function configureStore(initialState) {
+function configureStore(initialState) {
   return createStore(
     rootReducer,
     initialState,
@@ -15,3 +15,5 @@ export default function configureStore(initialState) {
     )
   );
 }
+
+export default configureStore;

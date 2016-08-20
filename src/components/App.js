@@ -34,7 +34,6 @@ export default class App extends Component {
       <div id='fullpage'>
         <Splash />
         <Questionnaire />
-
       </div>
     );
   }

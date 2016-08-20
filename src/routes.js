@@ -11,9 +11,9 @@ import Itinerary from './components/Itinerary.js';
 export default (
   <Route path="/" component={App}>
     <Route path="splash'" component={Splash} />
-    <Route path='who' component={Who} />
-    <Route path='when' component={When} />
-    <Route path='where' component={Where} />
-    <Route path='itinerary' component={Itinerary} />
+    <Route path="who" component={Who} />
+    <Route path="when" component={When} />
+    <Route path="where" component={Where} />
+    <Route path="itinerary" component={Itinerary} />
   </Route>
 );

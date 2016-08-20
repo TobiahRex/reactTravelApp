@@ -22,51 +22,7 @@ class Who extends Component {
       female: this.props.femaleBlack,
       kids: this.props.kidsBlack,
     };
-
-    // this.addMale = this.addMale.bind(this);
-    // this.addFemale = this.addFemale.bind(this);
-    // this.addKid = this.addKid.bind(this);
-    // this.nextPage = this.nextPage.bind(this);
   }
-
-  // addMale() {
-  //   const client = this.props.client;
-  //   // let maleCount = this.state.maleCount;
-  //   let maleCount = this.props.maleCount;
-  //   maleCount += 1;
-  //
-  //   if (client.who.male === 0) {
-  //     client.who.male = 1;
-  //   } else {
-  //     client.who.male += 1;
-  //   }
-  //
-  // }
-  //
-  // addFemale() {
-  //   // const client = Object.assign({}, this.state.client);
-  //   // let femaleCount = this.state.femaleCount;
-  //   // femaleCount += 1;
-  //   //
-  //   // if (client.who.female === 0) {
-  //   //   client.who.female = 1;
-  //   // } else {
-  //   //   client.who.female += 1;
-  //   // }
-  //   this.props.actions.femaleCountAdd();
-  // }
-  // addKid() {
-  //   // const client = Object.assign({}, this.state.client);
-  //   // let kidsCount = this.state.kidsCount;
-  //   // kidsCount += 1;
-  //   //
-  //   // if (client.who.kids === 0) {
-  //   //   client.who.kids = 1;
-  //   // } else {
-  //   //   client.who.kids += 1;
-  //   // }
-  //   this.props.actions.kidsCountAdd();
-  // }
 
   nextPage(event) {
     event.preventDefault();
@@ -107,7 +63,7 @@ class Who extends Component {
                     male: this.props.maleOrange })}
                   onMouseOut={(e) => this.setState({
                     male: this.props.maleBlack })}
-                  onClick={this.props.actions.addMale} />
+                  onClick={this.props.whoActions.addMale} />
                 <br />
                 <div
                   className="male-counter
@@ -126,7 +82,7 @@ class Who extends Component {
                     female: this.props.femaleOrange })}
                     onMouseOut={(e) => this.setState({
                       female: this.props.femaleBlack })}
-                      onClick={this.props.actions.addFemale} />
+                      onClick={this.props.whoActions.addFemale} />
                 <br />
                 <div
                   className="female-counter
@@ -146,7 +102,7 @@ class Who extends Component {
                     kids: this.props.kidsOrange })}
                   onMouseOut={(e) => this.setState({
                     kids: this.props.kidsBlack })}
-                  onClick={this.props.actions.addKid} />
+                  onClick={this.props.whoActions.addKid} />
                 <br />
                 <div
                   className="who-kids-counter
@@ -192,24 +148,26 @@ Who.propTypes = {
   kidsBlack: PropTypes.string.isRequired,
   kidsOrange: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired,
+  whoActions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   client: state.client,
-  maleCount: state.maleCount,
-  femaleCount: state.femaleCount,
-  kidsCount: state.kidsCount,
-  maleBlack: state.maleBlack,
-  maleOrange: state.maleOrange,
-  femaleBlack: state.femaleBlack,
-  femaleOrange: state.femaleOrange,
-  kidsBlack: state.kidsBlack,
-  kidsOrange: state.kidsOrange,
+  maleCount: state.who.maleCount,
+  femaleCount: state.who.femaleCount,
+  kidsCount: state.who.kidsCount,
+  maleBlack: state.who.maleBlack,
+  maleOrange: state.who.maleOrange,
+  femaleBlack: state.who.femaleBlack,
+  femaleOrange: state.who.femaleOrange,
+  kidsBlack: state.who.kidsBlack,
+  kidsOrange: state.who.kidsOrange,
 });
+
 
 const mapDispatchToProps = dispatch => ({
   whoActions: bindActionCreators(whoActions, dispatch),
-  txActions: bindActionCreators(txClientActions, dispatch),
+  actions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Who);
