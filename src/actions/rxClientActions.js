@@ -44,3 +44,9 @@ export function addKid() {
     type: types.CLIENT_ADD_KID,
   };
 }
+
+export function submitDate() {
+  return {
+    type: types.CLIENT_SUBMIT_DATE,
+  };
+}
