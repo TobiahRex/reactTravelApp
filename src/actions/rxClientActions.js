@@ -45,8 +45,9 @@ export function addKid() {
   };
 }
 
-export function submitDate() {
+export function submitDates(dates) {
   return {
-    type: types.CLIENT_SUBMIT_DATE,
+    dates,
+    type: types.CLIENT_SUBMIT_DATES,
   };
 }
