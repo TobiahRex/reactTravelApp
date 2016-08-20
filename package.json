@@ -75,7 +75,9 @@
     "webpack-hot-middleware": "2.10.0",
     "yelp": "^1.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "remote-redux-devtools": "^0.4.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TobiahRex/reactTravelApp.git"
