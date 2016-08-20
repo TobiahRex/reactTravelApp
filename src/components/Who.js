@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 import * as txClientActions from '../actions/txClientActions.js';
+import * as rxClientActions from '../actions/rxClientActions.js';
 import * as whoActions from '../actions/whoActions.js';
 
 class Who extends Component {
@@ -23,6 +24,7 @@ class Who extends Component {
       kids: this.props.kidsBlack,
     };
     this.nextPage = this.nextPage.bind(this);
+    this.maleCount = this.maleCount.bind(this);
   }
 
   nextPage(event) {
@@ -37,12 +39,18 @@ class Who extends Component {
         confirmButtonColor: '#07D928',
       });
     } else if (total > 0) {
-      this.props.actions.addClientData(this.props.client, this.props.client._id);
+      this.props.txActions.addClientData(this.props.client, this.props.client._id);
       browserHistory.push('/#questionnaire/2');
     }
   }
 
+  maleCount() {
+    this.props.whoActions.addMale();
+    this.props.rxActions.addMale();
+  }
+
   render() {
+    console.log('this.props: ', this.props);
     return (
       <div className="slide">
         <div className="who-title">
@@ -63,7 +71,7 @@ class Who extends Component {
                     male: this.props.maleOrange })}
                   onMouseOut={(e) => this.setState({
                     male: this.props.maleBlack })}
-                  onClick={this.props.whoActions.addMale} />
+                  onClick={this.maleCount} />
                 <br />
                 <div
                   className="male-counter
@@ -147,7 +155,8 @@ Who.propTypes = {
   femaleOrange: PropTypes.string.isRequired,
   kidsBlack: PropTypes.string.isRequired,
   kidsOrange: PropTypes.string.isRequired,
-  actions: PropTypes.object.isRequired,
+  txActions: PropTypes.object.isRequired,
+  rxActions: PropTypes.object.isRequired,
   whoActions: PropTypes.object.isRequired,
 };
 
@@ -167,7 +176,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   whoActions: bindActionCreators(whoActions, dispatch),
-  actions: bindActionCreators(txClientActions, dispatch),
+  txActions: bindActionCreators(txClientActions, dispatch),
+  rxActions: bindActionCreators(rxClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Who);

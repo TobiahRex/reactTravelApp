@@ -7,7 +7,7 @@ export function receivedError(error) {
   };
 }
 
-export function receivedNewClient(dbClient) {  
+export function receivedNewClient(dbClient) {
   return {
     dbClient,
     type: types.RECEIVED_NEW_CLIENT,
@@ -24,5 +24,23 @@ export function receivedClientData(dbClient) {
 export function sentEmail() {
   return {
     type: types.SENT_EMAIL,
+  };
+}
+
+export function addMale() {
+  return {
+    type: types.CLIENT_ADD_MALE,
+  };
+}
+
+export function addFemale() {
+  return {
+    type: types.CLIENT_ADD_FEMALE,
+  };
+}
+
+export function addKids() {
+  return {
+    type: types.CLIENT_ADD_KID,
   };
 }

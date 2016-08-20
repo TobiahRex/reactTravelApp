@@ -18,19 +18,17 @@ function clientReducer(state = initialState.client, action) {
       return toastr.success('Please check your email, and enjoy your trip.', 'SENT');
     }
 
-    case types.WHO_ADD_MALE: {
-      console.log('state: ', state);
+    case types.CLIENT_ADD_MALE: {
       const newClient = Object.assign({}, state);
       ++newClient.who.male;
-      console.log('new state: ', state);
       return newClient;
     }
-    case types.WHO_ADD_FEMALE: {
+    case types.CLIENT_ADD_FEMALE: {
       const newClient = Object.assign({}, state);
       ++newClient.who.female;
       return newClient;
     }
-    case types.WHO_ADD_KID: {
+    case types.CLIENT_ADD_KID: {
       const newClient = Object.assign({}, state);
       ++newClient.who.kids;
       return newClient;
