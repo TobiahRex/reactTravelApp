@@ -5,54 +5,55 @@ import { bindActionCreators } from 'redux';
 import RangePicker from 'react-daterange-picker';
 import { Button, Panel, Container, Row, Col, Form, Input } from 'muicss/react';
 import * as txClientActions from '../actions/txClientActions';
+import * as rxClientActions from '../actions/rxClientActions';
+import * as whenActions from '../actions/whenActions';
 
 class DatePickerRange extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = { value: '' };
-    this.handleSelect = this.handleSelect.bind(this);
+
     this.submitDate = this.submitDate.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleSelect(value) {
     this.setState({ value });
+    this.props.rxActions.submitDates(value);
+    this.props.whenActions.submitDates(value);
   }
+
 
   submitDate(event) {
     event.preventDefault();
-    const client = this.props.client;
-
-    const whenObj = {
-      when: {
-        start: this.state.value.start.format('LL'),
-        end: this.state.value.end.format('LL'),
-        days: this.state.value.end.diff(this.state.value.start, 'days'),
-      },
-    };
-    this.props.actions.addClientData(whenObj, client._id);
+    this.props.txActions.addClientData(this.props.client, this.props.client._id);
   }
 
   render() {
+    console.log('this.props: ', this.props);
     return (
       <div>
         <RangePicker
           {...this.props}
           onSelect={this.handleSelect}
-          value={this.state.value} />
+          value={this.state.value}
+          />
 
         <div className="form-group chosen-dates">
           <Form inline={true}>
 
-            <Input type="text"
+            <Input
+              type="text"
               id="start-date"
-              value={this.state.value ? this.state.value.start.format('LL') : ''}
+              value={this.props.when.value ? this.props.when.value.start.format('LL') : ''}
               readOnly="true"
               placeholder="Start date"
               className="date-inputs" />
-            <Input type="text"
+            <Input
+              type="text"
               id="end-date"
-              value={this.state.value ? this.state.value.end.format('LL') : ''}
+              value={this.props.when.value.end ? this.props.when.value.end.format('LL') : ''}
               readOnly="true"
               placeholder="End date"
               className="date-inputs" />
@@ -71,16 +72,22 @@ class DatePickerRange extends Component {
 }
 
 DatePickerRange.propTypes = {
-  client: PropTypes.object,
-  actions: PropTypes.object.isRequired,
+  client: PropTypes.object.isRequired,
+  when: PropTypes.object.isRequired,
+  whenActions: PropTypes.object.isRequired,
+  rxActions: PropTypes.object.isRequired,
+  txActions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   client: state.client,
+  when: state.when,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(txClientActions, dispatch),
+  whenActions: bindActionCreators(whenActions, dispatch),
+  rxActions: bindActionCreators(rxClientActions, dispatch),
+  txActions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatePickerRange);

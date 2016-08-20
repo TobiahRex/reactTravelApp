@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import moment from 'moment';
 import types from '../actions/actionTypes';
 import * as initialState from './initialState';
 
@@ -12,7 +13,6 @@ function clientReducer(state = initialState.client, action) {
       return action.dbClient;
 
     case types.RECEIVED_UPDATED_CLIENT:
-    console.log('action: ', action);
       return action.dbClient;
 
     case types.SENT_EMAIL: {
@@ -35,6 +35,12 @@ function clientReducer(state = initialState.client, action) {
       const who = Object.assign({}, state.who);
       ++who.kids;
       const newClient = Object.assign({}, state, { who });
+      return newClient;
+    }
+    case types.CLIENT_SUBMIT_DATES: {
+      const when = Object.assign({}, action.dates);
+      when.days = when.dates.end.diff(when.dates.start, 'days');
+      const newClient = Object.assign({}, state, { when });
       return newClient;
     }
 

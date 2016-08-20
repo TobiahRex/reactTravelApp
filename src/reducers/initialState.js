@@ -16,3 +16,8 @@ export const who = {
   kidsBlack: "http://imgur.com/aqhE0XK.png",
   kidsOrange: "http://i.imgur.com/LFbCfkX.png",
 };
+
+export const when = {
+  value: '',
+  days: 0,
+};
