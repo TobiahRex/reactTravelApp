@@ -14,8 +14,27 @@ function clientReducer(state = initialState.client, action) {
     case types.RECEIVED_UPDATED_CLIENT:
       return action.dbClient;
 
-    case types.SENT_EMAIL:
+    case types.SENT_EMAIL: {
       return toastr.success('Please check your email, and enjoy your trip.', 'SENT');
+    }
+
+    case types.WHO_ADD_MALE: {
+      console.log('state: ', state);
+      const newClient = Object.assign({}, state);
+      ++newClient.who.male;
+      console.log('new state: ', state);
+      return newClient;
+    }
+    case types.WHO_ADD_FEMALE: {
+      const newClient = Object.assign({}, state);
+      ++newClient.who.female;
+      return newClient;
+    }
+    case types.WHO_ADD_KID: {
+      const newClient = Object.assign({}, state);
+      ++newClient.who.kids;
+      return newClient;
+    }
 
     default: return state;
   }

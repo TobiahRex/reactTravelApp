@@ -38,6 +38,7 @@ export function createClient() {
 }
 
 export function addClientData(newData, clientId) {
+  console.log('newData: ', newData, 'clientId: ', clientId);
   return (dispatch) => {
     const options = {
       method: 'PUT',
