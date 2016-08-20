@@ -13,8 +13,8 @@ import * as txClientActions from '../actions/txClientActions.js';
 import * as whoActions from '../actions/whoActions.js';
 
 class Who extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       client: this.props.client,
@@ -22,6 +22,7 @@ class Who extends Component {
       female: this.props.femaleBlack,
       kids: this.props.kidsBlack,
     };
+    this.nextPage = this.nextPage.bind(this);
   }
 
   nextPage(event) {
@@ -36,7 +37,6 @@ class Who extends Component {
         confirmButtonColor: '#07D928',
       });
     } else if (total > 0) {
-      // this.setState({ link: '/#questionnaire/2' });
       this.props.actions.addClientData(this.props.client, this.props.client._id);
       browserHistory.push('/#questionnaire/2');
     }

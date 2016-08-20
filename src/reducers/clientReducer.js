@@ -1,11 +1,10 @@
 import toastr from 'toastr';
-import * as types from '../actions/actionTypes';
+import types from '../actions/actionTypes';
 import * as initialState from './initialState';
 
 
 function clientReducer(state = initialState.client, action) {
   switch (action.type) {
-
     case types.RECEIVED_DB_ERROR:
       return toastr.error('Could not GET client information. Sorry', 'ERROR');
 
