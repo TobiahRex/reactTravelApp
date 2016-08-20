@@ -10,75 +10,67 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { browserHistory } from 'react-router';
 import * as txClientActions from '../actions/txClientActions.js';
+import * as whoActions from '../actions/whoActions.js';
 
 class Who extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      link: '',
       client: this.props.client,
-      clientId: '',
-      maleCount: 0,
-      male: "http://imgur.com/wmb1TPA.png",
-      femaleCount: 0,
-      female: "http://imgur.com/VgJez6N.png",
-      kidsCount: 0,
-      kids: "http://imgur.com/aqhE0XK.png",
+      male: this.props.maleBlack,
+      female: this.props.femaleBlack,
+      kids: this.props.kidsBlack,
     };
 
-    this.addMale = this.addMale.bind(this);
-    this.addFemale = this.addFemale.bind(this);
-    this.addKid = this.addKid.bind(this);
-    this.nextPage = this.nextPage.bind(this);
+    // this.addMale = this.addMale.bind(this);
+    // this.addFemale = this.addFemale.bind(this);
+    // this.addKid = this.addKid.bind(this);
+    // this.nextPage = this.nextPage.bind(this);
   }
 
-  addMale() {
-    const client = Object.assign({}, this.state.client);
-    let maleCount = this.state.maleCount;
-    maleCount += 1;
+  // addMale() {
+  //   const client = this.props.client;
+  //   // let maleCount = this.state.maleCount;
+  //   let maleCount = this.props.maleCount;
+  //   maleCount += 1;
+  //
+  //   if (client.who.male === 0) {
+  //     client.who.male = 1;
+  //   } else {
+  //     client.who.male += 1;
+  //   }
+  //
+  // }
+  //
+  // addFemale() {
+  //   // const client = Object.assign({}, this.state.client);
+  //   // let femaleCount = this.state.femaleCount;
+  //   // femaleCount += 1;
+  //   //
+  //   // if (client.who.female === 0) {
+  //   //   client.who.female = 1;
+  //   // } else {
+  //   //   client.who.female += 1;
+  //   // }
+  //   this.props.actions.femaleCountAdd();
+  // }
+  // addKid() {
+  //   // const client = Object.assign({}, this.state.client);
+  //   // let kidsCount = this.state.kidsCount;
+  //   // kidsCount += 1;
+  //   //
+  //   // if (client.who.kids === 0) {
+  //   //   client.who.kids = 1;
+  //   // } else {
+  //   //   client.who.kids += 1;
+  //   // }
+  //   this.props.actions.kidsCountAdd();
+  // }
 
-    if (client.who.male === 0) {
-      client.who.male = 1;
-    } else {
-      client.who.male += 1;
-    }
-
-    this.props.actions.addClientData(client, client._id);
-    this.setState({ maleCount });
-  }
-
-  addFemale() {
-    const client = Object.assign({}, this.state.client);
-    let femaleCount = this.state.femaleCount;
-    femaleCount += 1;
-
-    if (client.who.female === 0) {
-      client.who.female = 1;
-    } else {
-      client.who.female += 1;
-    }
-
-    this.props.actions.addClientData(client, client._id);
-    this.setState({ femaleCount });
-  }
-  addKid() {
-    const client = Object.assign({}, this.state.client);
-    let kidsCount = this.state.kidsCount;
-    kidsCount += 1;
-
-    if (client.who.kids === 0) {
-      client.who.kids = 1;
-    } else {
-      client.who.kids += 1;
-    }
-
-    this.props.actions.addClientData(client, client._id);
-    this.setState({ kidsCount });
-  }
-
-  nextPage() {
-    const total = this.state.femaleCount + this.state.maleCount + this.state.kidsCount;
+  nextPage(event) {
+    event.preventDefault();
+    const total = this.props.femaleCount + this.props.maleCount + this.props.kidsCount;
     if (!total) {
       swal({
         title: 'Ummmm...',
@@ -88,12 +80,13 @@ class Who extends Component {
         confirmButtonColor: '#07D928',
       });
     } else if (total > 0) {
-      this.setState({ link: '/#questionnaire/2' });
+      // this.setState({ link: '/#questionnaire/2' });
+      this.props.actions.addClientData(this.props.client, this.props.client._id);
+      browserHistory.push('/#questionnaire/2');
     }
   }
 
   render() {
-
     return (
       <div className="slide">
         <div className="who-title">
@@ -111,14 +104,17 @@ class Who extends Component {
                   className="who-male-img"
                   src={this.state.male}
                   onMouseEnter={(e) => this.setState({
-                    male: "http://imgur.com/vYThtVD.png" })}
+                    male: this.props.maleOrange })}
                   onMouseOut={(e) => this.setState({
-                    male: "http://imgur.com/wmb1TPA.png" })}
-                  onClick={this.addMale} />
+                    male: this.props.maleBlack })}
+                  onClick={this.props.actions.addMale} />
                 <br />
                 <div
-                  className="male-counter text-center counter-text mui-col-xs-3">
-                  {this.state.maleCount}
+                  className="male-counter
+                  text-center
+                  counter-text
+                  mui-col-xs-3">
+                  {this.props.maleCount}
                 </div>
               </div>
               <div className="who-female-img-container mui-col-xs-3">
@@ -127,14 +123,18 @@ class Who extends Component {
                   className="who-female-img"
                   src={this.state.female}
                   onMouseEnter={(e) => this.setState({
-                    female: "http://imgur.com/krGl1ZR.png" })}
+                    female: this.props.femaleOrange })}
                     onMouseOut={(e) => this.setState({
-                      female: "http://imgur.com/VgJez6N.png" })}
-                      onClick={this.addFemale} />
+                      female: this.props.femaleBlack })}
+                      onClick={this.props.actions.addFemale} />
                 <br />
                 <div
-                  className="female-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
-                  {this.state.femaleCount}
+                  className="female-counter
+                  text-center
+                  counter-text
+                  mui-col-xs-3
+                  mui-col-xs-offset-1">
+                  {this.props.femaleCount}
                 </div>
               </div>
               <div className="who-kids-img-container mui-col-xs-4">
@@ -143,15 +143,19 @@ class Who extends Component {
                   className="who-kids-img"
                   src={this.state.kids}
                   onMouseEnter={(e) => this.setState({
-                    kids: "http://imgur.com/LFbCfkX.png" })}
+                    kids: this.props.kidsOrange })}
                   onMouseOut={(e) => this.setState({
-                    kids: "http://imgur.com/aqhE0XK.png" })}
-                  onClick={this.addKid} />
+                    kids: this.props.kidsBlack })}
+                  onClick={this.props.actions.addKid} />
                 <br />
                 <div
-                  className="who-kids-counter text-center counter-text mui-col-xs-3 mui-col-xs-offset-1">
+                  className="who-kids-counter
+                  text-center
+                  counter-text
+                  mui-col-xs-3
+                  mui-col-xs-offset-1">
 
-                  {this.state.kidsCount}
+                  {this.props.kidsCount}
 
                 </div>
               </div>
@@ -159,7 +163,9 @@ class Who extends Component {
           </Col>
 
           <Col md="1" id="who-arrow">
-            <a href="#questionnaire/2" onClick={this.nextPage}>
+            <a
+              href="#questionnaire/2"
+              onClick={this.nextPage}>
               <Button
                 variant="fab"
                 color="primary">
@@ -168,9 +174,7 @@ class Who extends Component {
             </a>
             <div className="who-arrow" />
           </Col>
-
         </Row>
-
       </div>
     );
   }
@@ -178,15 +182,34 @@ class Who extends Component {
 
 Who.propTypes = {
   client: PropTypes.object,
+  maleCount: PropTypes.number,
+  femaleCount: PropTypes.number,
+  kidsCount: PropTypes.number,
+  maleBlack: PropTypes.string.isRequired,
+  maleOrange: PropTypes.string.isRequired,
+  femaleBlack: PropTypes.string.isRequired,
+  femaleOrange: PropTypes.string.isRequired,
+  kidsBlack: PropTypes.string.isRequired,
+  kidsOrange: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   client: state.client,
+  maleCount: state.maleCount,
+  femaleCount: state.femaleCount,
+  kidsCount: state.kidsCount,
+  maleBlack: state.maleBlack,
+  maleOrange: state.maleOrange,
+  femaleBlack: state.femaleBlack,
+  femaleOrange: state.femaleOrange,
+  kidsBlack: state.kidsBlack,
+  kidsOrange: state.kidsOrange,
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(txClientActions, dispatch),
+  whoActions: bindActionCreators(whoActions, dispatch),
+  txActions: bindActionCreators(txClientActions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Who);
