@@ -15,7 +15,6 @@ export default class Splash extends Component {
             <div className="brand">itiner-ez</div> itineraries made easy
           </div>
 
-
         </div>
 
         <footer className="footer arrow bounce">
