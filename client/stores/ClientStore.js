@@ -32,17 +32,17 @@ class ClientStore extends EventEmitter {
   }
   _receivedDbError(error) {
     toastr.error(`Could not GET dbClient Info: ${error}`);
-    console.log('ERROR: ', error);
+
   }
   _receivedNewClient(dbClient) {
     _client = dbClient;
   }
   _receivedUpdatedClient(dbClient) {
     _client = dbClient;
-    console.log('updatedClient from store: ', _client);
+
   }
   getClient() {
-    console.log('_client: ', _client);
+    
     return _client;
   }
 }

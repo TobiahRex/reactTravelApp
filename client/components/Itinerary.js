@@ -25,7 +25,7 @@ export default class Itinerary extends Component {
   }
   _getItinerary() {
     this.setState({ client: ClientStore.getClient() });
-    console.log('this.state.client: ', this.state.client);
+
   }
   submitEmail(){
     let clientId = this.state.client._id;
@@ -35,7 +35,6 @@ export default class Itinerary extends Component {
   }
 
   render() {
-    console.log('this.state.client:', this.state.client);
 
     return(
       <div className="slide">

@@ -48,7 +48,7 @@ const API = {
       location: city
     })
     .done(data => {
-      console.log('ITINERARY RESPONSE:', data);
+      
       ServerActions.receivedClientData(data);
     })
     .fail(err => ServerActions.receivedError(err))

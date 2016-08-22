@@ -11,9 +11,7 @@ export default class Day extends Component {
 
   render() {
     let { day, client, num } = this.props;
-    console.log('day:', day);
-    console.log('client:', client);
-    console.log('num:', num);
+
     return(
       <div className="flipcard">
         <FlipCard>

@@ -35,7 +35,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('this.state.location: ', this.state);
+    
     return (
       <div id='fullpage'>
         <Splash></Splash>

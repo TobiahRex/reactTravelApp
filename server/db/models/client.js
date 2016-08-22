@@ -108,7 +108,7 @@ clientSchema.statics.itinerary = (id, body, cb) => {
           dinner: [dinner[i], dinner[i+1]],
           activities: [activities[j], activities[j+1], activities[j+2]]
         }
-        console.log(`newObj ${i}: `, newObj, '\ni: ', i, '\nj: ', j, '\nx: ', x);
+        
         dbClient.itinerary.push(newObj);
       }
 
